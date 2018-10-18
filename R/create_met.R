@@ -1,5 +1,5 @@
 
-#' Create an \acronym{APSIM} met File from \acronym{POWER} Data
+#' Create an APSIM met File from POWER Data
 #'
 #' Get \acronym{POWER} values for a single point or region and create
 #'   an \acronym{APSIM} met file suitable for use in \acronym{APSIM} for crop
@@ -28,7 +28,7 @@
 #'   Further details for each of the arguments are provided in their
 #'   respective sections following below.
 #'
-#' @section Argument details for `lonlat`:
+#' @section Argument details for \var{lonlat}:
 #' \describe{
 #'   \item{For a single point}{To get a specific cell, 1/2 x 1/2 degree, supply
 #'   a length-2 numeric vector giving the decimal degree longitude and latitude
@@ -43,9 +43,9 @@
 #'   degrees* of 1/2 x 1/2 degree data, *i.e.*, 100 points maximum in total.}
 #' }
 #'
-#' @section Argument details for `dates`: If `dates` is unspecified, defaults to
-#'   a start date of 1983-01-01 (the earliest available data) and an end date of
-#'   current date according to the system.
+#' @section Argument details for \var{dates}: If \var{dates} is unspecified,
+#'   defaults to a start date of 1983-01-01 (the earliest available data) and an
+#'   end date of current date according to the system.
 #'
 #'   If one date only is provided, it will be treated as both the start date and
 #'   the end date and only a single day's values will be returned.
@@ -58,8 +58,7 @@
 #'
 #' @examples
 #' # Create a met file for Kingsthorpe, Qld from 1985-01-01 to 1985-06-30 and
-#' # save it in the current R session \code{\link{tempdir()}} as
-#' # "APSIM_example.met".
+#' # save it in the current R session tempdir as "APSIM_example.met".
 #'
 #' \donttest{
 #' create_met(lonlat = c(151.81, -27.48),
@@ -75,18 +74,10 @@ create_met <- function(lonlat,
                        dates,
                        dsn,
                        file_out) {
-  if (missing(dsn) || missing(file_out)) {
+  if (missing(dsn) | missing(file_out)) {
     stop(
       call. = FALSE,
       "You must provide a file location, `dsn` and file name, `file_out`."
-    )
-  }
-
-  if (!is.numeric(lonlat) && toupper(lonlat) == "GLOBAL") {
-    stop(
-      call. = FALSE,
-      "The `lonlat` must be numeric values. Global coverage is not ",
-      "available for `create_met()`"
     )
   }
 
@@ -110,15 +101,14 @@ create_met <- function(lonlat,
   )
 
   power_data <-
-    dplyr::select(
-      power_data,
+    power_data[c(
       "YEAR",
       "DOY",
       "T2M_MAX",
       "T2M_MIN",
       "PRECTOT",
       "ALLSKY_SFC_SW_DWN"
-    )
+    )]
 
   met_names <- c(
     "year",
