@@ -1,16 +1,17 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-[![Travis-CI Build
-Status](https://travis-ci.org/ropensci/nasapower.svg?branch=master)](https://travis-ci.org/ropensci/nasapower)
+[![CircleCI](https://circleci.com/gh/ropensci/nasapower/tree/master.svg?style=svg)](https://circleci.com/gh/ropensci/nasapower/tree/master)
 [![Build
-status](https://ci.appveyor.com/api/projects/status/kwhvef9mkytj175r/branch/master?svg=true)](https://ci.appveyor.com/project/adamhsparks/nasapower/branch/master)
+status](https://ci.appveyor.com/api/projects/status/5a0lrm33dvg9qr5d?svg=true)](https://ci.appveyor.com/project/adamhsparks/nasapower)
 [![codecov](https://codecov.io/gh/ropensci/nasapower/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/nasapower)
 [![DOI](https://zenodo.org/badge/109224461.svg)](https://zenodo.org/badge/latestdoi/109224461)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![](https://badges.ropensci.org/155_status.svg)](https://github.com/ropensci/onboarding/issues/155)
+[![DOI](http://joss.theoj.org/papers/10.21105/joss.01035/status.svg)](https://doi.org/10.21105/joss.01035)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/nasapower)](https://cran.r-project.org/package=nasapower)
 
 # *nasapower*: NASA POWER Global Meteorology, Surface Solar Energy and Climatology Data Client <img align="right" src="man/figures/logo.png">
 
@@ -87,7 +88,7 @@ daily_ag
 #>  
 #> # A tibble: 1 x 10
 #>     LON   LAT  YEAR    MM    DD   DOY YYYYMMDD    RH2M   T2M PRECTOT
-#>   <dbl> <dbl> <int> <int> <int> <int> <date>     <dbl> <dbl>   <dbl>
+#>   <dbl> <dbl> <dbl> <int> <int> <int> <date>     <dbl> <dbl>   <dbl>
 #> 1  152. -27.5  1985     1     1     1 1985-01-01  48.9  25.1    1.07
 ```
 

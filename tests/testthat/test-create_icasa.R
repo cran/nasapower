@@ -2,7 +2,8 @@
 # test queries -----------------------------------------------------------------
 context("Test that create_icasa() creates a text file")
 test_that("create_icasa() creates a txt file with proper values", {
-  vcr::use_cassette("create_icasa_file", {
+  skip_on_cran()
+  vcr::use_cassette(name = "create_icasa", {
     create_icasa(
       lonlat = c(151.81, -27.48),
       dates = c("1983-01-01"),

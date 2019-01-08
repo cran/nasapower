@@ -1,3 +1,31 @@
+# nasapower 1.0.4
+
+## Minor changes
+
+- Corrects an instance where vignette example executed on CRAN but should not
+
+- Adds link to POWER website in error message when query fails
+
+- Documentation .Rd files are now more readable with better formatting
+
+# nasapower 1.0.3
+
+## Minor changes
+
+- Adds citation information for JOSS paper, http://joss.theoj.org/papers/10.21105/joss.01035
+
+## Documentation changes
+
+- Flesh out examples using `naspower` data with `raster` to create spatial objects for systems with low-RAM where the functionality may not work as expected
+
+- Standardise formatting of vignette subheadings
+
+- Spell check vignette
+
+## Bug fixes
+
+- Fixes tests to not run on CRAN so that errors aren't reported when API is unavailable
+
 # nasapower 1.0.2
 
 ## Minor changes
@@ -12,9 +40,11 @@
 
 ## Bug fixes
 
+- Corrects issue where `if()` was called with a vector of length 2 or more
+
 - Corrects logical operators `&&` and `||` where they should be `&` or `|`
 
-- Removes extra code in `create_icasa()` and `create_met()` that peformed
+- Removes extra code in `create_icasa()` and `create_met()` that performed
 a duplicated check of `latlon` values
 
 - Removes unnecessary checks for `latlon` in `get_power()`
@@ -123,7 +153,7 @@ multiple dates. https://github.com/ropensci/nasapower/issues/1
 
 - Enhanced documentation
 
-- Superflous function, `.onLoad()`, removed from zzz.R
+- Superfluous function, `.onLoad()`, removed from zzz.R
 
 - Tidied up startup message
 

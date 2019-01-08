@@ -3,7 +3,8 @@
 context("Test that get_power queries the server and returns the proper
         requested data")
 test_that("get_power returns daily point AG data", {
-  vcr::use_cassette("SinglePoint_AG", {
+  skip_on_cran()
+  vcr::use_cassette(name = "get_single_point_daily", {
     power_query <- get_power(
       community = "AG",
       lonlat = c(-179.5, -89.5),
@@ -36,7 +37,8 @@ test_that("get_power returns daily point AG data", {
 })
 
 test_that("get_power returns daily regional AG data", {
-  vcr::use_cassette("Regional_AG", {
+  skip_on_cran()
+  vcr::use_cassette(name = "get_regional_daily", {
     power_query <- get_power(
       community = "AG",
       lonlat = c(112.5, -55.5, 115.5, -50.5),
@@ -78,7 +80,8 @@ test_that("get_power returns daily regional AG data", {
 })
 
 test_that("get_power returns global AG data for climatology", {
-  vcr::use_cassette("Global_AG", {
+  skip_on_cran()
+  vcr::use_cassette(name = "get_climatology", {
     power_query <- get_power(
       community = "AG",
       pars = "T2M",
@@ -121,16 +124,10 @@ test_that("get_power() stops if `temporal_average` not valid", {
     power_query <- get_power(
       community = "AG",
       lonlat = c(-179.5, -89.5),
-      pars = c(
-        "T2M",
-        "T2M_MIN",
-        "T2M_MAX",
-        "RH2M",
-        "WS10M"
-      ),
-      dates = c("1983-01-01"),
+      pars = "T2M",
+      dates = "1983-01-01",
       temporal_average = 1
     ),
-    regexp <- "\nYou have entered an invalid value for `temporal_average`.\n"
+    regexp = "\nYou have entered an invalid value for `temporal_average`.\n"
   )
 })

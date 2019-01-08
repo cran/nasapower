@@ -1,5 +1,4 @@
-
-#' Adds %notin% function
+#' Add %notin% Function
 #'
 #' Negates `%in%`` for easier matching.
 #'
@@ -16,14 +15,14 @@
 
 #' Check dates for validity when querying API
 #'
-#' Validates user entered date values against `lonlat` and `temporal_average`
-#' values
+#' Validates user entered date values against \code{lonlat} and
+#' \code{temporal_average} values
 #'
-#' @param dates User entered `dates` value.
-#' @param lonlat User entered `lonlat` value.
-#' @param temporal_average User entered `temporal_average` value.
+#' @param dates User entered \code{dates} value.
+#' @param lonlat User entered \code{lonlat} value.
+#' @param temporal_average User entered \code{temporal_average} value.
 #'
-#' @return Validated dates in a list for use in .power_query()
+#' @return Validated dates in a list for use in \code{.power_query}
 #'
 #' @noRd
 .check_dates <- function(dates, lonlat, temporal_average) {
@@ -134,10 +133,11 @@
 
 #' Check community for validity when querying API
 #'
-#' Validates user entered `community` values against `pars` for availability.
+#' Validates user entered \code{community} values against
+#' \code{pars} for availability.
 #'
-#' @param community User entered `community` value.
-#' @param pars User entered `pars` value.
+#' @param community User entered \code{community} value.
+#' @param pars User entered \code{pars} value.
 #'
 #' @return Validated community and pars for use in .power_query()
 #'
@@ -166,12 +166,12 @@
 
 #' Check pars for validity when querying API
 #'
-#' Validates user entered date values against `lonlat` and `temporal_average`
-#' values
+#' Validates user entered date values against \code{lonlat} and
+#' \code{temporal_average} values
 #'
-#' @param dates User entered `dates` value.
-#' @param lonlat User entered `lonlat` value.
-#' @param temporal_average User entered `temporal_average` value.
+#' @param dates User entered \code{dates} value.
+#' @param lonlat User entered \code{lonlat} value.
+#' @param temporal_average User entered \code{temporal_average} value.
 #'
 #' @return Validated pars for use in .power_query()
 #'
@@ -236,12 +236,13 @@
 
 #' Check lonlat for validity when querying API
 #'
-#' Validates user entered `lonlat` values and checks against `pars` values.
+#' Validates user entered \code{lonlat} values and checks against \code{pars}
+#' values.
 #'
-#' @param lonlat User entered `lonlat` value.
-#' @param pars User entered `pars` value.
+#' @param lonlat User entered \code{lonlat} value.
+#' @param pars User entered \code{pars} value.
 #'
-#' @return A list called lonlat_identifier for use in .power_query()
+#' @return A list called lonlat_identifier for use in \code{.power_query}
 #'
 #' @noRd
 .check_lonlat <-
@@ -344,14 +345,15 @@
 #' Constructs and sends a query to the POWER API using validated values from
 #' previous functions in this file.
 #'
-#' @param community A validated value for community from `check_community()`.
-#' @param lonlat_identifier A list of values, a result of `check_lonlat()`.
-#' @param pars A validated value from `check_pars()`.
-#' @param dates A list of valuse, a result of `check_dates()`.
-#' @param outputList A value of either "CSV" or "ICASA" that tells the API the
-#' desired format in which to return the data.
+#' @param community A validated value for community from
+#'  \code{check_community()}.
+#' @param lonlat_identifier A list of values, a result of \code{check_lonlat()}
+#' @param pars A validated value from \code{check_pars()}.
+#' @param dates A list of valuse, a result of \code{check_dates()}.
+#' @param outputList A value of either \sQuote{CSV} or \sQuote{ICASA} that
+#' tells the \sQuote{API} the desired format in which to return the data.
 #'
-#' @return A tidy data.frame() of requested 'POWER' data
+#' @return A tidy tibble() of requested 'POWER' data
 #'
 #' @noRd
 .power_query <- function(community,
@@ -362,7 +364,7 @@
   power_url <- # nocov start
     "https://power.larc.nasa.gov/cgi-bin/v1/DataAccess.py?"
   client <- crul::HttpClient$new(url = power_url)
-  user_agent <- "anonymous"
+  user_agent <- "nasapower"
 
   # check status
   status <- client$get()
@@ -419,7 +421,8 @@
   }, # nocov start
   error = function(e) {
     e$message <-
-      paste("\nSomething went wrong with the query. Please try again.\n")
+      paste("\nSomething went wrong with the query, no data were returned.\n",
+            "Please see <https://power.larc.nasa.gov> for potential server issues.\n")
     # Otherwise refers to open.connection
     e$call <- NULL
     stop(e)
@@ -466,12 +469,9 @@
         power_data <- .format_dates(power_data)
       }
 
-      attr(power_data, "class") <- c(
-        "POWER.Info",
-        "tbl_df",
-        "tbl",
-        "data.frame"
-      )
+      # add new class
+      power_data <- tibble::new_tibble(power_data,
+                                       subclass = "POWER.Info")
 
       # add attributes for printing df
       attr(power_data, "POWER.Info") <- meta[1]
@@ -517,6 +517,7 @@ print.POWER.Info <- function(x, ...) {
       attr(x, "POWER.Elevation"), "\n",
       attr(x, "POWER.Climate_zone"), "\n",
       attr(x, "POWER.Missing_value"), "\n",
+      "\n",
       "Parameters: \n",
       attr(x, "POWER.Parameters"), "\n",
       "\n"
@@ -531,7 +532,7 @@ print.POWER.Info <- function(x, ...) {
 #'
 #' Formats columns as integers for DOY and adds columns for year, month and day.
 #'
-#' @param NASA A tidy data.frame resulting from .power_query().
+#' @param NASA A tidy data.frame resulting from \code{.power_query}.
 #'
 #' @return A tidy data frame of power data with additional date information
 #'   columns.

@@ -3,7 +3,7 @@
 \docType{data}
 \name{parameters}
 \alias{parameters}
-\title{POWER Parameters Available for Download}
+\title{NASA POWER Parameters Available for Download}
 \format{A list with 146 weather and climate parameters contained within the
 \acronym{POWER} database.
 
@@ -156,14 +156,14 @@
 \item{WSC}{Corrected Wind Speed (Adjusted For Elevation)}
 }}
 \source{
-\url{https://power.larc.nasa.gov/RADAPP/GEODATA/powerWeb/POWER_Parameters_v108.json}
+\url{https://power.larc.nasa.gov/RADAPP/GEODATA/powerWeb/POWER_Parameters_v109.json}
 }
 \usage{
 parameters
 }
 \description{
-An \pkg{R} list object of \acronym{POWER} parameters and metadata available for
-querying from the \acronym{POWER} database.
+An \R \code{list} object of \acronym{POWER} parameters and metadata available
+for querying from the \acronym{POWER} database.
 }
 \references{
 \url{https://power.larc.nasa.gov/docs/v1/}

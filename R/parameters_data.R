@@ -1,7 +1,9 @@
-#' POWER Parameters Available for Download
+#' NASA POWER Parameters Available for Download
 #'
-#' An \pkg{R} list object of \acronym{POWER} parameters and metadata available for
-#'  querying from the \acronym{POWER} database.
+#' An \R \code{list} object of \acronym{POWER} parameters and metadata available
+#' for querying from the \acronym{POWER} database.
+#'
+#' @docType data
 #'
 #' @format A list with 146 weather and climate parameters contained within the
 #' \acronym{POWER} database.
@@ -157,7 +159,7 @@
 #'
 #' @author Adam H Sparks \email{adamhsparks@@gmail.com}
 #' @source
-#' \url{https://power.larc.nasa.gov/RADAPP/GEODATA/powerWeb/POWER_Parameters_v108.json}
+#' \url{https://power.larc.nasa.gov/RADAPP/GEODATA/powerWeb/POWER_Parameters_v109.json}
 #' @references
 #' \url{https://power.larc.nasa.gov/docs/v1/}
 

@@ -1,7 +1,7 @@
 Package: nasapower
 Type: Package
-Title: 'NASA' 'POWER' 'API' Client
-Version: 1.0.2
+Title: NASA POWER API Client
+Version: 1.0.4
 Authors@R: c(
     person("Adam H.", "Sparks",
     role = c("aut", "cre"), email = "adamhsparks@gmail.com",
@@ -11,7 +11,8 @@ Authors@R: c(
     comment = c(ORCID = "0000-0003-1444-9135")),
     person("Hazel", "Kavili", role = "rev"),
     person("Alison", "Boyer", role = "rev"))
-URL: https://ropensci.github.io/nasapower/
+URL: https://github.com/ropensci/nasapower,
+        https://ropensci.github.io/nasapower/
 BugReports: https://github.com/ropensci/nasapower/issues
 Description: Client for 'NASA' 'POWER' global meteorology, surface solar
     energy and climatology data 'API'.  'POWER' (Prediction Of Worldwide Energy
@@ -24,23 +25,24 @@ Description: Client for 'NASA' 'POWER' global meteorology, surface solar
 Depends: R (>= 3.2.0)
 License: MIT + file LICENSE
 Imports: APSIM, crul, curl, lubridate, jsonlite, readr, tibble
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Encoding: UTF-8
 NeedsCompilation: no
 Repository: CRAN
 LazyData: TRUE
 ByteCompile: TRUE
-Suggests: covr, ggplot2, knitr, raster, rmarkdown, testthat, vcr
+Suggests: covr, ggplot2, knitr, pkgdown, raster, rmarkdown, testthat,
+        vcr
 VignetteBuilder: knitr
 X-schema.org-applicationCategory: Tools
 X-schema.org-keywords: NASA, meteorological-data, weather, global,
         weather, weather-data, meteorology, NASA-POWER,
-        agroclimatology, earth-science, data-access
+        agroclimatology, earth-science, data-access, climate-data
 X-schema.org-isPartOf: https://ropensci.org
-Packaged: 2018-10-18 01:52:11 UTC; asparks
+Packaged: 2019-01-08 12:44:58 UTC; adamsparks
 Author: Adam H. Sparks [aut, cre] (<https://orcid.org/0000-0002-0061-8359>),
   Scott Chamberlain [rev] (<https://orcid.org/0000-0003-1444-9135>),
   Hazel Kavili [rev],
   Alison Boyer [rev]
 Maintainer: Adam H. Sparks <adamhsparks@gmail.com>
-Date/Publication: 2018-10-18 11:30:06 UTC
+Date/Publication: 2019-01-08 15:40:11 UTC
