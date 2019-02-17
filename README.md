@@ -56,8 +56,8 @@ if (!require(remotes)) {
   install.packages("remotes")
 }
 
-install_github("ropensci/nasapower",
-               build_vignettes = TRUE)
+remotes::install_github("ropensci/nasapower",
+                       build_vignettes = TRUE)
 ```
 
 ### Example
@@ -106,7 +106,7 @@ way, we encourage users to follow the requests of the POWER Project
 Team.
 
 > When POWER data products are used in a publication, we request the
-> following acknowledgment be included: “These data were obtained from
+> following acknowledgement be included: “These data were obtained from
 > the NASA Langley Research Center POWER Project funded through the NASA
 > Earth Science Directorate Applied Science Program.”
 
@@ -134,6 +134,6 @@ Team.
 
 <https://power.larc.nasa.gov>
 
-<https://power.larc.nasa.gov/documents/POWER_Data_v8_methodology.pdf>
+<https://power.larc.nasa.gov/documents/POWER_Data_v9_methodology.pdf>
 
 [![ropensci\_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)

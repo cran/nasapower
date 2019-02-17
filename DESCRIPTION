@@ -1,7 +1,7 @@
 Package: nasapower
 Type: Package
 Title: NASA POWER API Client
-Version: 1.0.5
+Version: 1.0.7
 Authors@R: c(
     person("Adam H.", "Sparks",
     role = c("aut", "cre"), email = "adamhsparks@gmail.com",
@@ -27,6 +27,7 @@ License: MIT + file LICENSE
 Imports: APSIM, crul, curl, lubridate, jsonlite, readr, tibble
 RoxygenNote: 6.1.1
 Encoding: UTF-8
+Language: en-AU
 NeedsCompilation: no
 Repository: CRAN
 LazyData: TRUE
@@ -38,10 +39,10 @@ X-schema.org-keywords: NASA, meteorological-data, weather, global,
         weather, weather-data, meteorology, NASA-POWER,
         agroclimatology, earth-science, data-access, climate-data
 X-schema.org-isPartOf: https://ropensci.org
-Packaged: 2019-02-02 03:45:43 UTC; adamsparks
+Packaged: 2019-02-17 08:57:50 UTC; adamsparks
 Author: Adam H. Sparks [aut, cre] (<https://orcid.org/0000-0002-0061-8359>),
   Scott Chamberlain [rev] (<https://orcid.org/0000-0003-1444-9135>),
   Hazel Kavili [rev],
   Alison Boyer [rev]
 Maintainer: Adam H. Sparks <adamhsparks@gmail.com>
-Date/Publication: 2019-02-02 05:40:03 UTC
+Date/Publication: 2019-02-17 09:10:03 UTC

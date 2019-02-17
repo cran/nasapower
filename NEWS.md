@@ -1,3 +1,23 @@
+# nasapower 1.0.7
+
+## Minor changes
+
+- Removes internal check for data - community agreement, as all data is
+available for all communities, only the units change
+
+- Update links to latest documentation provided by the POWER team
+
+# nasapower 1.0.6
+
+## Minor changes
+
+- Adds support for WS2M_MIN, WS2M_MAX and WS2M_RANGE in AG community
+
+## Bug fixes
+  
+- Fixes bug where previous release did not support WS2M from AG community due to
+a local typo
+
 # nasapower 1.0.5
 
 ## Minor changes
@@ -96,7 +116,7 @@ in 'DSSAT' crop modelling
 
 - The `get_cell` and `get_region` functions are deprecated in favour of
 `get_power()`. The new POWER interface allows for the specification of single
-points or regional areas. Global coverage may be queryed for Climatology. See
+points or regional areas. Global coverage may be queried for Climatology. See
 the help for `?get_power()` for more details.
 
 --------------------------------------------------------------------------------
