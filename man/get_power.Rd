@@ -4,8 +4,7 @@
 \alias{get_power}
 \title{Get NASA POWER Data and Return a Tidy Data Frame}
 \usage{
-get_power(community, pars, temporal_average, lonlat = NULL,
-  dates = NULL)
+get_power(community, pars, temporal_average, lonlat, dates = NULL)
 }
 \arguments{
 \item{community}{A character vector providing community name: \dQuote{AG},
@@ -23,8 +22,8 @@ values are \dQuote{DAILY}, \dQuote{INTERANNUAL} and \dQuote{CLIMATOLOGY}.
 See argument details for more.}
 
 \item{lonlat}{A numeric vector of geographic coordinates for a cell or region
-entered as x, y coordinates.  Not used when \code{temporal_average} is set
-to \dQuote{CLIMATOLOGY}.  See argument details for more.}
+entered as x, y coordinates or \dQuote{GLOBAL} for global coverage (only
+used for \dQuote{CLIMATOLOGY}).  See argument details for more.}
 
 \item{dates}{A character vector of start and end dates in that order,\cr
 \emph{e.g.}, \code{dates = c("1983-01-01", "2017-12-31")}.
@@ -91,6 +90,10 @@ The associated metadata are not saved if the data are exported to a
  given region, \emph{e.g.}, a bounding box for the southwestern corner of
  Australia: \code{lonlat = c(112.5, -55.5, 115.5, -50.5)}. *Maximum area
  processed is 4.5 x 4.5 degrees (100 points).}
+
+ \item{For global coverage}{To get global coverage for CLIMATOLOGY, supply
+ \dQuote{GLOBAL} while also specifying \dQuote{CLIMATOLOGY} for the
+ \code{temporal_average}.}
 }
 }
 
@@ -110,21 +113,32 @@ The associated metadata are not saved if the data are exported to a
 # humidity and precipitation for January 1 1985
 # for Kingsthorpe, Queensland, Australia
 ag_d <- get_power(
-   community = "AG",
-   lonlat = c(151.81, -27.48),
-   pars = c("RH2M", "T2M", "PRECTOT"),
-   dates = "1985-01-01",
-   temporal_average = "DAILY"
+  community = "AG",
+  lonlat = c(151.81, -27.48),
+  pars = c("RH2M", "T2M", "PRECTOT"),
+  dates = "1985-01-01",
+  temporal_average = "DAILY"
 )
 
-ag_d
+# Fetch single point climatology for air temperature
+ag_c_point <- get_power(
+  community = "AG",
+  pars = "T2M",
+  c(151.81, -27.48),
+  temporal_average = "CLIMATOLOGY"
+)
 
-# Fetch global AG climatology for temperature
-ag_c <- get_power(community = "AG",
-   pars = "T2M",
-   temporal_average = "CLIMATOLOGY")
+ag_c_point
 
-ag_c
+# Fetch global AG climatology for air temperature
+ag_c_global <- get_power(
+  community = "AG",
+  pars = "T2M",
+  lonlat = "GLOBAL",
+  temporal_average = "CLIMATOLOGY"
+)
+
+ag_c_global
 
 # Fetch interannual solar cooking parameters
 # for a given region

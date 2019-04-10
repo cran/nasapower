@@ -67,7 +67,7 @@
 #' create_met(lonlat = c(151.81, -27.48),
 #'            dates = c("1985-01-01", "1985-12-31"),
 #'            dsn = tempdir(),
-#'            file = "APSIM_example.met"
+#'            file_out = "APSIM_example.met"
 #'            )
 #' }
 #'
@@ -77,74 +77,93 @@ create_met <- function(lonlat,
                        dates,
                        dsn,
                        file_out) {
-  if (missing(dsn) | missing(file_out)) {
-    stop(
-      call. = FALSE,
-      "You must provide a file location, `dsn` and file name, `file_out`."
-    )
-  }
+  file_out <- .met_checks(.dsn = dsn, .file_out = file_out)
 
-  if (substr(file_out, nchar(file_out) - 3, nchar(file_out)) != ".met") {
-    file_out <- paste0(file_out, ".met")
-  }
+  power_data <- .get_met_data(.dates = dates, .lonlat = lonlat)
 
+  APSIM::writeMetFile(fileName = file.path(dsn, file_out),
+                      met = power_data)
+}
+
+#' Check User Inputs for Creating a Valid .met File
+#'
+#' Check user inputs for the `dsn` and `file_out`
+#'
+#' @param .dsn user supplied `dsn` value
+#' @param .file_out user supplied `file_out` value
+#'
+#' @return A validated file_out name with a .met extension
+#'
+#' @noRd
+.met_checks <- function(.dsn, .file_out) {
+  if (missing(.dsn) | missing(.file_out)) {
+    stop(call. = FALSE,
+         "You must provide a file location, `dsn` and file name, `file_out`.")
+  }
+  if (substr(.file_out, nchar(.file_out) - 3, nchar(.file_out)) != ".met") {
+    .file_out <- paste0(.file_out, ".met")
+  }
+  return(.file_out)
+}
+
+#' Query POWER API and Return Data for APSIM .met File
+#'
+#' Given user-supplied dates and lon and lat values, query POWER API and return
+#' a `data.frame` of requested data.
+#'
+#' @param .dates user supplied `dates` value
+#' @param .lonlat user supplied `lonlat` value
+#'
+#' @return A `list` of POWER data suitable for creating a .met file, names for
+#' the file and corresponding units
+#'
+#' @noRd
+.get_met_data <- function(.dates, .lonlat) {
   power_data <- as.data.frame(
     get_power(
-      pars = c(
-        "T2M_MAX",
-        "T2M_MIN",
-        "ALLSKY_SFC_SW_DWN",
-        "PRECTOT"
-      ),
-      dates = dates,
-      lonlat = lonlat,
+      pars = c("T2M_MAX",
+               "T2M_MIN",
+               "ALLSKY_SFC_SW_DWN",
+               "PRECTOT"),
+      dates = .dates,
+      lonlat = .lonlat,
       temporal_average = "DAILY",
       community = "AG"
     )
   )
 
   power_data <-
-    power_data[c(
-      "YEAR",
-      "DOY",
-      "T2M_MAX",
-      "T2M_MIN",
-      "PRECTOT",
-      "ALLSKY_SFC_SW_DWN"
-    )]
+    power_data[c("T2M_MAX",
+                 "T2M_MIN",
+                 "ALLSKY_SFC_SW_DWN",
+                 "PRECTOT",
+                 "YEAR",
+                 "DOY")]
 
-  met_names <- c(
-    "year",
-    "day",
-    "maxt",
-    "mint",
-    "radn",
-    "rain"
-  )
+  met_names <- c("maxt",
+                 "mint",
+                 "radn",
+                 "rain",
+                 "year",
+                 "day")
 
   met_units <-
-    c(
-      "()",
-      "()",
-      "(oC)",
+    c("(oC)",
       "(oC)",
       "(MJ/m^2/day)",
-      "(mm)"
-    )
+      "(mm)",
+      "()",
+      "()")
 
   out <-
     suppressMessages(
       APSIM::prepareMet(
         power_data,
-        lat = power_data[2, 1],
-        lon = power_data[1, 1],
+        lat = .lonlat[2],
+        lon = .lonlat[1],
         newNames = met_names,
         units = met_units
       )
     )
-
-  APSIM::writeMetFile(
-    fileName = file.path(dsn, file_out),
-    met = out
-  )
+  return(out)
 }

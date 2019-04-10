@@ -1,7 +1,6 @@
 
 # test queries -----------------------------------------------------------------
-context("Test that get_power queries the server and returns the proper
-        requested data")
+context("get_power()")
 test_that("get_power returns daily point AG data", {
   skip_on_cran()
     power_query <- get_power(
@@ -80,7 +79,8 @@ test_that("get_power returns global AG data for climatology", {
     power_query <- get_power(
       community = "AG",
       pars = "T2M",
-      temporal_average = "CLIMATOLOGY"
+      temporal_average = "CLIMATOLOGY",
+      lonlat = "GLOBAL"
     )
 
     expect_equal(nrow(power_query), 259200)
@@ -123,5 +123,32 @@ test_that("get_power() stops if `temporal_average` not valid", {
       temporal_average = 1
     ),
     regexp = "\nYou have entered an invalid value for `temporal_average`.\n"
+  )
+})
+
+test_that("get_power() stops if `temporal_average` != CLIMATOLOGY
+          when lonlat == GLOBAL", {
+  expect_error(
+    power_query <- get_power(
+      community = "AG",
+      lonlat = "GLOBAL",
+      pars = "T2M",
+      dates = "1983-01-01",
+      temporal_average = "DAILY"
+    ),
+    regexp = "\nYou have asked for 'GLOBAL' data. However, this"
+  )
+})
+
+test_that("get_power() stops if lonlat is char and != GLOBAL", {
+  expect_error(
+    power_query <- get_power(
+      community = "AG",
+      lonlat = "test",
+      pars = "T2M",
+      dates = "1983-01-01",
+      temporal_average = "CLIMATOLOGY"
+    ),
+    regexp = "\nYou have entered an invalid value for `lonlat`. Valid values"
   )
 })

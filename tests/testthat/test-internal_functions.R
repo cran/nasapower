@@ -22,8 +22,8 @@ test_that("`dates` > 2 cause an error", {
   dates <- c("1983-01-01", "1983-01-02", "1983-01-03")
   lonlat <- c(-179.5, -89.5)
   expect_error(.check_dates(dates, lonlat, temporal_average),
-    regexp =
-      "\nYou have supplied more than two dates for start and end*"
+               regexp =
+                 "\nYou have supplied more than two dates for start and end*"
   )
 })
 
@@ -45,7 +45,7 @@ test_that("DAILY `dates` entered in reverse order are corrected", {
   dates <- c(today, "1983-01-01")
   lonlat <- c(-179.5, -89.5)
   expect_message(.check_dates(dates, lonlat, temporal_average),
-    regexp = "*Your start and end dates were reversed.*"
+                 regexp = "*Your start and end dates were reversed.*"
   )
 })
 
@@ -55,7 +55,7 @@ test_that("INTERANNUAL `dates` entered in reverse order are corrected", {
   dates <- c(today, "1983-01-01")
   lonlat <- c(-179.5, -89.5)
   expect_message(.check_dates(dates, lonlat, temporal_average),
-    regexp = "*Your start and end dates were reversed.*"
+                 regexp = "*Your start and end dates were reversed.*"
   )
 })
 
@@ -65,7 +65,7 @@ test_that("`dates` before the start of POWER data cause error", {
   dates <- c("1979-12-31", today)
   lonlat <- c(-179.5, -89.5)
   expect_error(.check_dates(dates, lonlat, temporal_average),
-    regexp = "*\n1981-01-01 is the earliest available data from POWER*"
+               regexp = "*\n1981-01-01 is the earliest available data from*"
   )
 })
 
@@ -74,7 +74,7 @@ test_that("`dates` after today POWER cause error", {
   tomorrow <- as.character(Sys.Date() + 1)
   lonlat <- c(-179.5, -89.5)
   expect_error(.check_dates(tomorrow, lonlat, temporal_average),
-    regexp = "*The data cannot possibly extend beyond this moment.*"
+               regexp = "*The data cannot possibly extend beyond this moment.*"
   )
 })
 
@@ -83,7 +83,7 @@ test_that("Invalid `dates` are handled", {
   dates <- c("1983-01-01", "1983-02-31")
   lonlat <- c(-179.5, -89.5)
   expect_error(.check_dates(dates, lonlat, temporal_average),
-    regexp = "*1983-02-31 is not a valid entry for date.*"
+               regexp = "*1983-02-31 is not a valid entry for date.*"
   )
 })
 
@@ -111,7 +111,7 @@ test_that("If temporal_average == INTERANNUAL and <2 dates provided, error", {
   dates <- c("1983-01-01")
   lonlat <- c(-179.5, -89.5)
   expect_error(.check_dates(dates, lonlat, temporal_average),
-    regexp = "*\nFor `temporal_average = INTERANNUAL`, *"
+               regexp = "*\nFor `temporal_average = INTERANNUAL`, *"
   )
 })
 
@@ -138,59 +138,48 @@ test_that(".check_lonlat() properly reports errors", {
 
   # out-of-scope latitude for singlePoint
   lonlat <- c(-27.5, 151.5)
-  temporal_average <- "DAILY"
-  expect_error(.check_lonlat(lonlat, pars, temporal_average))
+  expect_error(.check_lonlat(lonlat, pars))
 
   # out-of-scope longitude for singlePoint
   lonlat <- c(0, 181)
-  temporal_average <- "DAILY"
-  expect_error(.check_lonlat(lonlat, pars, temporal_average))
+  expect_error(.check_lonlat(lonlat, pars))
 
   # non-numeric values for singlePoint
   lonlat <- c("x", 181)
-  temporal_average <- "DAILY"
-  expect_error(.check_lonlat(lonlat, pars, temporal_average))
+  expect_error(.check_lonlat(lonlat, pars))
 
   # out-of-scope latitude for regional
   lonlat <- c(-90, 90, -181, 181)
-  temporal_average <- "DAILY"
-  expect_error(.check_lonlat(lonlat, pars, temporal_average))
+  expect_error(.check_lonlat(lonlat, pars))
 
   # out-of-scope longitude for regional
   lonlat <- c(-91, 91, -180, 180)
-  temporal_average <- "DAILY"
-  expect_error(.check_lonlat(lonlat, pars, temporal_average))
+  expect_error(.check_lonlat(lonlat, pars))
 
   # incorrect orders for regional
   lonlat <- c(-91, 91, -180, 180)
-  temporal_average <- "DAILY"
-  expect_error(.check_lonlat(lonlat, pars, temporal_average))
+  expect_error(.check_lonlat(lonlat, pars))
 
   # non-numeric values for regional
   lonlat <- c(112.91972, -55.11694, "x", 159.256088)
-  temporal_average <- "DAILY"
-  expect_error(.check_lonlat(lonlat, pars, temporal_average))
+  expect_error(.check_lonlat(lonlat, pars))
 
   # incorrect order of values requested for regional
   lonlat <- c(-90, 90, 180, -180)
-  temporal_average <- "DAILY"
-  expect_error(.check_lonlat(lonlat, pars, temporal_average))
+  expect_error(.check_lonlat(lonlat, pars))
 
   lonlat <- c(90, -90, -180, 180)
-  temporal_average <- "DAILY"
-  expect_error(.check_lonlat(lonlat, pars, temporal_average))
+  expect_error(.check_lonlat(lonlat, pars))
 
   # invalid lonlat value
   lonlat <- "x"
-  temporal_average <- "DAILY"
-  expect_error(.check_lonlat(lonlat, pars, temporal_average))
+  expect_error(.check_lonlat(lonlat, pars))
 })
 
 test_that(".check_lonlat() handles single point properly", {
   temporal_average <- "DAILY"
   test <- .check_lonlat(lonlat = c(-179.5, -89.5),
-                        pars,
-                        temporal_average)
+                        pars)
   expect_equal(test$lon, -179.5)
   expect_equal(test$lat, -89.5)
   expect_equal(test$identifier, "SinglePoint")
@@ -199,18 +188,16 @@ test_that(".check_lonlat() handles single point properly", {
 test_that(".check_lonlat() checks validity of single lon values", {
   temporal_average <- "DAILY"
   expect_error(.check_lonlat(lonlat = c(179.5, 91),
-                             pars,
-                             temporal_average),
-    regexp = "\nPlease check your latitude, `91`,*"
+                             pars),
+               regexp = "\nPlease check your latitude, `91`,*"
   )
 })
 
 test_that(".check_lonlat() checks validity of single lat values", {
   temporal_average <- "DAILY"
   expect_error(.check_lonlat(lonlat = c(182, 90),
-                             pars,
-                             temporal_average),
-    regexp = "Please check your longitude, `182`,*"
+                             pars),
+               regexp = "Please check your longitude, `182`,*"
   )
 })
 
@@ -219,82 +206,74 @@ test_that(".check_lonlat() checks validity of single lat values", {
 test_that(".check_lonlat() handles bboxes that are too large", {
   temporal_average <- "DAILY"
   expect_error(.check_lonlat(lonlat = c(-179.5, -89.5, 179.5, 89.5),
-                             pars,
-                             temporal_average),
-    regexp = "Please provide correct bounding box values*"
+                             pars),
+               regexp = "Please provide correct bounding box values*"
   )
 })
 
 test_that(".check_lonlat() checks order of the latitude values", {
   temporal_average <- "DAILY"
   expect_error(.check_lonlat(lonlat = c(-179.5, 89.5, 179.5, -89.5),
-                             pars,
-                             temporal_average),
-    regexp = "\nThe first `lat` value must be the minimum value.\n"
+                             pars),
+               regexp = "\nThe first `lat` value must be the minimum value.\n"
   )
 })
 
 test_that(".check_lonlat() checks order of the longitude values", {
   temporal_average <- "DAILY"
   expect_error(.check_lonlat(lonlat = c(179.5, -89.5, -179.5, 89.5),
-                             pars,
-                             temporal_average),
-    regexp = "\nThe first `lon` value must be the minimum value.\n"
+                             pars),
+               regexp = "\nThe first `lon` value must be the minimum value.\n"
   )
 })
 
 test_that(".check_lonlat() checks validity of bbox latmin values", {
   temporal_average <- "DAILY"
   expect_error(.check_lonlat(lonlat = c(-179.5, 91, -179.5, 90),
-                             pars,
-                             temporal_average),
-    regexp = "\nPlease check your latitude, `91`, `90`*"
+                             pars),
+               regexp = "\nPlease check your latitude, `91`, `90`*"
   )
 })
 
 test_that(".check_lonlat() checks validity of bbox latmax values", {
   temporal_average <- "DAILY"
   expect_error(.check_lonlat(lonlat = c(-179.5, 90, -179.5, 93),
-                             pars,
-                             temporal_average),
-    regexp = "\nPlease check your latitude, `90`, `93`,*"
+                             pars),
+               regexp = "\nPlease check your latitude, `90`, `93`,*"
   )
 })
 
 test_that(".check_lonlat() checks validity of bbox lonmin values", {
   temporal_average <- "DAILY"
   expect_error(.check_lonlat(lonlat = c(-181.5, 89.5, -179.5, 89.5),
-                             pars,
-                             temporal_average),
-    regexp = "\nPlease check your longitude, `-181.5`, `-179.5`*"
+                             pars),
+               regexp = "\nPlease check your longitude, `-181.5`, `-179.5`*"
   )
 })
 
 test_that(".check_lonlat() checks validity of bbox lonmax values", {
   temporal_average <- "DAILY"
   expect_error(.check_lonlat(lonlat = c(-179.5, 89.5, 181, 89.5),
-                             pars,
-                             temporal_average),
-    regexp = "\nPlease check your longitude, `-179.5`, `181`,*"
+                             pars),
+               regexp = "\nPlease check your longitude, `-179.5`, `181`,*"
   )
 })
 
 test_that(".check_lonlat() returns message with proper identifier when valid
           coordinates are given", {
             temporal_average <- "DAILY"
-  test <- .check_lonlat(
-    lonlat = c(
-      -179.5,
-      88.5,
-      -179.5,
-      89.5
-    ),
-    pars,
-    temporal_average
-  )
-  expect_equal(test$bbox, "88.5,-179.5,89.5,-179.5")
-  expect_equal(test$identifier, "Regional")
-})
+            test <- .check_lonlat(
+              lonlat = c(
+                -179.5,
+                88.5,
+                -179.5,
+                89.5
+              ),
+              pars
+            )
+            expect_equal(test$bbox, "88.5,-179.5,89.5,-179.5")
+            expect_equal(test$identifier, "Regional")
+          })
 
 
 # parameter checks -------------------------------------------------------------
@@ -333,7 +312,8 @@ test_that(".check_pars()  stops if `pars` not valid", {
   ))
 })
 
-test_that(".check_pars()  stops if `pars` not valid for given temporal_average", {
+test_that(".check_pars()  stops if `pars` not valid for given
+          temporal_average", {
   pars <- "ALLSKY_SFC_SW_DWN_03_GMT"
   temporal_average <- "INTERANNUAL"
   lonlat <- c(-179.5, -89.5)
@@ -358,11 +338,11 @@ test_that("pars are returned as a comma separated string with no spaces", {
     temporal_average,
     lonlat
   )
-  expect_named(pars, c("pars", "temporal_average", "skip_lines"))
+  expect_named(pars, c("pars", "temporal_average"))
   expect_equal(nchar(pars$pars), 42)
   expect_equal(pars$pars, "ALLSKY_SFC_SW_DWN_03_GMT,ALLSKY_SFC_LW_DWN")
   expect_equal(pars$temporal_average, "CLIMATOLOGY")
-  expect_length(pars, 3)
+  expect_length(pars, 2)
 })
 
 test_that("Only 3 pars are allowed when `temporal_average` = CLIMATOLOGY", {
@@ -430,8 +410,218 @@ test_that("Only unique `pars` are queried", {
 
 test_that("If an invalid temporal average is given for `pars`,
           an error occurs", {
-  pars <- "ALLSKY_SFC_SW_DWN_00_GMT"
-  temporal_average <- "DAILY"
-  lonlat <- c(-179.5, -89.5)
-  expect_error(.check_pars(pars, temporal_average, lonlat))
-})
+            pars <- "ALLSKY_SFC_SW_DWN_00_GMT"
+            temporal_average <- "DAILY"
+            lonlat <- c(-179.5, -89.5)
+            expect_error(.check_pars(pars, temporal_average, lonlat))
+          })
+
+# query constructs -------------------------------------------------------------
+test_that(".power_query assembles a proper query for single point and != NULL
+          dates",
+          {
+            temporal_average <- "DAILY"
+            dates <- c("1983-01-01", "1983-02-02")
+            lonlat <- c(-179.5, -89.5)
+            community <- "AG"
+            pars <- "T2M"
+            outputList <- "CSV"
+
+            dates <- .check_dates(dates,
+                                  lonlat,
+                                  temporal_average)
+            pars <- .check_pars(pars,
+                                temporal_average,
+                                lonlat)
+            lonlat_identifier <- .check_lonlat(lonlat,
+                                               pars)
+            user_agent <- "nasapower"
+
+            query_list <- .power_query(community,
+                                        lonlat_identifier,
+                                        pars,
+                                        dates,
+                                        outputList)
+
+            expect_named(
+              query_list,
+              c(
+                "request",
+                "identifier",
+                "parameters",
+                "startDate",
+                "endDate",
+                "userCommunity",
+                "tempAverage",
+                "outputList",
+                "lon",
+                "lat",
+                "user"
+              )
+            )
+          })
+
+
+test_that(".power_query assembles a proper query for single point and NULL
+          dates",
+          {
+            temporal_average <- "CLIMATOLOGY"
+            dates <- NULL
+            lonlat <- c(-179.5, -89.5)
+            community <- "AG"
+            pars <- "T2M"
+            outputList <- "CSV"
+
+            dates <- .check_dates(dates,
+                                  lonlat,
+                                  temporal_average)
+            pars <- .check_pars(pars,
+                                temporal_average,
+                                lonlat)
+            lonlat_identifier <- .check_lonlat(lonlat,
+                                               pars)
+            user_agent <- "nasapower"
+
+            query_list <- .power_query(community,
+                                       lonlat_identifier,
+                                       pars,
+                                       dates,
+                                       outputList)
+
+            expect_named(
+              query_list,
+              c(
+                "request",
+                "identifier",
+                "parameters",
+                "userCommunity",
+                "tempAverage",
+                "outputList",
+                "lon",
+                "lat",
+                "user"
+              )
+            )
+          })
+
+test_that(".power_query assembles a proper query for regional and != NULL
+          dates",
+          {
+            temporal_average <- "DAILY"
+            dates <- c("1983-01-01", "1983-02-02")
+            lonlat <- c(112.5, -55.5, 115.5, -50.5)
+            community <- "AG"
+            pars <- "T2M"
+            outputList <- "CSV"
+
+            dates <- .check_dates(dates,
+                                  lonlat,
+                                  temporal_average)
+            pars <- .check_pars(pars,
+                                temporal_average,
+                                lonlat)
+            lonlat_identifier <- .check_lonlat(lonlat,
+                                               pars)
+            user_agent <- "nasapower"
+
+            query_list <- .power_query(community,
+                                       lonlat_identifier,
+                                       pars,
+                                       dates,
+                                       outputList)
+
+            expect_named(
+              query_list,
+              c(
+                "request",
+                "identifier",
+                "parameters",
+                "startDate",
+                "endDate",
+                "userCommunity",
+                "tempAverage",
+                "bbox",
+                "outputList",
+                "user"
+              )
+            )
+          })
+
+test_that(".power_query assembles a proper query for regional and NULL dates",
+          {
+            temporal_average <- "CLIMATOLOGY"
+            dates <- NULL
+            lonlat <- c(112.5, -55.5, 115.5, -50.5)
+            community <- "AG"
+            pars <- "T2M"
+            outputList <- "CSV"
+
+            dates <- .check_dates(dates,
+                                  lonlat,
+                                  temporal_average)
+            pars <- .check_pars(pars,
+                                temporal_average,
+                                lonlat)
+            lonlat_identifier <- .check_lonlat(lonlat,
+                                               pars)
+            user_agent <- "nasapower"
+
+            query_list <- .power_query(community,
+                                       lonlat_identifier,
+                                       pars,
+                                       dates,
+                                       outputList)
+
+            expect_named(
+              query_list,
+              c(
+                "request",
+                "identifier",
+                "parameters",
+                "userCommunity",
+                "tempAverage",
+                "bbox",
+                "outputList",
+                "user"
+              )
+            )
+          })
+
+test_that(".power_query assembles a proper query for global climatology",
+          {
+            temporal_average <- "CLIMATOLOGY"
+            dates <- NULL
+            lonlat <- "GLOBAL"
+            community <- "AG"
+            pars <- "T2M"
+            outputList <- "CSV"
+
+            dates <- .check_dates(dates,
+                                  lonlat,
+                                  temporal_average)
+            pars <- .check_pars(pars,
+                                temporal_average,
+                                lonlat)
+            lonlat_identifier <- .check_lonlat(lonlat,
+                                               pars)
+            user_agent <- "nasapower"
+
+            query_list <- .power_query(community,
+                                       lonlat_identifier,
+                                       pars,
+                                       dates,
+                                       outputList)
+
+            expect_named(
+              query_list,
+              c(
+                "request",
+                "identifier",
+                "parameters",
+                "userCommunity",
+                "tempAverage",
+                "outputList",
+                "user"
+              )
+            )
+          })
