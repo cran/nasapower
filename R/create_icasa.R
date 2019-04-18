@@ -60,7 +60,7 @@
 #' create_icasa(lonlat = c(151.81, -27.48),
 #'             dates = c("1985-01-01", "1985-12-31"),
 #'             dsn = tempdir(),
-#'             file = "ICASA_example.txt"
+#'             file_out = "ICASA_example.txt"
 #'             )
 #' }
 #'
@@ -80,7 +80,7 @@ create_icasa <- function(lonlat,
     .lonlat = lonlat
   )
 
-  query_list <- .power_query(
+  query_list <- .build_query(
     community = "AG",
     pars = icasa[[2]],
     lonlat_identifier = icasa[[3]],
@@ -93,7 +93,10 @@ create_icasa <- function(lonlat,
   names(pars) <- "temporal_average"
 
   out <- .send_query(.query_list = query_list, .pars = pars)
-  writeLines(out, icasa[[1]])
+  curl::curl_download(out$outputs$icasa,
+                      destfile = icasa[[1]],
+                      mode = "wb",
+                      quiet = TRUE)
 }
 
 .icasa_checks <-

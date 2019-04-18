@@ -1,3 +1,22 @@
+# nasapower 1.1.1
+
+## Bug fixes
+
+- Fix issues reported at https://cloud.r-project.org//web/checks/check_results_nasapower.html with
+failing tests. These tests should be skipped on CRAN but were not.
+
+- Fixes bug where missing values in POWER data were not properly replaced with
+`NA` in `tibble` and metFile outputs
+
+- Fixes bug in documentation for `create_icasa()` where the parameter for
+`file_out` was misidentified as just `file`
+
+## Minor changes
+
+- Users are now notified if creating a .met file that has any missing values
+through a console message and .csv file being written to disk to accompany the
+resulting .met file describing which values are missing
+
 # nasapower 1.1.0
 
 ## Bug fixes
@@ -7,6 +26,8 @@ and "rain" col headers were reversed
 
 - Fix `Warning: Must pass a scalar integer as 'nrow' argument to 'new_tibble()'.`
 
+- Fixes bug where "CLIMATE" could not be requested for a single point
+
 ## Major changes
 
 - Change how `GLOBAL` values are requested. This is now specified in `lonlat`
@@ -15,8 +36,6 @@ in conjunction with `temporal_average = CLIMATOLOGY`.
 ## Minor changes
 
 - Adds example of fetching climate for a single point
-
-- Fixes bug where "CLIMATE" could not be requested for a single point
 
 - Refactor code to split internal functions by functionality and add more
 complete test coverage

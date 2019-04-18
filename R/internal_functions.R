@@ -22,7 +22,7 @@
 #' @param lonlat User entered \code{lonlat} value.
 #' @param temporal_average User entered \code{temporal_average} value.
 #'
-#' @return Validated dates in a list for use in \code{.power_query}
+#' @return Validated dates in a list for use in \code{.build_query}
 #'
 #' @noRd
 .check_dates <- function(dates, lonlat, temporal_average) {
@@ -139,7 +139,7 @@
 #' @param community User entered \code{community} value.
 #' @param pars User entered \code{pars} value.
 #'
-#' @return Validated community and pars for use in .power_query()
+#' @return Validated community and pars for use in .build_query()
 #'
 #' @noRd
 .check_community <-
@@ -161,7 +161,7 @@
 #' @param lonlat User entered \code{lonlat} value.
 #' @param temporal_average User entered \code{temporal_average} value.
 #'
-#' @return Validated pars for use in .power_query()
+#' @return Validated pars for use in .build_query()
 #'
 #' @noRd
 .check_pars <-
@@ -223,7 +223,7 @@
 #' @param lonlat User entered \code{lonlat} value.
 #' @param pars User entered \code{pars} value.
 #'
-#' @return A list called lonlat_identifier for use in \code{.power_query}
+#' @return A list called lonlat_identifier for use in \code{.build_query}
 #'
 #' @noRd
 .check_lonlat <-
@@ -344,7 +344,7 @@
 #' @return A tidy tibble() of requested 'POWER' data
 #'
 #' @noRd
-.power_query <- function(community,
+.build_query <- function(community,
                          lonlat_identifier,
                          pars,
                          dates,
@@ -426,7 +426,7 @@
 
 #' Sends the Query to the API
 #'
-#' @param .query_list A query list created by `.power_query`
+#' @param .query_list A query list created by `.build_query`
 #' @noRd
 #'
 .send_query <- function(.query_list, .pars) {
@@ -441,7 +441,6 @@
   tryCatch({
     response <- client$get(query = .query_list, retry = 6)
     txt <- jsonlite::fromJSON(response$parse("UTF-8"))
-    raw_power_data <- file.path(tempdir(), "power_data_file")
   }, # nocov start
   error = function(e) {
     e$message <-
@@ -453,17 +452,28 @@
     stop(e)
   }
   ) # nocov end
+}
 
-  if ("messages" %in% names(txt) & "outputs" %notin% names(txt)) {
+
+#' Imports Data After Download
+#'
+#' @param .query_list A query list created by `.build_query`
+#' @noRd
+#'
+
+.import_power <- function(.txt, .pars, .query_list) {
+  raw_power_data <- file.path(tempdir(), "power_data_file")
+
+  if ("messages" %in% names(.txt) & "outputs" %notin% names(.txt)) {
     stop(
       call. = FALSE,
-      unlist(txt$messages)
+      unlist(.txt$messages)
     )
   }
 
-  if ("csv" %in% names(txt$output)) {
+  if ("csv" %in% names(.txt$output)) {
     if (.query_list$outputList == "CSV") {
-      curl::curl_download(txt$output$csv,
+      curl::curl_download(.txt$output$csv,
                           destfile = raw_power_data,
                           mode = "wb",
                           quiet = TRUE
@@ -517,8 +527,8 @@
       )
       return(power_data)
     }
-  } else if ("icasa" %in% names(txt$output)) {
-    curl::curl_download(txt$output$icasa,
+  } else if ("icasa" %in% names(.txt$output)) {
+    curl::curl_download(.txt$output$icasa,
                         destfile = raw_power_data,
                         mode = "wb",
                         quiet = TRUE
@@ -565,7 +575,7 @@ print.POWER.Info <- function(x, ...) {
 #'
 #' Formats columns as integers for DOY and adds columns for year, month and day.
 #'
-#' @param NASA A tidy data.frame resulting from \code{.power_query}.
+#' @param NASA A tidy data.frame resulting from \code{.build_query}.
 #'
 #' @return A tidy data frame of power data with additional date information
 #'   columns.

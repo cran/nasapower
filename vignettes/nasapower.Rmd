@@ -11,13 +11,12 @@ vignette: >
 ---
 
 ```{r setup, include=FALSE}
-LOCAL <- identical(Sys.getenv("LOCAL"), "true")
+LOCAL <- identical(Sys.getenv("LOCAL"), "TRUE")
 knitr::opts_chunk$set(collapse = TRUE,
                       comment = "#>",
                       fig.width = 7,
                       fig.height = 7,
-                      fig.align = "center",
-		      purl = LOCAL)
+                      fig.align = "center")
 ```
 
 ## Introduction
@@ -99,6 +98,7 @@ humidity.
 ```{r get-climatology, eval=LOCAL}
 climatology_ag <- get_power(community = "AG",
                             pars = c("T2M", "RH2M"),
+                            lonlat = "GLOBAL",
                             temporal_average = "CLIMATOLOGY"
                            )
 
@@ -220,7 +220,7 @@ Get POWER values for a single point, Kingsthorpe, Queensland for 1985 and
 create an ICASA text file suitable for use in `DSSAT` for crop modelling and
 save it to local disk.
 
-```{r create-icasa, eval=LOCAL}
+```{r create-icasa, eval=FALSE}
 create_icasa(lonlat = c(151.81, -27.48),
              dates = c("1985-01-01", "1985-12-31"),
              dsn = tempdir(),
