@@ -329,7 +329,8 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p><em>nasapower</em> aims to make it quick and easy to automate downloading NASA <a href="https://power.larc.nasa.gov">POWER</a> global meteorology, surface solar energy amd climatology data data in your R session as a tidy data frame for analysis and use in modelling or other purposes using <code>get_power()</code>. POWER (Prediction Of Worldwide Energy Resource) data are freely available for download through a web interface at a resolution of 1/2 arc degree longitude by 1/2 arc degree latitude. Two other functions are provided to quickly and easily generate weather.met files from the POWER data for use in the Agricultural Production Systems sIMulator (APSIM), <code>create_met()</code> and International Consortium for Agricultural Systems Applications (ICASA) format text files for use in the Decision Support System for Agrotechnology Transfer (DSSAT) framework, <code>create_met()</code>.</p>
+<p><em>nasapower</em> aims to make it quick and easy to automate downloading NASA <a href="https://power.larc.nasa.gov">POWER</a> global meteorology, surface solar energy and climatology data data in your R session as a tidy data frame for analysis and use in modelling or other purposes using <code>get_power()</code>. POWER (Prediction Of Worldwide Energy Resource) data are freely available for download through a web interface at a resolution of 1/2 arc degree longitude by 1/2 arc degree latitude.</p>
+<p>Two other functions are provided to quickly and easily generate weather.met files from the POWER data for use in the Agricultural Production Systems sIMulator (APSIM), <code>create_met()</code> and International Consortium for Agricultural Systems Applications (ICASA) format text files for use in the Decision Support System for Agrotechnology Transfer (DSSAT) framework, <code>create_met()</code>.</p>
 </div>
 <div id="using-get_power-to-fetch-power-data" class="section level2">
 <h2>Using <code>get_power</code> to Fetch POWER Data</h2>
@@ -437,20 +438,19 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt;  CLRSKY_SFC_SW_DWN SRB/FLASHFlux 1/2x1/2 Clear Sky Insolation Incident on a Horizontal Surface (kW-hr/m^2/day)  </span></span>
 <span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt;  </span></span>
 <span id="cb3-22"><a href="#cb3-22"></a><span class="co">#&gt; # A tibble: 196 x 17</span></span>
-<span id="cb3-23"><a href="#cb3-23"></a><span class="co">#&gt;      LON   LAT PARAMETER  YEAR   JAN   FEB   MAR   APR   MAY   JUN   JUL</span></span>
-<span id="cb3-24"><a href="#cb3-24"></a><span class="co">#&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt;  1  151. -28.2 CLRSKY_S…  1984  8.5   7.96  6.92  5.54  4.49  3.89  4.14</span></span>
-<span id="cb3-26"><a href="#cb3-26"></a><span class="co">#&gt;  2  151. -28.2 CLRSKY_S…  1985  8.87  8.1   6.94  5.6   4.44  4.03  4.2 </span></span>
-<span id="cb3-27"><a href="#cb3-27"></a><span class="co">#&gt;  3  151. -28.2 ALLSKY_S…  1984  6.11  6.83  6.28  4.6   4.02  3.46  2.58</span></span>
-<span id="cb3-28"><a href="#cb3-28"></a><span class="co">#&gt;  4  151. -28.2 ALLSKY_S…  1985  8.2   7.15  6.02  4.79  3.89  3.44  3.8 </span></span>
-<span id="cb3-29"><a href="#cb3-29"></a><span class="co">#&gt;  5  151. -28.2 CLRSKY_S…  1984  8.45  8.09  6.77  5.5   4.41  3.95  4.15</span></span>
-<span id="cb3-30"><a href="#cb3-30"></a><span class="co">#&gt;  6  151. -28.2 CLRSKY_S…  1985  8.76  8.03  6.93  5.57  4.39  3.93  4.2 </span></span>
-<span id="cb3-31"><a href="#cb3-31"></a><span class="co">#&gt;  7  151. -28.2 ALLSKY_S…  1984  5.82  6.43  5.95  4.41  3.89  3.54  2.43</span></span>
-<span id="cb3-32"><a href="#cb3-32"></a><span class="co">#&gt;  8  151. -28.2 ALLSKY_S…  1985  7.98  6.86  5.74  4.46  3.67  3.34  3.8 </span></span>
-<span id="cb3-33"><a href="#cb3-33"></a><span class="co">#&gt;  9  152. -28.2 CLRSKY_S…  1984  8.45  8.09  6.77  5.5   4.41  3.95  4.15</span></span>
-<span id="cb3-34"><a href="#cb3-34"></a><span class="co">#&gt; 10  152. -28.2 CLRSKY_S…  1985  8.76  8.03  6.93  5.57  4.39  3.93  4.2 </span></span>
-<span id="cb3-35"><a href="#cb3-35"></a><span class="co">#&gt; # … with 186 more rows, and 6 more variables: AUG &lt;dbl&gt;, SEP &lt;dbl&gt;,</span></span>
-<span id="cb3-36"><a href="#cb3-36"></a><span class="co">#&gt; #   OCT &lt;dbl&gt;, NOV &lt;dbl&gt;, DEC &lt;dbl&gt;, ANN &lt;dbl&gt;</span></span></code></pre></div>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="co">#&gt;      LON   LAT PARAMETER  YEAR   JAN   FEB   MAR   APR   MAY   JUN   JUL   AUG   SEP   OCT   NOV   DEC</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="co">#&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt;  1  151. -28.2 CLRSKY_S…  1984  8.5   7.96  6.92  5.54  4.49  3.89  4.14  5.32  6.69  7.87  8.66  9.05</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="co">#&gt;  2  151. -28.2 CLRSKY_S…  1985  8.87  8.1   6.94  5.6   4.44  4.03  4.2   5.18  6.67  7.71  8.74  9.11</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="co">#&gt;  3  151. -28.2 ALLSKY_S…  1984  6.11  6.83  6.28  4.6   4.02  3.46  2.58  4.86  5.92  6.45  7.79  7.58</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="co">#&gt;  4  151. -28.2 ALLSKY_S…  1985  8.2   7.15  6.02  4.79  3.89  3.44  3.8   4.2   5.97  6.23  6.56  7.58</span></span>
+<span id="cb3-29"><a href="#cb3-29"></a><span class="co">#&gt;  5  151. -28.2 CLRSKY_S…  1984  8.45  8.09  6.77  5.5   4.41  3.95  4.15  5.31  6.66  7.77  8.59  8.86</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a><span class="co">#&gt;  6  151. -28.2 CLRSKY_S…  1985  8.76  8.03  6.93  5.57  4.39  3.93  4.2   5.09  6.56  7.74  8.81  8.96</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a><span class="co">#&gt;  7  151. -28.2 ALLSKY_S…  1984  5.82  6.43  5.95  4.41  3.89  3.54  2.43  4.68  5.84  6.16  7.46  6.96</span></span>
+<span id="cb3-32"><a href="#cb3-32"></a><span class="co">#&gt;  8  151. -28.2 ALLSKY_S…  1985  7.98  6.86  5.74  4.46  3.67  3.34  3.8   3.98  5.71  6.12  6.34  7.11</span></span>
+<span id="cb3-33"><a href="#cb3-33"></a><span class="co">#&gt;  9  152. -28.2 CLRSKY_S…  1984  8.45  8.09  6.77  5.5   4.41  3.95  4.15  5.31  6.66  7.77  8.59  8.86</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a><span class="co">#&gt; 10  152. -28.2 CLRSKY_S…  1985  8.76  8.03  6.93  5.57  4.39  3.93  4.2   5.09  6.56  7.74  8.81  8.96</span></span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="co">#&gt; # … with 186 more rows, and 1 more variable: ANN &lt;dbl&gt;</span></span></code></pre></div>
 </div>
 <div id="example-fetching-climatology-data" class="section level3">
 <h3>Example fetching climatology data</h3>
@@ -476,20 +476,19 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <span id="cb4-18"><a href="#cb4-18"></a><span class="co">#&gt;  T2M MERRA2 1/2x1/2 Temperature at 2 Meters (C)  </span></span>
 <span id="cb4-19"><a href="#cb4-19"></a><span class="co">#&gt;  </span></span>
 <span id="cb4-20"><a href="#cb4-20"></a><span class="co">#&gt; # A tibble: 518,400 x 16</span></span>
-<span id="cb4-21"><a href="#cb4-21"></a><span class="co">#&gt;      LON   LAT PARAMETER   JAN   FEB   MAR   APR   MAY   JUN   JUL   AUG</span></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="co">#&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="co">#&gt;  1 -180. -89.8 T2M       -29.0 -40.7 -52.9 -57.8 -59.1 -59.6 -61.3 -61.8</span></span>
-<span id="cb4-24"><a href="#cb4-24"></a><span class="co">#&gt;  2 -180. -89.8 RH2M       70.3  64.3  63.5  63.2  63.9  64.2  63.9  63.9</span></span>
-<span id="cb4-25"><a href="#cb4-25"></a><span class="co">#&gt;  3 -179. -89.8 T2M       -29.0 -40.7 -52.9 -57.8 -59.1 -59.6 -61.3 -61.8</span></span>
-<span id="cb4-26"><a href="#cb4-26"></a><span class="co">#&gt;  4 -179. -89.8 RH2M       70.3  64.3  63.4  63.2  63.9  64.2  63.9  63.9</span></span>
-<span id="cb4-27"><a href="#cb4-27"></a><span class="co">#&gt;  5 -179. -89.8 T2M       -29.0 -40.7 -52.9 -57.8 -59.1 -59.6 -61.3 -61.8</span></span>
-<span id="cb4-28"><a href="#cb4-28"></a><span class="co">#&gt;  6 -179. -89.8 RH2M       70.3  64.3  63.4  63.2  63.9  64.2  63.9  63.9</span></span>
-<span id="cb4-29"><a href="#cb4-29"></a><span class="co">#&gt;  7 -178. -89.8 T2M       -29.0 -40.7 -52.9 -57.8 -59.1 -59.6 -61.3 -61.8</span></span>
-<span id="cb4-30"><a href="#cb4-30"></a><span class="co">#&gt;  8 -178. -89.8 RH2M       70.3  64.3  63.4  63.2  63.9  64.2  63.9  63.9</span></span>
-<span id="cb4-31"><a href="#cb4-31"></a><span class="co">#&gt;  9 -178. -89.8 T2M       -29.0 -40.7 -52.9 -57.8 -59.1 -59.6 -61.3 -61.8</span></span>
-<span id="cb4-32"><a href="#cb4-32"></a><span class="co">#&gt; 10 -178. -89.8 RH2M       70.3  64.3  63.4  63.2  63.9  64.2  63.8  63.9</span></span>
-<span id="cb4-33"><a href="#cb4-33"></a><span class="co">#&gt; # … with 518,390 more rows, and 5 more variables: SEP &lt;dbl&gt;, OCT &lt;dbl&gt;,</span></span>
-<span id="cb4-34"><a href="#cb4-34"></a><span class="co">#&gt; #   NOV &lt;dbl&gt;, DEC &lt;dbl&gt;, ANN &lt;dbl&gt;</span></span></code></pre></div>
+<span id="cb4-21"><a href="#cb4-21"></a><span class="co">#&gt;      LON   LAT PARAMETER   JAN   FEB   MAR   APR   MAY   JUN   JUL   AUG   SEP   OCT   NOV   DEC   ANN</span></span>
+<span id="cb4-22"><a href="#cb4-22"></a><span class="co">#&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a><span class="co">#&gt;  1 -180. -89.8 T2M       -29.0 -40.7 -52.9 -57.8 -59.1 -59.6 -61.3 -61.8 -60.4 -52.4 -38.7 -28.9 -50.2</span></span>
+<span id="cb4-24"><a href="#cb4-24"></a><span class="co">#&gt;  2 -180. -89.8 RH2M       70.3  64.3  63.5  63.2  63.9  64.2  63.9  63.9  63.6  60.4  63.8  69.7  64.6</span></span>
+<span id="cb4-25"><a href="#cb4-25"></a><span class="co">#&gt;  3 -179. -89.8 T2M       -29.0 -40.7 -52.9 -57.8 -59.1 -59.6 -61.3 -61.8 -60.4 -52.4 -38.7 -28.9 -50.2</span></span>
+<span id="cb4-26"><a href="#cb4-26"></a><span class="co">#&gt;  4 -179. -89.8 RH2M       70.3  64.3  63.4  63.2  63.9  64.2  63.9  63.9  63.6  60.4  63.8  69.7  64.6</span></span>
+<span id="cb4-27"><a href="#cb4-27"></a><span class="co">#&gt;  5 -179. -89.8 T2M       -29.0 -40.7 -52.9 -57.8 -59.1 -59.6 -61.3 -61.8 -60.4 -52.4 -38.7 -28.9 -50.2</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="co">#&gt;  6 -179. -89.8 RH2M       70.3  64.3  63.4  63.2  63.9  64.2  63.9  63.9  63.6  60.4  63.8  69.7  64.6</span></span>
+<span id="cb4-29"><a href="#cb4-29"></a><span class="co">#&gt;  7 -178. -89.8 T2M       -29.0 -40.7 -52.9 -57.8 -59.1 -59.6 -61.3 -61.8 -60.4 -52.5 -38.7 -28.9 -50.2</span></span>
+<span id="cb4-30"><a href="#cb4-30"></a><span class="co">#&gt;  8 -178. -89.8 RH2M       70.3  64.3  63.4  63.2  63.9  64.2  63.9  63.9  63.5  60.4  63.8  69.7  64.5</span></span>
+<span id="cb4-31"><a href="#cb4-31"></a><span class="co">#&gt;  9 -178. -89.8 T2M       -29.0 -40.7 -52.9 -57.8 -59.1 -59.6 -61.3 -61.8 -60.4 -52.5 -38.7 -28.9 -50.2</span></span>
+<span id="cb4-32"><a href="#cb4-32"></a><span class="co">#&gt; 10 -178. -89.8 RH2M       70.3  64.3  63.4  63.2  63.9  64.2  63.8  63.9  63.5  60.4  63.8  69.7  64.5</span></span>
+<span id="cb4-33"><a href="#cb4-33"></a><span class="co">#&gt; # … with 518,390 more rows</span></span></code></pre></div>
 <p><em>Note</em> the associated metadata in the data frame header are not saved if the data are exported to a file format other than an R data format, <em>e.g.</em>, .Rdata, .rda or .rds.</p>
 </div>
 <div id="description-of-parameters-for-get_power" class="section level3">
@@ -526,13 +525,8 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <span id="cb5-2"><a href="#cb5-2"></a>  <span class="dt">lonlat =</span> <span class="kw">c</span>(<span class="fl">151.81</span>, <span class="fl">-27.48</span>),</span>
 <span id="cb5-3"><a href="#cb5-3"></a>  <span class="dt">dates =</span> <span class="kw">c</span>(<span class="st">&quot;1985-01-01&quot;</span>, <span class="st">&quot;1985-12-31&quot;</span>),</span>
 <span id="cb5-4"><a href="#cb5-4"></a>  <span class="dt">dsn =</span> <span class="kw">tempdir</span>(),</span>
-<span id="cb5-5"><a href="#cb5-5"></a>  <span class="dt">file_out =</span> <span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;Kingsthorpe.met&quot;</span>)</span>
-<span id="cb5-6"><a href="#cb5-6"></a>)</span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt; Warning in file(fileName, &quot;w&quot;): cannot open file &#39;/var/folders/</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#&gt; _x/gqh2xrvn4qb0qs5d8795n8vr0000gn/T//RtmpLMlK3Z//var/folders/_x/</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="co">#&gt; gqh2xrvn4qb0qs5d8795n8vr0000gn/T//RtmpLMlK3Z/Kingsthorpe.met&#39;: No such file</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="co">#&gt; or directory</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="co">#&gt; Error in file(fileName, &quot;w&quot;): cannot open the connection</span></span></code></pre></div>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="dt">file_out =</span> <span class="st">&quot;Kingsthorpe.met&quot;</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>)</span></code></pre></div>
 </div>
 <div id="using-create_icasa" class="section level2">
 <h2>Using <code>create_icasa</code></h2>
@@ -590,7 +584,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <p><sub>*: You may experience issues if you have &lt;16GB RAM available converting the entire object to a <code>raster::brick()</code>.</sub></p>
 <div id="for-low-memory-systems" class="section level4">
 <h4>For low-memory systems</h4>
-<p>For low-memory systems (e.g. a recent Apple Mac computer with 8GB RAM), it is useful to have as much of your R global environment free from objects that take much memory and make sure other processes are not using system memory.</p>
+<p>For low-memory systems, a computer with 8GB or less RAM, it is useful to have as much of your R global environment free from objects that take much memory and make sure other processes are not using system memory.</p>
 <p>Using indexing pick the month or annual value and create a raster object.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># split data frame into data frames for each parameter in a list</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>climatology_list &lt;-<span class="st"> </span><span class="kw">split</span>(climatology_ag, climatology_ag<span class="op">$</span>PARAMETER)</span>

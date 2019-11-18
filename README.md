@@ -5,6 +5,7 @@
 Status](https://travis-ci.org/ropensci/nasapower.svg?branch=master)](https://travis-ci.org/ropensci/nasapower)
 [![Build
 Status](https://ci.appveyor.com/api/projects/status/5a0lrm33dvg9qr5d?svg=true)](https://ci.appveyor.com/project/adamhsparks/nasapower)
+[![codecov](https://codecov.io/gh/ropensci/nasapower/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/nasapower)
 [![DOI](https://zenodo.org/badge/109224461.svg)](https://zenodo.org/badge/latestdoi/109224461)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
@@ -52,12 +53,13 @@ A development version that may have new features or bug fixes is
 available through GitHub.
 
 ``` r
-if (!require(remotes)) {
-  install.packages("remotes")
+if (!require(devtools)) {
+  install.packages("devtools")
 }
 
-remotes::install_github("ropensci/nasapower",
-                       build_vignettes = TRUE)
+devtools::install_github("ropensci/nasapower",
+                         build_vignettes = TRUE
+)
 ```
 
 ### Example
