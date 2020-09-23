@@ -1,9 +1,10 @@
 
-#' Get NASA POWER data
+#' Get NASA POWER data from the POWER web API
 #'
-#' Get \acronym{POWER} global meteorology and surface solar energy climatology
-#'   data and return a tidy data frame \code{\link[tibble]{tibble}}. All options
-#'   offered by the official \acronym{POWER} \acronym{API} are supported.
+#' @description Get \acronym{POWER} global meteorology and surface solar energy
+#'   climatology data and return a tidy data frame \code{\link[tibble]{tibble}}
+#'   object. All options offered by the official \acronym{POWER} \acronym{API}
+#'   are supported.
 #'
 #' @param community A character vector providing community name: \dQuote{AG},
 #'   \dQuote{SB} or \dQuote{SSE}.  See argument details for more.
@@ -23,6 +24,11 @@
 #'   \emph{e.g.}, \code{dates = c("1983-01-01", "2017-12-31")}.
 #'   Not used when\cr \code{temporal_average} is set to \dQuote{CLIMATOLOGY}.
 #'   See argument details for more.
+#' @param site_elevation A user-supplied value for elevation at a single point
+#'   in metres.  If provided this will return a corrected atmospheric pressure
+#'   value adjusted to the elevation provided.  Only used with `lonlat` as a
+#'   single point of x, y coordinates, not for use with \dQuote{GLOBAL} or with
+#'   a regional request.
 #'
 #' @section Argument details for \dQuote{community}: There are three valid
 #'   values, one must be supplied. This  will affect the units of the parameter
@@ -61,7 +67,7 @@
 #'  \item{For regional coverage}{To get a region, supply a length-four numeric
 #'  vector as lower left (lon, lat) and upper right (lon, lat) coordinates,
 #'  \emph{e.g.}, \code{lonlat = c(xmin, ymin, xmax, ymax)} in that order for a
-#'  given region, \emph{e.g.}, a bounding box for the southwestern corner of
+#'  given region, \emph{e.g.}, a bounding box for the south western corner of
 #'  Australia: \code{lonlat = c(112.5, -55.5, 115.5, -50.5)}. *Maximum area
 #'  processed is 4.5 x 4.5 degrees (100 points).}
 #'
@@ -78,6 +84,14 @@
 #'   argument should not be used when \code{temporal_average} is set to
 #'   \dQuote{CLIMATOLOGY}.
 #'
+#'   The weather values from \acronym{POWER} for temperature are 2 metre max and
+#'   min temperatures, \dQuote{T2M_MAX} and \dQuote{T2M_MIN}; radiation,
+#'   \dQuote{ALLSKY_SFC_SW_DWN}; rain, \dQuote{PRECTOT}; relative humidity at 2
+#'   metres, \dQuote{RH2M}; and wind at 2 metres \dQuote{WS2M} from the
+#'   \acronym{POWER} \sQuote{AG} community on a daily time-step.
+#'
+#'   If further parameters are desired, the user may pass them along.
+#'
 #' @note The associated metadata are not saved if the data are exported to a
 #'   file format other than a native \R data format, \emph{e.g.}, .Rdata, .rda
 #'   or .rds.
@@ -87,7 +101,7 @@
 #' metadata is included.
 #'
 #' @references
-#' \url{https://power.larc.nasa.gov/documents/POWER_Data_v9_methodology.pdf}
+#' \url{https://power.larc.nasa.gov/docs/methodology/}
 #' \url{https://power.larc.nasa.gov}
 #'
 #' @examples
@@ -144,9 +158,21 @@ get_power <- function(community,
                       pars,
                       temporal_average,
                       lonlat,
-                      dates = NULL) {
+                      dates = NULL,
+                      site_elevation = NULL) {
   if (is.character(temporal_average)) {
     temporal_average <- toupper(temporal_average)
+  }
+  if (isFALSE(length(lonlat != 2)) & !is.null(site_elevation)) {
+    message("\nYou have provided `site_elevation` for a region or `GLOBAL`.",
+            "\nThe `site_elevation` value will be ignored.")
+    site_elevation <- NULL
+  }
+  if (!is.null(site_elevation) && !is.numeric(site_elevation)) {
+    stop(
+      call. = FALSE,
+      "\nYou have entered an invalid value for `site_elevation`.\n"
+    )
   }
   if (temporal_average %notin% c("DAILY", "INTERANNUAL", "CLIMATOLOGY")) {
     stop(
@@ -202,6 +228,7 @@ get_power <- function(community,
                          lonlat_identifier,
                          pars,
                          dates,
+                         site_elevation,
                          outputList = "CSV"
     )
     out <- .send_query(.query_list = query_list, .pars = pars)

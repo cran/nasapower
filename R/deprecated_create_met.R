@@ -1,9 +1,13 @@
 
-#' Create an APSIM met file from POWER data
+#' Deprecated function to create an APSIM met file from POWER data
 #'
-#' Get \acronym{POWER} values for a single point or region and create
-#'   an \acronym{APSIM} \code{met} file suitable for use in \acronym{APSIM} for
-#'   crop modelling; saving it to local disk.
+#' @note This function is deprecated and will be removed in a future release of
+#' \CRANpkg{nasapower}.  Please use \code{\link[apsimx]{get_power_apsim_met}}
+#' from the \CRANpkg{apsimx} package if you require this functionality.
+#'
+#' @description Get \acronym{POWER} values for a single point or region and
+#'   create an \acronym{APSIM} \code{met} file suitable for use in
+#'   \acronym{APSIM} for crop modelling; saving it to local disk.
 #'
 #' @param lonlat A numeric vector of geographic coordinates for a cell or region
 #'    entered as x, y coordinates.  See argument details for more.
@@ -11,10 +15,13 @@
 #'    \emph{e.g.}, \code{dates = c("1983-01-01", "2017-12-31")}.  See argument
 #'    details for more.
 #' @param dsn A file path where the resulting text file should be stored.
-#'
 #' @param file_out A file name for the resulting text file, \emph{e.g.}
 #'   \dQuote{Kingsthorpe.met}. A \dQuote{.met} extension will be appended if
 #'   given or otherwise specified by user.
+#' @param missing_csv A Boolean value indicating whether a csv file is to be
+#'   written to disk with a record of missing values. If `FALSE`, the default,
+#'   no file is created, only a message is emitted. If `TRUE` a csv file is
+#'   created with a record of all missing values in the .met file.
 #'
 #' @details This function is essentially a wrapper for \code{\link{get_power}}
 #'   \code{\link[APSIM]{prepareMet}} and \code{\link[APSIM]{writeMetFile}} that
@@ -55,9 +62,6 @@
 #' @return A text file in met format saved to local disk for use in
 #'   \acronym{APSIM} crop modelling.
 #'
-#' @seealso \code{\link{create_icasa}} Create a DSSAT ICASA File from NASA POWER
-#'   Data
-#'
 #' @examples
 #' # Create a met file for Kingsthorpe, Qld
 #' # from 1985-01-01 to 1985-06-30 and
@@ -77,7 +81,19 @@
 create_met <- function(lonlat,
                        dates,
                        dsn,
-                       file_out) {
+                       file_out,
+                       missing_csv = FALSE) {
+  .Deprecated(
+    new = "get_power_apsim_met",
+    package = "apsimx",
+    msg =
+      "\nThe 'create_met()' function has been deprecated and will be removed in
+      a future release of 'nasapower'. The contributed R package 'apsimx'
+      provides functionality, 'get_power_apsim_met()' that uses 'get_power()'
+      to fetch weather data from the POWER web API for the purposes of
+      creating an APSIM .met file.\n"
+  )
+
   file_out <- .met_checks(.dsn = dsn, .file_out = file_out)
 
   power_data <-
@@ -85,7 +101,8 @@ create_met <- function(lonlat,
       .dates = dates,
       .dsn = dsn,
       .lonlat = lonlat,
-      .file_out = file_out
+      .file_out = file_out,
+      .missing_csv = missing_csv
     )
 
   APSIM::writeMetFile(fileName = file.path(dsn, file_out),
@@ -125,60 +142,76 @@ create_met <- function(lonlat,
 #' the file and corresponding units
 #'
 #' @noRd
-.get_met_data <- function(.dates, .lonlat, .dsn, .file_out) {
-  power_data <- as.data.frame(
-    get_power(
-      pars = c("T2M_MAX",
-               "T2M_MIN",
-               "ALLSKY_SFC_SW_DWN",
-               "PRECTOT"),
-      dates = .dates,
-      lonlat = .lonlat,
-      temporal_average = "DAILY",
-      community = "AG"
+.get_met_data <-
+  function(.dates,
+           .lonlat,
+           .dsn,
+           .file_out,
+           .missing_csv) {
+    power_data <- as.data.frame(
+      get_power(
+        pars = c(
+          "T2M_MAX",
+          "T2M_MIN",
+          "ALLSKY_SFC_SW_DWN",
+          "PRECTOT",
+          "RH2M",
+          "WS2M"
+        ),
+        dates = .dates,
+        lonlat = .lonlat,
+        temporal_average = "DAILY",
+        community = "AG"
+      )
     )
-  )
 
-  .check_met_missing(.power_data = power_data,
-                     #nocov start
-                     .dsn = .dsn,
-                     .file_out = .file_out) #nocov end
+    if (isTRUE(.missing_csv)) {
+      .check_met_missing(.power_data = power_data,
+                         #nocov start
+                         .dsn = .dsn,
+                         .file_out = .file_out) #nocov end
+    }
 
-  power_data <-
-    power_data[c("T2M_MAX",
-                 "T2M_MIN",
-                 "ALLSKY_SFC_SW_DWN",
-                 "PRECTOT",
-                 "YEAR",
-                 "DOY")]
+    power_data <-
+      power_data[c("T2M_MAX",
+                   "T2M_MIN",
+                   "ALLSKY_SFC_SW_DWN",
+                   "PRECTOT",
+                   "RH2M",
+                   "WS2M",
+                   "YEAR",
+                   "DOY")]
 
-  met_names <- c("maxt",
-                 "mint",
-                 "radn",
-                 "rain",
-                 "year",
-                 "day")
+    met_names <- c("maxt",
+                   "mint",
+                   "radn",
+                   "rain",
+                   "rh",
+                   "wind",
+                   "year",
+                   "day")
 
-  met_units <-
-    c("(oC)",
-      "(oC)",
-      "(MJ/m^2/day)",
-      "(mm)",
-      "()",
-      "()")
+    met_units <-
+      c("(oC)",
+        "(oC)",
+        "(MJ/m^2/day)",
+        "(mm)",
+        "(%)",
+        "(m/s)",
+        "()",
+        "()")
 
-  invisible(utils::capture.output(
-    out <-
-      APSIM::prepareMet(
+    invisible(utils::capture.output(
+      out <- APSIM::prepareMet(
         power_data,
         lat = .lonlat[2],
         lon = .lonlat[1],
         newNames = met_names,
         units = met_units
       )
-  ))
-  return(out)
-}
+    ))
+    return(out)
+  }
 
 #' Check for Missing Values in .met File
 #'

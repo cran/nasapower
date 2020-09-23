@@ -1,3 +1,37 @@
+# nasapower 2.0.0
+
+## Bug Fixes
+
+* Correct any missing or redirecting URLs
+
+* Replace deprecated `subclass` with `class` in `new_tibble()`
+
+## Bug Fixes
+
+* Correct any missing or redirecting URLs
+
+* Replace deprecated `subclass` with `class` in `new_tibble()`
+
+## Major Changes to Functionality
+
+* Following a UNIX-like philosophy, this release removes functionality to write APSIM .met and DSSAT ICASA files to disk.
+_nasapower_ now will only fetch the appropriate data and return a `tibble()` object in-session, please use [apsimx](https://cran.r-project.org/package=apsimx) or the POWER web API data access viewer, <https://power.larc.nasa.gov/data-access-viewer/>, for fetching and/or writing .met or .icasa files, respectively.
+Note that  `create_icasa()` ideally should have been deprecated, but the server was not responding properly when queried for some time before the current release of _nasapower_ so the function has been removed.
+
+* Add ability to `get_power()` to accept a user-provided `site_elevation` parameter that is passed to the API.
+When this is used it will return a corrected atmospheric pressure value adjusted to the elevation provided.
+
+## Minor and Internal Changes
+
+* Use newest values from POWER team to validate user inputs for API requests, see <https://github.com/ropensci/nasapower/issues/48> for more.
+
+* Replace _raster_ with _terra_ for examples of converting to spatial data in vignettes
+
+* Use _vcr_ for enhanced testing
+
+* Refactor the internal handling of temporary files to allow for more efficient use of the _future_ package
+
+
 # nasapower 1.1.3
 
 ## Bug Fixes
@@ -14,46 +48,34 @@
 
 # nasapower 1.1.2
 
-## Minor changes
+# Minor changes
 
-* Update documentation URL
+- Correct URL in BibTeX version of citation
 
-* Correct URL in BibTeX version of citation
+- Suppress output in console from `APSIM::createMetFile()`
 
-* Supress output in console from `APSIM::createMetFile()` for cleaner user
-experience
-
-* Updates `parameters` internal data used to check against API before submitting
-queries
-
-* Updates vignette to improve quality and reduce build-time
+- Help file titles are now in sentence case
 
 # nasapower 1.1.1
 
 ## Bug fixes
 
-- Fix issues reported at
-https://cloud.r-project.org//web/checks/check_results_nasapower.html with
-failing tests. These tests should be skipped on CRAN but were not.
+- Fix issues reported at https://cloud.r-project.org//web/checks/check_results_nasapower.html with failing tests.
+These tests should be skipped on CRAN but were not.
 
-- Fixes bug where missing values in POWER data were not properly replaced with
-`NA` in `tibble` and metFile outputs
+- Fixes bug where missing values in POWER data were not properly replaced with `NA` in `tibble` and metFile outputs
 
-- Fixes bug in documentation for `create_icasa()` where the parameter for
-`file_out` was misidentified as just `file`
+- Fixes bug in documentation for `create_icasa()` where the parameter for `file_out` was misidentified as just `file`
 
 ## Minor changes
 
-- Users are now notified if creating a .met file that has any missing values
-through a console message and .csv file being written to disk to accompany the
-resulting .met file describing which values are missing
+- Users are now notified if creating a .met file that has any missing values through a console message and .csv file being written to disk to accompany the resulting .met file describing which values are missing
 
 # nasapower 1.1.0
 
 ## Bug fixes
 
-- Fixes bug where .met files were not created properly including where "radn"
-and "rain" col headers were reversed
+- Fixes bug where .met files were not created properly including where "radn" and "rain" col headers were reversed
 
 - Fix `Warning: Must pass a scalar integer as 'nrow' argument to 'new_tibble()'.`
 
@@ -61,22 +83,19 @@ and "rain" col headers were reversed
 
 ## Major changes
 
-- Change how `GLOBAL` values are requested. This is now specified in `lonlat`
-in conjunction with `temporal_average = CLIMATOLOGY`.
+- Change how `GLOBAL` values are requested. This is now specified in `lonlat` in conjunction with `temporal_average = CLIMATOLOGY`.
 
 ## Minor changes
 
 - Adds example of fetching climate for a single point
 
-- Refactor code to split internal functions by functionality and add more
-complete test coverage
+- Refactor code to split internal functions by functionality and add more complete test coverage
 
 # nasapower 1.0.7
 
 ## Minor changes
 
-- Removes internal check for data - community agreement, as all data is
-available for all communities, only the units change
+- Removes internal check for data - community agreement, as all data is available for all communities, only the units change
 
 - Update links to latest documentation provided by the POWER team
 
@@ -87,17 +106,14 @@ available for all communities, only the units change
 - Adds support for WS2M_MIN, WS2M_MAX and WS2M_RANGE in AG community
 
 ## Bug fixes
-  
-- Fixes bug where previous release did not support WS2M from AG community due to
-a local typo
+
+- Fixes bug where previous release did not support WS2M from AG community due to a local typo
 
 # nasapower 1.0.5
 
 ## Minor changes
 
-- "Fixes" [Issue 32](https://github.com/ropensci/nasapower/issues/32) where WS2M
-is not available through `nasapower` until the POWER team can properly address
-how pre-query validation should be performed
+- "Fixes" [Issue 32](https://github.com/ropensci/nasapower/issues/32) where WS2M is not available through `nasapower` until the POWER team can properly address how pre-query validation should be performed
 
 # nasapower 1.0.4
 
@@ -150,8 +166,6 @@ a duplicated check of `latlon` values
 
 - Removes unnecessary checks for `latlon` in `get_power()`
 
---------------------------------------------------------------------------------
-
 # nasapower 1.0.1
 
 ## Minor changes
@@ -159,17 +173,13 @@ a duplicated check of `latlon` values
 - Provides corrections to documentation formatting as per CRAN volunteers'
 requests
 
-- Provides edits and clarifications in DESCRIPTION's Description and Title about
-the package's uses and capabilities
-
---------------------------------------------------------------------------------
+- Provides edits and clarifications in DESCRIPTION's Description and Title about the package's uses and capabilities
 
 # nasapower 1.0.0 (unreleased)
 
 ## Major changes
 
-- _nasapower_ is now a part of [rOpenSci](https://ropensci.org/) after 
-[peer-review of the code](https://github.com/ropensci/onboarding/issues/155)!
+- _nasapower_ is now a part of [rOpenSci](https://ropensci.org/) after [peer-review of the code](https://github.com/ropensci/software-review/issues/155)!
 
 - Provides access to all three communities, AG, SSE and and SB, not just AG
 
@@ -180,48 +190,38 @@ well
 
 - Adds function `create_met()` to create 'APSIM' met objects from 'POWER' data
 
-- Adsd function `create_icasa()` to create a text file of weather data for use
-in 'DSSAT' crop modelling
+- Adsd function `create_icasa()` to create a text file of weather data for use in 'DSSAT' crop modelling
 
 - Internally, replaces _httr_ package with _crul_
 
 ### Deprecated functions
 
-- The `get_cell` and `get_region` functions are deprecated in favour of
-`get_power()`. The new POWER interface allows for the specification of single
-points or regional areas. Global coverage may be queried for Climatology. See
-the help for `?get_power()` for more details.
-
---------------------------------------------------------------------------------
+- The `get_cell` and `get_region` functions are deprecated in favour of `get_power()`.
+The new POWER interface allows for the specification of single points or regional areas.
+Global coverage may be queried for Climatology.
+See the help for `?get_power()` for more details.
 
 # nasapower 0.1.4
 
 ### Bug Fixes
 
-- Fixes bug related to date columns where `MONTH`, `DAY` and `YYYY-MM-DD` were
-incorrectly reported in final data frame. This did not affect the weather data,
-`YEAR` or `DOY` columns.
-
---------------------------------------------------------------------------------
+- Fixes bug related to date columns where `MONTH`, `DAY` and `YYYY-MM-DD` were incorrectly reported in final data frame. This did not affect the weather data, `YEAR` or `DOY` columns.
 
 # nasapower 0.1.3
 
 ### Bug fixes
 
-- Fix bug where lon/lat values were improperly assigned internally due to row
-names not being ordered correctly in `get_region()`
+- Fix bug where lon/lat values were improperly assigned internally due to row names not being ordered correctly in `get_region()`
 
 - Fix bug reports link in DESCRIPTION file
 
 - Correct vignette where it had said, "both of which will which will download"
 
-- Correct documentation for `get_region()`, which incorrectly stated that it
-downloaded data for a 1 x 1 degree cell
+- Correct documentation for `get_region()`, which incorrectly stated that it downloaded data for a 1 x 1 degree cell
 
 ### Minor improvements
 
-- Optimise arguments used in `utils::read.table()` to ingest weather data in the
-`get_cell()` and `get_region()` functions more quickly
+- Optimise arguments used in `utils::read.table()` to ingest weather data in the `get_cell()` and `get_region()` functions more quickly
 
 - NEWS now formatted more nicely for easier reading
 
@@ -231,24 +231,19 @@ downloaded data for a 1 x 1 degree cell
 - Add an example of converting the data frame to a spatial object using
 _raster_ to create a `raster::brick()`
 
-- Specify in documentation that a range of days to years can be specified for
-download
+- Specify in documentation that a range of days to years can be specified for download
 
 ## Minor changes
 
 - `get_region()` and `get_cell()` now default to download all weather vars
 
-- Add a check to see if POWER website is responding before making request for
-data. If not, stop and return error message to user.
-
---------------------------------------------------------------------------------
+- Add a check to see if POWER website is responding before making request for data. If not, stop and return error message to user.
 
 # nasapower 0.1.2
 
 ### Bug fixes
 
-- Fixes bug where only first date is reported when using `get_region()` with
-multiple dates. https://github.com/ropensci/nasapower/issues/1
+- Fixes bug where only first date is reported when using `get_region()` with multiple dates. https://github.com/ropensci/nasapower/issues/1
 
 ### Minor improvements
 
@@ -264,15 +259,11 @@ multiple dates. https://github.com/ropensci/nasapower/issues/1
 
 - Remove DATE from DESCRIPTION
 
---------------------------------------------------------------------------------
-
 # nasapower 0.1.1
 
 ### Minor improvements
 
 - Fix issues in documentation, typos, incorrect links, etc.
-
---------------------------------------------------------------------------------
 
 # nasapower 0.1.0
 
@@ -288,15 +279,11 @@ multiple dates. https://github.com/ropensci/nasapower/issues/1
 
 * Better documentation
 
---------------------------------------------------------------------------------
-
 # nasapower 0.0.2
 
 ### New features
 
 * Added citation file
-
---------------------------------------------------------------------------------
 
 # nasapower 0.0.1
 

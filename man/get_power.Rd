@@ -2,9 +2,16 @@
 % Please edit documentation in R/get_power.R
 \name{get_power}
 \alias{get_power}
-\title{Get NASA POWER data}
+\title{Get NASA POWER data from the POWER web API}
 \usage{
-get_power(community, pars, temporal_average, lonlat, dates = NULL)
+get_power(
+  community,
+  pars,
+  temporal_average,
+  lonlat,
+  dates = NULL,
+  site_elevation = NULL
+)
 }
 \arguments{
 \item{community}{A character vector providing community name: \dQuote{AG},
@@ -29,6 +36,12 @@ used for \dQuote{CLIMATOLOGY}).  See argument details for more.}
 \emph{e.g.}, \code{dates = c("1983-01-01", "2017-12-31")}.
 Not used when\cr \code{temporal_average} is set to \dQuote{CLIMATOLOGY}.
 See argument details for more.}
+
+\item{site_elevation}{A user-supplied value for elevation at a single point
+in metres.  If provided this will return a corrected atmospheric pressure
+value adjusted to the elevation provided.  Only used with `lonlat` as a
+single point of x, y coordinates, not for use with \dQuote{GLOBAL} or with
+a regional request.}
 }
 \value{
 A data frame of \acronym{POWER} data including location, dates (not
@@ -36,9 +49,10 @@ including \dQuote{CLIMATOLOGY}) and requested parameters. A header of
 metadata is included.
 }
 \description{
-Get \acronym{POWER} global meteorology and surface solar energy climatology
-  data and return a tidy data frame \code{\link[tibble]{tibble}}. All options
-  offered by the official \acronym{POWER} \acronym{API} are supported.
+Get \acronym{POWER} global meteorology and surface solar energy
+  climatology data and return a tidy data frame \code{\link[tibble]{tibble}}
+  object. All options offered by the official \acronym{POWER} \acronym{API}
+  are supported.
 }
 \note{
 The associated metadata are not saved if the data are exported to a
@@ -87,7 +101,7 @@ The associated metadata are not saved if the data are exported to a
  \item{For regional coverage}{To get a region, supply a length-four numeric
  vector as lower left (lon, lat) and upper right (lon, lat) coordinates,
  \emph{e.g.}, \code{lonlat = c(xmin, ymin, xmax, ymax)} in that order for a
- given region, \emph{e.g.}, a bounding box for the southwestern corner of
+ given region, \emph{e.g.}, a bounding box for the south western corner of
  Australia: \code{lonlat = c(112.5, -55.5, 115.5, -50.5)}. *Maximum area
  processed is 4.5 x 4.5 degrees (100 points).}
 
@@ -105,6 +119,14 @@ The associated metadata are not saved if the data are exported to a
   year values (YYYY), \emph{e.g.} \code{dates = c(1983, 2010)}.  This
   argument should not be used when \code{temporal_average} is set to
   \dQuote{CLIMATOLOGY}.
+
+  The weather values from \acronym{POWER} for temperature are 2 metre max and
+  min temperatures, \dQuote{T2M_MAX} and \dQuote{T2M_MIN}; radiation,
+  \dQuote{ALLSKY_SFC_SW_DWN}; rain, \dQuote{PRECTOT}; relative humidity at 2
+  metres, \dQuote{RH2M}; and wind at 2 metres \dQuote{WS2M} from the
+  \acronym{POWER} \sQuote{AG} community on a daily time-step.
+
+  If further parameters are desired, the user may pass them along.
 }
 
 \examples{
@@ -156,7 +178,7 @@ sse_i
 
 }
 \references{
-\url{https://power.larc.nasa.gov/documents/POWER_Data_v9_methodology.pdf}
+\url{https://power.larc.nasa.gov/docs/methodology/}
 \url{https://power.larc.nasa.gov}
 }
 \author{

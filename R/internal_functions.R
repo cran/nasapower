@@ -317,39 +317,78 @@
                          lonlat_identifier,
                          pars,
                          dates,
+                         site_elevation,
                          outputList) {
   user_agent <- "nasapower"
 
+  # If user has given a site_elevation value, use it
   if (lonlat_identifier$identifier == "SinglePoint" &
-      !is.null(dates)) {
-    query_list <- list(
-      request = "execute",
-      identifier = lonlat_identifier$identifier,
-      parameters = I(pars$pars),
-      startDate = dates[[1]],
-      endDate = dates[[2]],
-      userCommunity = community,
-      tempAverage = pars$temporal_average,
-      outputList = outputList,
-      lon = lonlat_identifier$lon,
-      lat = lonlat_identifier$lat,
-      user = user_agent
-    )
+      !is.null(site_elevation)) {
+    if (!is.null(dates)) {
+      query_list <- list(
+        request = "execute",
+        identifier = lonlat_identifier$identifier,
+        parameters = I(pars$pars),
+        startDate = dates[[1]],
+        endDate = dates[[2]],
+        userCommunity = community,
+        tempAverage = pars$temporal_average,
+        siteElev = site_elevation,
+        outputList = outputList,
+        lon = lonlat_identifier$lon,
+        lat = lonlat_identifier$lat,
+        user = user_agent
+      )
+    }
+
+    if (is.null(dates)) {
+      query_list <- list(
+        request = "execute",
+        identifier = lonlat_identifier$identifier,
+        parameters = I(pars$pars),
+        userCommunity = community,
+        tempAverage = pars$temporal_average,
+        outputList = outputList,
+        siteElev = site_elevation,
+        lon = lonlat_identifier$lon,
+        lat = lonlat_identifier$lat,
+        user = user_agent
+      )
+    }
   }
 
+  # if no site elevation value provided, send request without
   if (lonlat_identifier$identifier == "SinglePoint" &
-      is.null(dates)) {
-    query_list <- list(
-      request = "execute",
-      identifier = lonlat_identifier$identifier,
-      parameters = I(pars$pars),
-      userCommunity = community,
-      tempAverage = pars$temporal_average,
-      outputList = outputList,
-      lon = lonlat_identifier$lon,
-      lat = lonlat_identifier$lat,
-      user = user_agent
-    )
+      is.null(site_elevation)) {
+    if (!is.null(dates)) {
+      query_list <- list(
+        request = "execute",
+        identifier = lonlat_identifier$identifier,
+        parameters = I(pars$pars),
+        startDate = dates[[1]],
+        endDate = dates[[2]],
+        userCommunity = community,
+        tempAverage = pars$temporal_average,
+        outputList = outputList,
+        lon = lonlat_identifier$lon,
+        lat = lonlat_identifier$lat,
+        user = user_agent
+      )
+    }
+
+    if (is.null(dates)) {
+      query_list <- list(
+        request = "execute",
+        identifier = lonlat_identifier$identifier,
+        parameters = I(pars$pars),
+        userCommunity = community,
+        tempAverage = pars$temporal_average,
+        outputList = outputList,
+        lon = lonlat_identifier$lon,
+        lat = lonlat_identifier$lat,
+        user = user_agent
+      )
+    }
   }
 
   if (lonlat_identifier$identifier == "Regional" &
@@ -434,7 +473,9 @@
 #'
 
 .import_power <- function(.txt, .pars, .query_list) {
-  raw_power_data <- file.path(tempdir(), "power_data_file")
+  raw_power_data <- tempfile(pattern = "tmp_power_file",
+                             tmpdir = tempdir(),
+                             fileext = ".csv")
 
   if ("messages" %in% names(.txt) & "outputs" %notin% names(.txt)) {
     stop(call. = FALSE,
@@ -452,7 +493,7 @@
 
       power_data <- readLines(raw_power_data)
 
-      # create meta ojbect
+      # create meta object
       meta <- power_data[c(grep("-BEGIN HEADER-",
                                 power_data):grep("-END HEADER-",
                                                  power_data))]
@@ -463,10 +504,15 @@
                    replacement = "NA",
                    x = meta)
 
+      # replace missing values with NA
+      meta <- gsub(pattern = "-99",
+                   replacement = "NA",
+                   x = meta)
+
       power_data <- readr::read_csv(
         raw_power_data,
         col_types = readr::cols(),
-        na = "-999",
+        na = c("-999", "-99"),
         skip = length(meta) + 2
       )
 
@@ -486,7 +532,7 @@
 
       # add new class
       power_data <- tibble::new_tibble(power_data,
-                                       subclass = "POWER.Info",
+                                       class = "POWER.Info",
                                        nrow = nrow(power_data))
 
       # add attributes for printing df
@@ -501,15 +547,9 @@
               collapse = ";\n ")
       return(power_data)
     }
-  } else if ("icasa" %in% names(.txt$output)) {
-    curl::curl_download(
-      .txt$output$icasa,
-      destfile = raw_power_data,
-      mode = "wb",
-      quiet = TRUE
-    )
 
     power_data <- readLines(raw_power_data)
+
     return(power_data)
   } else {
     stop(
