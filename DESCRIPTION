@@ -1,7 +1,7 @@
 Package: nasapower
 Type: Package
 Title: NASA POWER API Client
-Version: 3.0.0
+Version: 3.0.1
 Authors@R: 
     c(person(given = "Adam H.",
             family = "Sparks",
@@ -25,7 +25,14 @@ Authors@R:
             family = "Boyer",
             role = "rev",
             comment = "Alison Boyer reviewed nasapower for rOpenSci, see
-            https://github.com/ropensci/software-review/issues/155"))
+            https://github.com/ropensci/software-review/issues/155"),
+    person(given = "Fernando",
+            family = "Miguez",
+            role = "ctb",
+            comment = c(ORCID = "0000-0002-4627-8329",
+                        "Fernando Miguez provided assistance in identifying
+                        improper missing value handling in the POWER data, see 
+                        <https://github.com/femiguez/apsimx/pull/26>")))
 URL: https://docs.ropensci.org/nasapower/
 BugReports: https://github.com/ropensci/nasapower/issues
 Description: Client for 'NASA' 'POWER' global meteorology, surface solar
@@ -54,7 +61,7 @@ X-schema.org-keywords: NASA, meteorological-data, weather, global,
         weather, weather-data, meteorology, NASA-POWER,
         agroclimatology, earth-science, data-access, climate-data
 X-schema.org-isPartOf: https://ropensci.org
-Packaged: 2020-10-10 04:41:00 UTC; adamsparks
+Packaged: 2020-10-24 04:15:21 UTC; adamsparks
 Author: Adam H. Sparks [aut, cre] (<https://orcid.org/0000-0002-0061-8359>),
   Scott Chamberlain [rev] (<https://orcid.org/0000-0003-1444-9135>, Scott
     Chamberlain reviewed nasapower for rOpenSci, see
@@ -62,6 +69,10 @@ Author: Adam H. Sparks [aut, cre] (<https://orcid.org/0000-0002-0061-8359>),
   Hazel Kavili [rev] (Hazel Kavili reviewed nasapower for rOpenSci, see
     https://github.com/ropensci/software-review/issues/155),
   Alison Boyer [rev] (Alison Boyer reviewed nasapower for rOpenSci, see
-    https://github.com/ropensci/software-review/issues/155)
+    https://github.com/ropensci/software-review/issues/155),
+  Fernando Miguez [ctb] (<https://orcid.org/0000-0002-4627-8329>,
+    Fernando Miguez provided assistance in identifying improper missing
+    value handling in the POWER data, see
+    <https://github.com/femiguez/apsimx/pull/26>)
 Maintainer: Adam H. Sparks <adamhsparks@gmail.com>
-Date/Publication: 2020-10-10 05:00:06 UTC
+Date/Publication: 2020-10-24 06:00:06 UTC

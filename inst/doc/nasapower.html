@@ -28,6 +28,45 @@ document.addEventListener('DOMContentLoaded', function(e) {
   }
 });
 </script>
+<style type="text/css">
+a.anchor-section {margin-left: 10px; visibility: hidden; color: inherit;}
+a.anchor-section::before {content: '#';}
+.hasAnchor:hover a.anchor-section {visibility: visible;}
+</style>
+<script>// Anchor sections v1.0 written by Atsushi Yasumoto on Oct 3rd, 2020.
+document.addEventListener('DOMContentLoaded', function() {
+  // Do nothing if AnchorJS is used
+  if (typeof window.anchors === 'object' && anchors.hasOwnProperty('hasAnchorJSLink')) {
+    return;
+  }
+
+  const h = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+
+  // Do nothing if sections are already anchored
+  if (Array.from(h).some(x => x.classList.contains('hasAnchor'))) {
+    return null;
+  }
+
+  // Use section id when pandoc runs with --section-divs
+  const section_id = function(x) {
+    return ((x.classList.contains('section') || (x.tagName === 'SECTION'))
+            ? x.id : '');
+  };
+
+  // Add anchors
+  h.forEach(function(x) {
+    const id = x.id || section_id(x.parentElement);
+    if (id === '') {
+      return null;
+    }
+    let anchor = document.createElement('a');
+    anchor.href = '#' + id;
+    anchor.classList = ['anchor-section'];
+    x.classList.add('hasAnchor');
+    x.appendChild(anchor);
+  });
+});
+</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -36,68 +75,6 @@ document.addEventListener('DOMContentLoaded', function(e) {
   div.column{display: inline-block; vertical-align: top; width: 50%;}
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
-      pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-      pre > code.sourceCode > span:empty { height: 1.2em; }
-      code.sourceCode > span { color: inherit; text-decoration: inherit; }
-      div.sourceCode { margin: 1em 0; }
-      pre.sourceCode { margin: 0; }
-      @media screen {
-      div.sourceCode { overflow: auto; }
-      }
-      @media print {
-      pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-      }
-      pre.numberSource code
-        { counter-reset: source-line 0; }
-      pre.numberSource code > span
-        { position: relative; left: -4em; counter-increment: source-line; }
-      pre.numberSource code > span > a:first-child::before
-        { content: counter(source-line);
-          position: relative; left: -1em; text-align: right; vertical-align: baseline;
-          border: none; display: inline-block;
-          -webkit-touch-callout: none; -webkit-user-select: none;
-          -khtml-user-select: none; -moz-user-select: none;
-          -ms-user-select: none; user-select: none;
-          padding: 0 4px; width: 4em;
-          color: #aaaaaa;
-        }
-      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-      div.sourceCode
-        {   }
-      @media screen {
-      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-      }
-      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #7d9029; } /* Attribute */
-      code span.bn { color: #40a070; } /* BaseN */
-      code span.bu { } /* BuiltIn */
-      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-      code span.ch { color: #4070a0; } /* Char */
-      code span.cn { color: #880000; } /* Constant */
-      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-      code span.dt { color: #902000; } /* DataType */
-      code span.dv { color: #40a070; } /* DecVal */
-      code span.er { color: #ff0000; font-weight: bold; } /* Error */
-      code span.ex { } /* Extension */
-      code span.fl { color: #40a070; } /* Float */
-      code span.fu { color: #06287e; } /* Function */
-      code span.im { } /* Import */
-      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-      code span.op { color: #666666; } /* Operator */
-      code span.ot { color: #007020; } /* Other */
-      code span.pp { color: #bc7a00; } /* Preprocessor */
-      code span.sc { color: #4070a0; } /* SpecialChar */
-      code span.ss { color: #bb6688; } /* SpecialString */
-      code span.st { color: #4070a0; } /* String */
-      code span.va { color: #19177c; } /* Variable */
-      code span.vs { color: #4070a0; } /* VerbatimString */
-      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
     </style>
 
 
@@ -513,8 +490,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a><span class="co">#&gt;  Value for missing model data cannot be computed or out of model availability range: NA  </span></span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a><span class="co">#&gt;  </span></span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a><span class="co">#&gt;  Parameters: </span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a><span class="co">#&gt;  ALLSKY_SFC_SW_DWN SRB/FLASHFlux 1/2x1/2 All Sky Insolation Incident on a Horizontal Surface (kW-hr/m^2/day) ;</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a><span class="co">#&gt;  CLRSKY_SFC_SW_DWN SRB/FLASHFlux 1/2x1/2 Clear Sky Insolation Incident on a Horizontal Surface (kW-hr/m^2/day)  </span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a><span class="co">#&gt;  CLRSKY_SFC_SW_DWN SRB/FLASHFlux 1/2x1/2 Clear Sky Insolation Incident on a Horizontal Surface (kW-hr/m^2/day) ;</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a><span class="co">#&gt;  ALLSKY_SFC_SW_DWN SRB/FLASHFlux 1/2x1/2 All Sky Insolation Incident on a Horizontal Surface (kW-hr/m^2/day)  </span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true"></a><span class="co">#&gt;  </span></span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 196 x 17</span></span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true"></a><span class="co">#&gt;      LON   LAT PARAMETER  YEAR   JAN   FEB   MAR   APR   MAY   JUN</span></span>
@@ -549,11 +526,11 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a><span class="co">#&gt;  Location: Global  </span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a><span class="co">#&gt;  Value for missing model data cannot be computed or out of model availability range: NA  </span></span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a><span class="co">#&gt;  Parameter(s):  </span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a><span class="co">#&gt;  T2M MERRA2 1/2x1/2 Temperature at 2 Meters (C)  </span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a><span class="co">#&gt;  RH2M MERRA2 1/2x1/2 Relative Humidity at 2 Meters (%)  </span></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a><span class="co">#&gt;  </span></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a><span class="co">#&gt;  Parameters: </span></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true"></a><span class="co">#&gt;  NA;</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true"></a><span class="co">#&gt;  RH2M MERRA2 1/2x1/2 Relative Humidity at 2 Meters (%)  </span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true"></a><span class="co">#&gt;  T2M MERRA2 1/2x1/2 Temperature at 2 Meters (C)  </span></span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true"></a><span class="co">#&gt;  </span></span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 518,400 x 16</span></span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true"></a><span class="co">#&gt;      LON   LAT PARAMETER   JAN   FEB   MAR   APR   MAY   JUN   JUL</span></span>
