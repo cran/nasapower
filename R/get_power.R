@@ -6,7 +6,9 @@
 #'   object.  All options offered by the official \acronym{POWER} \acronym{API}
 #'   are supported.  Requests are formed to submit one request per point.  There
 #'   is no need to make synchronous requests for multiple parameters for a
-#'   single point or regional request.
+#'   single point or regional request.  Requests are limited to 30 unique
+#'   requests per 60 seconds.  \CRANpkg{nasapower} attempts to enforce this
+#'   client-side.
 #'
 #' @param community A character vector providing community name: \dQuote{ag},
 #'   \dQuote{re} or \dQuote{sb}.  See argument details for more.
@@ -41,10 +43,11 @@
 #' @param wind_surface A user-supplied wind surface for which the corrected
 #'   wind-speed is to be supplied.  See `wind-surface` section for more detail.
 #' @param temporal_average Deprecated. This argument has been superseded by
-#'   `temporal_api` to align with the new POWER API terminology.
+#'   `temporal_api` to align with the new \acronym{POWER} \acronym{API}
+#'   terminology.
 #'
 #' @section Argument details for \dQuote{community}: there are three valid
-#'   values, one must be supplied.  This  will affect the units of the parameter
+#'   values, one must be supplied. This  will affect the units of the parameter
 #'   and the temporal display of time series data.
 #'
 #' \describe{
@@ -62,7 +65,8 @@
 #'
 #' @section Argument details for `temporal_api`: There are four valid values.
 #'  \describe{
-#'   \item{hourly}{The hourly average of `pars` by hour, day, month and year.}
+#'   \item{hourly}{The hourly average of `pars` by hour, day, month and year,
+#'   the time zone is UTC.d}
 #'   \item{daily}{The daily average of `pars` by day, month and year.}
 #'   \item{monthly}{The monthly average of `pars` by month and year.}
 #'   \item{climatology}{Provide parameters as 22-year climatologies (solar)
@@ -192,10 +196,12 @@ get_power <- function(community,
                       wind_surface = NULL,
                       temporal_average = NULL) {
   if (is.null(temporal_api) & !is.null(temporal_average)) {
-    warning(call. = FALSE,
-            "`temporal_average has been deprecated for `temporal_api`.\n",
-            "Your query has been modified to use the new terminology for ",
-            "`get_power`.  Please update your scripts to use the new argument.")
+    warning(
+      call. = FALSE,
+      "`temporal_average has been deprecated for `temporal_api`.\n",
+      "Your query has been modified to use the new terminology for ",
+      "`get_power`.  Please update your scripts to use the new argument."
+    )
     temporal_api <- temporal_average
   }
   if (is.null(temporal_api)) {
@@ -302,7 +308,6 @@ get_power <- function(community,
     wind_surface
   )
 
-  # constructs URL from url defined in zzz.R and the temporal_api and community
   power_url <- paste0(
     "https://power.larc.nasa.gov/api/temporal/",
     temporal_api,
@@ -314,6 +319,8 @@ get_power <- function(community,
     .send_query(.query_list = query_list,
                 .temporal_api = temporal_api,
                 .url = power_url)
+
+  response$raise_for_status()
 
   # create meta object
   power_data <- readr::read_lines(response$parse("UTF8"))
@@ -335,7 +342,7 @@ get_power <- function(community,
   power_data <- readr::read_csv(
     response$parse("UTF8"),
     col_types = readr::cols(),
-    na = c("-999", "-99", "-99.00"),
+    na = c("-999", "-999.00", "-999.0", "-99", "-99.00", "-99.0"),
     skip = length(meta) + 2
   )
 
@@ -606,7 +613,6 @@ get_power <- function(community,
                          site_elevation,
                          wind_elevation,
                          wind_surface) {
-
   user_agent <- paste0("nasapower",
                        gsub(
                          pattern = "\\.",
@@ -673,18 +679,19 @@ get_power <- function(community,
   power_response$DOY <- as.integer(power_response$DOY)
 
   # Calculate the full date from YEAR and DOY
-  power_response <- tibble::add_column(power_response,
-                             YYYYMMDD = as.Date(power_response$DOY - 1,
-                                                origin = as.Date(paste(
-                                                  power_response$YEAR, "-01-01",
-                                                  sep = ""
-                                                ))),
-                             .after = "DOY")
+  power_response <- tibble::add_column(
+    power_response,
+    YYYYMMDD = as.Date(power_response$DOY - 1,
+                       origin = as.Date(
+                         paste(power_response$YEAR, "-01-01",
+                               sep = "")
+                       )),
+    .after = "DOY"
+  )
 
   # Extract month as integer
   power_response <- tibble::add_column(power_response,
-                                       MM = as.integer(
-                                         substr(power_response$YYYYMMDD, 6, 7)),
+                                       MM = as.integer(substr(power_response$YYYYMMDD, 6, 7)),
                                        .after = "YEAR")
 
   # Extract day as integer
@@ -713,11 +720,14 @@ get_power <- function(community,
   # add day of year col
   power_response$YYYYMMDD <-
     as.Date(
-      paste(power_response$DD,
-            power_response$MM,
-            power_response$YEAR,
-            sep = "-"),
-            format = "%d-%m-%Y")
+      paste(
+        power_response$DD,
+        power_response$MM,
+        power_response$YEAR,
+        sep = "-"
+      ),
+      format = "%d-%m-%Y"
+    )
   power_response$DOY <- lubridate::yday(power_response$YYYYMMDD)
 
   # set integer cols

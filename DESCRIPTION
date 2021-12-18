@@ -1,7 +1,7 @@
 Package: nasapower
 Type: Package
 Title: NASA POWER API Client
-Version: 4.0.0
+Version: 4.0.3
 Authors@R: 
     c(person(given = "Adam H.",
             family = "Sparks",
@@ -32,14 +32,21 @@ Authors@R:
             comment = c(ORCID = "0000-0002-4627-8329",
                         "Fernando Miguez provided assistance in identifying
                         improper missing value handling in the POWER data, see 
-                        <https://github.com/femiguez/apsimx/pull/26>")))
+                        <https://github.com/femiguez/apsimx/pull/26>")),
+     person(given = "Maëlle",
+            family = "Salmon",
+            role = "ctb",
+            comment = c(ORCID = "0000-0002-2815-0399",
+                        "Maëlle Salmon contributed a patch to fix issues with
+                        using the R package, 'vcr', for testing the 'API'
+                        queries, see
+                        https://github.com/ropensci/nasapower/pull/64.")))
 URL: https://docs.ropensci.org/nasapower/
 BugReports: https://github.com/ropensci/nasapower/issues
 Description: Client for 'NASA' 'POWER' global meteorology, surface solar
     energy and climatology data 'API'.  'POWER' (Prediction Of Worldwide Energy 
-    Resource) data are freely available for download with a spatial resolution 
-    of 0.5 x 0.625 degree latitude and longitude for meteorology and  1 x 1
-    degree latitude and longitude for solar parameters with various temporal
+    Resource) data are freely available for download with varying spatial
+    resolutions dependent on the original data and with several temporal
     resolutions depending on the POWER parameter and community.  This work is
     funded through the 'NASA' Earth Science Directorate Applied Science Program.
     For more on the data themselves, the methodologies used in creating, a web-
@@ -47,19 +54,19 @@ Description: Client for 'NASA' 'POWER' global meteorology, surface solar
 Depends: R (>= 3.5.0)
 License: MIT + file LICENSE
 Imports: crul, lubridate, jsonlite, readr, tibble
-RoxygenNote: 7.1.1.9001
+RoxygenNote: 7.1.2
 Encoding: UTF-8
 Language: en-US
 NeedsCompilation: no
 Repository: CRAN
-Suggests: knitr, rmarkdown, testthat, spelling
+Suggests: knitr, purrr, ratelimitr, rmarkdown, spelling, testthat, vcr
 VignetteBuilder: knitr
 X-schema.org-applicationCategory: Tools
 X-schema.org-keywords: NASA, meteorological-data, weather, global,
         weather, weather-data, meteorology, NASA-POWER,
         agroclimatology, earth-science, data-access, climate-data
 X-schema.org-isPartOf: https://ropensci.org
-Packaged: 2021-08-21 02:34:16 UTC; adamsparks
+Packaged: 2021-12-18 13:38:55 UTC; adamsparks
 Author: Adam H. Sparks [aut, cre] (<https://orcid.org/0000-0002-0061-8359>),
   Scott Chamberlain [rev] (<https://orcid.org/0000-0003-1444-9135>, Scott
     Chamberlain reviewed nasapower for rOpenSci, see
@@ -71,6 +78,10 @@ Author: Adam H. Sparks [aut, cre] (<https://orcid.org/0000-0002-0061-8359>),
   Fernando Miguez [ctb] (<https://orcid.org/0000-0002-4627-8329>,
     Fernando Miguez provided assistance in identifying improper missing
     value handling in the POWER data, see
-    <https://github.com/femiguez/apsimx/pull/26>)
+    <https://github.com/femiguez/apsimx/pull/26>),
+  Maëlle Salmon [ctb] (<https://orcid.org/0000-0002-2815-0399>, Maëlle
+    Salmon contributed a patch to fix issues with using the R package,
+    'vcr', for testing the 'API' queries, see
+    https://github.com/ropensci/nasapower/pull/64.)
 Maintainer: Adam H. Sparks <adamhsparks@gmail.com>
-Date/Publication: 2021-08-23 06:50:02 UTC
+Date/Publication: 2021-12-18 14:00:02 UTC

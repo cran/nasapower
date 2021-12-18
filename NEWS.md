@@ -1,3 +1,38 @@
+# nasapower 4.0.3
+
+## Minor changes
+
+* Fixes tests that should use _vcr_ or be skipped on CRAN.
+
+# nasapower 4.0.2
+
+## Minor changes
+
+* Update checks for number of parameters requested by user, maximum of 15 for hourly and 20 for all other temporal APIs.
+
+* Return API messages to user to assist with troubleshooting when an error occurs server-side, see [Issue 55](https://github.com/ropensci/nasapower/issues/55).
+
+* The list of POWER parameters that can be queried from the API, `parameters`, is now in alphabetical order.
+
+* Add paragraph to vignette describing how to work with possible rate limiting by API endpoints using _ratelimitr_.
+This is in place of internally rate-limiting due to the way _ratelimitr_ handles function creation and the fact that the rate limits are extremely generous and may change as the project matures.
+
+# nasapower 4.0.1 (unreleased on CRAN)
+
+## Bug fixes
+
+* Fixes a bug in where `NA` values were improperly handled.
+Thanks to [@femiguez](https://github.com/femiguez) for the [Pull Request with the fix](https://github.com/ropensci/nasapower/pull/56).
+
+## Minor changes
+
+* Enforces API limits client-side where the API limits unique queries to 30 per 60 seconds as found and reported by [@camwur](https://github.com/camwur) in [Issue 57](https://github.com/ropensci/nasapower/issues/57).
+This can be adjusted in future releases of _nasapower_ if the POWER API changes as has been indicated is possible.
+
+* (Re)enables _vcr_ for better unit testing.
+
+* More comprehensive unit tests.
+
 # nasapower 4.0.0
 
 ## Major changes

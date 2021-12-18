@@ -1,11 +1,10 @@
-*nasapower*: NASA POWER API Client
-<img align='right' src='man/figures/logo.png'>
-================
+
+# *nasapower*: NASA POWER API Client <img align='right' src='man/figures/logo.png'>
 
 <!-- badges: start -->
 
-[![tic](https://github.com/ropensci/nasapower/workflows/tic/badge.svg?branch=master)](https://github.com/ropensci/nasapower/actions)
-[![codecov](https://codecov.io/gh/ropensci/nasapower/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/nasapower)
+[![tic](https://github.com/ropensci/nasapower/workflows/tic/badge.svg?branch=main)](https://github.com/ropensci/nasapower/actions)
+[![codecov](https://app.codecov.io/gh/ropensci/nasapower/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ropensci/nasapower)
 [![DOI](https://zenodo.org/badge/109224461.svg)](https://zenodo.org/badge/latestdoi/109224461)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
@@ -20,10 +19,9 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 solar energy and climatology data in your R session as a tidy data frame
 `tibble` object for analysis and use in modelling or other purposes.
 POWER (Prediction Of Worldwide Energy Resource) data are freely
-available for download with a spatial resolution of 0.5 x 0.625 degree
-latitude and longitude for meteorology and 1 x 1 degree latitude and
-longitude for solar parameters with various temporal resolutions
-depending on the POWER parameter and community.
+available for download with varying spatial resolutions dependent on the
+original data and with several temporal resolutions depending on the
+POWER parameter and community.
 
 **Note that the data are not static and may be replaced with improved
 data.** Please see <https://power.larc.nasa.gov/docs/services/> for
@@ -35,10 +33,7 @@ detailed information in this regard.
 
 #### From CRAN
 
-~~The stable version is available through CRAN.~~
-
-**The current version on CRAN is out of date with the new POWER API
-V2.**
+The stable version is available through CRAN.
 
 ``` r
 install.packages("nasapower")
@@ -59,7 +54,8 @@ remotes::install_github("ropensci/nasapower")
 ### Example
 
 Fetch daily “ag” community temperature, relative humidity and
-precipitation for January 1 1985 for Kingsthorpe, Queensland, Australia.
+precipitation for January 1, 1985 for Kingsthorpe, Queensland,
+Australia.
 
 ``` r
 library("nasapower")
@@ -74,7 +70,7 @@ daily_ag
 
     ## NASA/POWER CERES/MERRA2 Native Resolution Daily Data  
     ##  Dates (month/day/year): 01/01/1985 through 01/01/1985  
-    ##  Location: Latitude  -27.48   Longitude 151.8  
+    ##  Location: Latitude  -27.48   Longitude 151.81  
     ##  Elevation from MERRA-2: Average for 0.5 x 0.625 degree lat/lon region = 442.77 meters 
     ##  Value for missing model data cannot be computed or out of model availability range: NA  
     ##  Parameter(s):  
@@ -82,12 +78,12 @@ daily_ag
     ##  Parameters: 
     ##  RH2M            MERRA-2 Relative Humidity at 2 Meters (%) ;
     ##  T2M             MERRA-2 Temperature at 2 Meters (C) ;
-    ##  PRECTOTCORR     MERRA-2 Precipitation Corrected (mm)  
+    ##  PRECTOTCORR     MERRA-2 Precipitation Corrected (mm/day)  
     ##  
     ## # A tibble: 1 × 10
     ##     LON   LAT  YEAR    MM    DD   DOY YYYYMMDD    RH2M   T2M PRECTOTCORR
     ##   <dbl> <dbl> <dbl> <int> <int> <int> <date>     <dbl> <dbl>       <dbl>
-    ## 1  152. -27.5  1985     1     1     1 1985-01-01  54.7  24.9           0
+    ## 1  152. -27.5  1985     1     1     1 1985-01-01  54.7  24.9         0.9
 
 ## Documentation
 
@@ -118,7 +114,7 @@ Team.
 
 -   Please note that the *nasapower* project is released with a
     [Contributor Code of
-    Conduct](https://github.com/ropensci/nasapower/blob/master/CONDUCT.md).
+    Conduct](https://github.com/ropensci/nasapower/blob/main/CODE_OF_CONDUCT.md).
     By participating in the *nasapower* project you agree to abide by
     its terms.
 

@@ -58,7 +58,8 @@ request, see
 wind-speed is to be supplied.  See \code{wind-surface} section for more detail.}
 
 \item{temporal_average}{Deprecated. This argument has been superseded by
-\code{temporal_api} to align with the new POWER API terminology.}
+\code{temporal_api} to align with the new \acronym{POWER} \acronym{API}
+terminology.}
 }
 \value{
 A data frame as a \code{POWER.Info} class, an extension of the
@@ -72,7 +73,9 @@ climatology data and return a tidy data frame \code{\link[tibble:tibble]{tibble:
 object.  All options offered by the official \acronym{POWER} \acronym{API}
 are supported.  Requests are formed to submit one request per point.  There
 is no need to make synchronous requests for multiple parameters for a
-single point or regional request.
+single point or regional request.  Requests are limited to 30 unique
+requests per 60 seconds.  \CRANpkg{nasapower} attempts to enforce this
+client-side.
 }
 \note{
 The associated metadata shown in the decorative header are not saved if
@@ -81,7 +84,7 @@ the data are exported to a file format other than a native \R data format,
 }
 \section{Argument details for \dQuote{community}}{
  there are three valid
-values, one must be supplied.  This  will affect the units of the parameter
+values, one must be supplied. This  will affect the units of the parameter
 and the temporal display of time series data.
 
 \describe{
@@ -101,7 +104,8 @@ powered renewable energy systems.}
 \section{Argument details for \code{temporal_api}}{
  There are four valid values.
 \describe{
-\item{hourly}{The hourly average of \code{pars} by hour, day, month and year.}
+\item{hourly}{The hourly average of \code{pars} by hour, day, month and year,
+the time zone is UTC.d}
 \item{daily}{The daily average of \code{pars} by day, month and year.}
 \item{monthly}{The monthly average of \code{pars} by month and year.}
 \item{climatology}{Provide parameters as 22-year climatologies (solar)
