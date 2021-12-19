@@ -1,7 +1,7 @@
 Package: nasapower
 Type: Package
 Title: NASA POWER API Client
-Version: 4.0.3
+Version: 4.0.2
 Authors@R: 
     c(person(given = "Adam H.",
             family = "Sparks",
@@ -66,7 +66,7 @@ X-schema.org-keywords: NASA, meteorological-data, weather, global,
         weather, weather-data, meteorology, NASA-POWER,
         agroclimatology, earth-science, data-access, climate-data
 X-schema.org-isPartOf: https://ropensci.org
-Packaged: 2021-12-18 13:38:55 UTC; adamsparks
+Packaged: 2021-12-18 13:02:17 UTC; adamsparks
 Author: Adam H. Sparks [aut, cre] (<https://orcid.org/0000-0002-0061-8359>),
   Scott Chamberlain [rev] (<https://orcid.org/0000-0003-1444-9135>, Scott
     Chamberlain reviewed nasapower for rOpenSci, see
@@ -84,4 +84,4 @@ Author: Adam H. Sparks [aut, cre] (<https://orcid.org/0000-0002-0061-8359>),
     'vcr', for testing the 'API' queries, see
     https://github.com/ropensci/nasapower/pull/64.)
 Maintainer: Adam H. Sparks <adamhsparks@gmail.com>
-Date/Publication: 2021-12-18 14:00:02 UTC
+Date/Publication: 2021-12-19 01:10:08 UTC
