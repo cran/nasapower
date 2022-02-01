@@ -191,19 +191,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  PRECTOTCORR     MERRA-2 Precipitation Corrected (mm/day)  </span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 31 × 10</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      LON   LAT  YEAR    MM    DD   DOY YYYYMMDD    RH2M   T2M</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1  152. -27.5  1985     1     1     1 1985-01-01  54.7  24.9</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2  152. -27.5  1985     1     2     2 1985-01-02  42.1  28.6</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3  152. -27.5  1985     1     3     3 1985-01-03  43.4  27.4</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4  152. -27.5  1985     1     4     4 1985-01-04  48.9  24.3</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5  152. -27.5  1985     1     5     5 1985-01-05  55.3  26.5</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6  152. -27.5  1985     1     6     6 1985-01-06  60.2  27.0</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7  152. -27.5  1985     1     7     7 1985-01-07  63.1  27.2</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8  152. -27.5  1985     1     8     8 1985-01-08  70.6  24.9</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9  152. -27.5  1985     1     9     9 1985-01-09  60    26.1</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10  152. -27.5  1985     1    10    10 1985-01-10  45.2  27.0</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 21 more rows, and 1 more variable: PRECTOTCORR &lt;dbl&gt;</span></span></code></pre></div>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      LON   LAT  YEAR    MM    DD   DOY YYYYMMDD    RH2M   T2M PRECTOTCORR</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1  152. -27.5  1985     1     1     1 1985-01-01  54.7  24.9        0.9 </span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2  152. -27.5  1985     1     2     2 1985-01-02  42.1  28.6        0.49</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3  152. -27.5  1985     1     3     3 1985-01-03  43.4  27.4        0.01</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4  152. -27.5  1985     1     4     4 1985-01-04  48.9  24.3        0.05</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5  152. -27.5  1985     1     5     5 1985-01-05  55.3  26.5        1.33</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6  152. -27.5  1985     1     6     6 1985-01-06  60.2  27.0        4.88</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7  152. -27.5  1985     1     7     7 1985-01-07  63.1  27.2       10.7 </span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8  152. -27.5  1985     1     8     8 1985-01-08  70.6  24.9       10   </span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9  152. -27.5  1985     1     9     9 1985-01-09  60    26.1        2.45</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10  152. -27.5  1985     1    10    10 1985-01-10  45.2  27.0        0.48</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 21 more rows</span></span></code></pre></div>
 </div>
 <div id="example-fetching-daily-data-for-an-area" class="section level3">
 <h3>Example fetching daily data for an area</h3>
@@ -268,21 +268,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  CLRSKY_SFC_SW_DWN     CERES SYN1deg Clear Sky Surface Shortwave Downward Irradiance (kW-hr/m^2/day)  </span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 144 × 17</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    PARAMETER    YEAR   LAT   LON   JAN   FEB   MAR   APR   MAY</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 ALLSKY_SFC…  1984 -25.8  151.  6.01  6.49  5.79  4.67  4.12</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 ALLSKY_SFC…  1984 -25.8  151.  5.92  5.97  5.64  4.37  4.01</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 ALLSKY_SFC…  1984 -25.8  152.  5.92  5.97  5.64  4.37  4.01</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 ALLSKY_SFC…  1984 -25.8  152.  5.96  5.85  5.56  4.26  3.92</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 ALLSKY_SFC…  1984 -25.8  153.  5.96  5.85  5.56  4.26  3.92</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 ALLSKY_SFC…  1984 -25.8  153.  6.23  6.05  5.88  4.26  3.81</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 ALLSKY_SFC…  1984 -26.2  151.  5.97  6.65  6     4.66  4.02</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 ALLSKY_SFC…  1984 -26.2  151.  6     6.38  5.71  4.38  4.01</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 ALLSKY_SFC…  1984 -26.2  152.  6     6.38  5.71  4.38  4.01</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 ALLSKY_SFC…  1984 -26.2  152.  5.75  5.96  5.37  4.13  3.8 </span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 134 more rows, and 8 more variables: JUN &lt;dbl&gt;,</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   JUL &lt;dbl&gt;, AUG &lt;dbl&gt;, SEP &lt;dbl&gt;, OCT &lt;dbl&gt;, NOV &lt;dbl&gt;,</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   DEC &lt;dbl&gt;, ANN &lt;dbl&gt;</span></span></code></pre></div>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    PARAMETER     YEAR   LAT   LON   JAN   FEB   MAR   APR   MAY   JUN   JUL</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 ALLSKY_SFC_…  1984 -25.8  151.  6.01  6.49  5.79  4.67  4.12  3.77  2.46</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 ALLSKY_SFC_…  1984 -25.8  151.  5.92  5.97  5.64  4.37  4.01  3.61  2.6 </span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 ALLSKY_SFC_…  1984 -25.8  152.  5.92  5.97  5.64  4.37  4.01  3.61  2.6 </span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 ALLSKY_SFC_…  1984 -25.8  152.  5.96  5.85  5.56  4.26  3.92  3.52  2.66</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 ALLSKY_SFC_…  1984 -25.8  153.  5.96  5.85  5.56  4.26  3.92  3.52  2.66</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 ALLSKY_SFC_…  1984 -25.8  153.  6.23  6.05  5.88  4.26  3.81  3.3   2.96</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 ALLSKY_SFC_…  1984 -26.2  151.  5.97  6.65  6     4.66  4.02  3.72  2.28</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 ALLSKY_SFC_…  1984 -26.2  151.  6     6.38  5.71  4.38  4.01  3.66  2.17</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 ALLSKY_SFC_…  1984 -26.2  152.  6     6.38  5.71  4.38  4.01  3.66  2.17</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 ALLSKY_SFC_…  1984 -26.2  152.  5.75  5.96  5.37  4.13  3.8   3.44  2.38</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 134 more rows, and 6 more variables: AUG &lt;dbl&gt;, SEP &lt;dbl&gt;,</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   OCT &lt;dbl&gt;, NOV &lt;dbl&gt;, DEC &lt;dbl&gt;, ANN &lt;dbl&gt;</span></span></code></pre></div>
 </div>
 <div id="example-fetching-climatology-data" class="section level3">
 <h3>Example fetching climatology data</h3>
@@ -297,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>climatology_ag</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NASA/POWER CERES/MERRA2 Native Resolution Climatology Climatologies  </span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  30-year Meteorological and Solar Monthly &amp; Annual Climatologies (January 1990 - December 2019)  </span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  20-year Meteorological and Solar Monthly &amp; Annual Climatologies (January 2001 - December 2020)  </span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Location: Latitude  -27.48   Longitude 151.81  </span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Elevation from MERRA-2: Average for 0.5 x 0.625 degree lat/lon region = 442.77 meters </span></span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Value for missing model data cannot be computed or out of model availability range: NA  </span></span>
@@ -308,12 +307,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  RH2M     MERRA-2 Relative Humidity at 2 Meters (%)  </span></span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 16</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     LON   LAT PARAMETER   JAN   FEB   MAR   APR   MAY   JUN</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  152. -27.5 T2M        24.3  23.5  21.8  18.7  15.1  12.2</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  152. -27.5 RH2M       65.5  70.1  70.4  70.1  71.8  75.5</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 7 more variables: JUL &lt;dbl&gt;, AUG &lt;dbl&gt;, SEP &lt;dbl&gt;,</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   OCT &lt;dbl&gt;, NOV &lt;dbl&gt;, DEC &lt;dbl&gt;, ANN &lt;dbl&gt;</span></span></code></pre></div>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     LON   LAT PARAMETER   JAN   FEB   MAR   APR   MAY   JUN   JUL   AUG</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  152. -27.5 T2M        24.7  23.7  22.0  19.0  15.1  12.6  11.6  13.1</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  152. -27.5 RH2M       64.7  69.6  71.1  70.5  69.1  75.1  70.4  63.1</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 5 more variables: SEP &lt;dbl&gt;, OCT &lt;dbl&gt;, NOV &lt;dbl&gt;, DEC &lt;dbl&gt;,</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   ANN &lt;dbl&gt;</span></span></code></pre></div>
 <p><em>Note</em> the associated metadata in the data frame header are not saved if the data are exported to a file format other than an R data format, <em>e.g.</em>, .Rdata, .rda or .rds.</p>
 </div>
 </div>
@@ -1490,584 +1489,555 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-1073"><a href="#cb7-1073" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The diffuse (light energy scattered out of the direction of the sun) solar irradiance incident on a horizontal plane at the surface of the earth under clear sky conditions.&quot;</span></span>
 <span id="cb7-1074"><a href="#cb7-1074" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1075"><a href="#cb7-1075" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1076"><a href="#cb7-1076" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DIRH</span></span>
-<span id="cb7-1077"><a href="#cb7-1077" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DIRH$type</span></span>
+<span id="cb7-1076"><a href="#cb7-1076" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN</span></span>
+<span id="cb7-1077"><a href="#cb7-1077" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$type</span></span>
 <span id="cb7-1078"><a href="#cb7-1078" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1079"><a href="#cb7-1079" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1080"><a href="#cb7-1080" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DIRH$temporal</span></span>
+<span id="cb7-1080"><a href="#cb7-1080" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$temporal</span></span>
 <span id="cb7-1081"><a href="#cb7-1081" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1082"><a href="#cb7-1082" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1083"><a href="#cb7-1083" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DIRH$source</span></span>
+<span id="cb7-1083"><a href="#cb7-1083" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$source</span></span>
 <span id="cb7-1084"><a href="#cb7-1084" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;CERES&quot;</span></span>
 <span id="cb7-1085"><a href="#cb7-1085" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1086"><a href="#cb7-1086" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DIRH$community</span></span>
+<span id="cb7-1086"><a href="#cb7-1086" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$community</span></span>
 <span id="cb7-1087"><a href="#cb7-1087" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1088"><a href="#cb7-1088" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1089"><a href="#cb7-1089" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DIRH$calculated</span></span>
+<span id="cb7-1089"><a href="#cb7-1089" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$calculated</span></span>
 <span id="cb7-1090"><a href="#cb7-1090" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1091"><a href="#cb7-1091" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1092"><a href="#cb7-1092" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DIRH$inputs</span></span>
+<span id="cb7-1092"><a href="#cb7-1092" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$inputs</span></span>
 <span id="cb7-1093"><a href="#cb7-1093" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1094"><a href="#cb7-1094" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1095"><a href="#cb7-1095" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DIRH$units</span></span>
-<span id="cb7-1096"><a href="#cb7-1096" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;MJ/m^2/day&quot;</span></span>
+<span id="cb7-1095"><a href="#cb7-1095" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$units</span></span>
+<span id="cb7-1096"><a href="#cb7-1096" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;MJ/hr&quot;</span></span>
 <span id="cb7-1097"><a href="#cb7-1097" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1098"><a href="#cb7-1098" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DIRH$name</span></span>
-<span id="cb7-1099"><a href="#cb7-1099" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Clear Sky Surface Shortwave Direct Horizontal Irradiance&quot;</span></span>
+<span id="cb7-1098"><a href="#cb7-1098" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$name</span></span>
+<span id="cb7-1099"><a href="#cb7-1099" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Clear Sky Surface Shortwave Downward Irradiance&quot;</span></span>
 <span id="cb7-1100"><a href="#cb7-1100" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1101"><a href="#cb7-1101" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DIRH$definition</span></span>
-<span id="cb7-1102"><a href="#cb7-1102" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The direct solar irradiance incident on a horizontal plane at the surface of the earth under clear sky conditions.&quot;</span></span>
+<span id="cb7-1101"><a href="#cb7-1101" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$definition</span></span>
+<span id="cb7-1102"><a href="#cb7-1102" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The total solar irradiance incident (direct plus diffuse) on a horizontal plane at the surface of the earth under clear sky conditions. An alternative term for the total solar irradiance is the \&quot;Global Horizontal Irradiance\&quot; or GHI.&quot;</span></span>
 <span id="cb7-1103"><a href="#cb7-1103" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1104"><a href="#cb7-1104" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1105"><a href="#cb7-1105" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN</span></span>
-<span id="cb7-1106"><a href="#cb7-1106" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$type</span></span>
+<span id="cb7-1105"><a href="#cb7-1105" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW</span></span>
+<span id="cb7-1106"><a href="#cb7-1106" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$type</span></span>
 <span id="cb7-1107"><a href="#cb7-1107" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1108"><a href="#cb7-1108" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1109"><a href="#cb7-1109" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$temporal</span></span>
+<span id="cb7-1109"><a href="#cb7-1109" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$temporal</span></span>
 <span id="cb7-1110"><a href="#cb7-1110" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1111"><a href="#cb7-1111" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1112"><a href="#cb7-1112" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$source</span></span>
+<span id="cb7-1112"><a href="#cb7-1112" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$source</span></span>
 <span id="cb7-1113"><a href="#cb7-1113" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;CERES&quot;</span></span>
 <span id="cb7-1114"><a href="#cb7-1114" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1115"><a href="#cb7-1115" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$community</span></span>
+<span id="cb7-1115"><a href="#cb7-1115" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$community</span></span>
 <span id="cb7-1116"><a href="#cb7-1116" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1117"><a href="#cb7-1117" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1118"><a href="#cb7-1118" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$calculated</span></span>
+<span id="cb7-1118"><a href="#cb7-1118" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$calculated</span></span>
 <span id="cb7-1119"><a href="#cb7-1119" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1120"><a href="#cb7-1120" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1121"><a href="#cb7-1121" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$inputs</span></span>
+<span id="cb7-1121"><a href="#cb7-1121" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$inputs</span></span>
 <span id="cb7-1122"><a href="#cb7-1122" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1123"><a href="#cb7-1123" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1124"><a href="#cb7-1124" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$units</span></span>
-<span id="cb7-1125"><a href="#cb7-1125" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;MJ/hr&quot;</span></span>
+<span id="cb7-1124"><a href="#cb7-1124" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$units</span></span>
+<span id="cb7-1125"><a href="#cb7-1125" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;cm&quot;</span></span>
 <span id="cb7-1126"><a href="#cb7-1126" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1127"><a href="#cb7-1127" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$name</span></span>
-<span id="cb7-1128"><a href="#cb7-1128" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Clear Sky Surface Shortwave Downward Irradiance&quot;</span></span>
+<span id="cb7-1127"><a href="#cb7-1127" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$name</span></span>
+<span id="cb7-1128"><a href="#cb7-1128" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Precipitable Water&quot;</span></span>
 <span id="cb7-1129"><a href="#cb7-1129" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1130"><a href="#cb7-1130" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DWN$definition</span></span>
-<span id="cb7-1131"><a href="#cb7-1131" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The total solar irradiance incident (direct plus diffuse) on a horizontal plane at the surface of the earth under clear sky conditions. An alternative term for the total solar irradiance is the \&quot;Global Horizontal Irradiance\&quot; or GHI.&quot;</span></span>
+<span id="cb7-1130"><a href="#cb7-1130" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$definition</span></span>
+<span id="cb7-1131"><a href="#cb7-1131" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The total atmospheric water vapor contained in a vertical column of the atmosphere.&quot;</span></span>
 <span id="cb7-1132"><a href="#cb7-1132" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1133"><a href="#cb7-1133" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1134"><a href="#cb7-1134" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW</span></span>
-<span id="cb7-1135"><a href="#cb7-1135" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$type</span></span>
+<span id="cb7-1134"><a href="#cb7-1134" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA</span></span>
+<span id="cb7-1135"><a href="#cb7-1135" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$type</span></span>
 <span id="cb7-1136"><a href="#cb7-1136" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1137"><a href="#cb7-1137" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1138"><a href="#cb7-1138" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$temporal</span></span>
+<span id="cb7-1138"><a href="#cb7-1138" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$temporal</span></span>
 <span id="cb7-1139"><a href="#cb7-1139" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1140"><a href="#cb7-1140" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1141"><a href="#cb7-1141" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$source</span></span>
+<span id="cb7-1141"><a href="#cb7-1141" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$source</span></span>
 <span id="cb7-1142"><a href="#cb7-1142" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;CERES&quot;</span></span>
 <span id="cb7-1143"><a href="#cb7-1143" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1144"><a href="#cb7-1144" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$community</span></span>
+<span id="cb7-1144"><a href="#cb7-1144" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$community</span></span>
 <span id="cb7-1145"><a href="#cb7-1145" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1146"><a href="#cb7-1146" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1147"><a href="#cb7-1147" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$calculated</span></span>
+<span id="cb7-1147"><a href="#cb7-1147" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$calculated</span></span>
 <span id="cb7-1148"><a href="#cb7-1148" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1149"><a href="#cb7-1149" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1150"><a href="#cb7-1150" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$inputs</span></span>
+<span id="cb7-1150"><a href="#cb7-1150" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$inputs</span></span>
 <span id="cb7-1151"><a href="#cb7-1151" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1152"><a href="#cb7-1152" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1153"><a href="#cb7-1153" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$units</span></span>
-<span id="cb7-1154"><a href="#cb7-1154" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;cm&quot;</span></span>
+<span id="cb7-1153"><a href="#cb7-1153" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$units</span></span>
+<span id="cb7-1154"><a href="#cb7-1154" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Degrees&quot;</span></span>
 <span id="cb7-1155"><a href="#cb7-1155" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1156"><a href="#cb7-1156" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$name</span></span>
-<span id="cb7-1157"><a href="#cb7-1157" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Precipitable Water&quot;</span></span>
+<span id="cb7-1156"><a href="#cb7-1156" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$name</span></span>
+<span id="cb7-1157"><a href="#cb7-1157" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Solar Zenith Angle&quot;</span></span>
 <span id="cb7-1158"><a href="#cb7-1158" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1159"><a href="#cb7-1159" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $PW$definition</span></span>
-<span id="cb7-1160"><a href="#cb7-1160" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The total atmospheric water vapor contained in a vertical column of the atmosphere.&quot;</span></span>
+<span id="cb7-1159"><a href="#cb7-1159" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$definition</span></span>
+<span id="cb7-1160"><a href="#cb7-1160" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The angle between the geodetic zenith vector and a vector from the earth point to the sun integrated over the period.&quot;</span></span>
 <span id="cb7-1161"><a href="#cb7-1161" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1162"><a href="#cb7-1162" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1163"><a href="#cb7-1163" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA</span></span>
-<span id="cb7-1164"><a href="#cb7-1164" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$type</span></span>
+<span id="cb7-1163"><a href="#cb7-1163" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN</span></span>
+<span id="cb7-1164"><a href="#cb7-1164" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$type</span></span>
 <span id="cb7-1165"><a href="#cb7-1165" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1166"><a href="#cb7-1166" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1167"><a href="#cb7-1167" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$temporal</span></span>
+<span id="cb7-1167"><a href="#cb7-1167" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$temporal</span></span>
 <span id="cb7-1168"><a href="#cb7-1168" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1169"><a href="#cb7-1169" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1170"><a href="#cb7-1170" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$source</span></span>
+<span id="cb7-1170"><a href="#cb7-1170" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$source</span></span>
 <span id="cb7-1171"><a href="#cb7-1171" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;CERES&quot;</span></span>
 <span id="cb7-1172"><a href="#cb7-1172" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1173"><a href="#cb7-1173" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$community</span></span>
+<span id="cb7-1173"><a href="#cb7-1173" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$community</span></span>
 <span id="cb7-1174"><a href="#cb7-1174" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1175"><a href="#cb7-1175" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1176"><a href="#cb7-1176" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$calculated</span></span>
+<span id="cb7-1176"><a href="#cb7-1176" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$calculated</span></span>
 <span id="cb7-1177"><a href="#cb7-1177" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1178"><a href="#cb7-1178" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1179"><a href="#cb7-1179" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$inputs</span></span>
+<span id="cb7-1179"><a href="#cb7-1179" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$inputs</span></span>
 <span id="cb7-1180"><a href="#cb7-1180" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1181"><a href="#cb7-1181" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1182"><a href="#cb7-1182" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$units</span></span>
-<span id="cb7-1183"><a href="#cb7-1183" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Degrees&quot;</span></span>
+<span id="cb7-1182"><a href="#cb7-1182" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$units</span></span>
+<span id="cb7-1183"><a href="#cb7-1183" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;MJ/hr&quot;</span></span>
 <span id="cb7-1184"><a href="#cb7-1184" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1185"><a href="#cb7-1185" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$name</span></span>
-<span id="cb7-1186"><a href="#cb7-1186" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Solar Zenith Angle&quot;</span></span>
+<span id="cb7-1185"><a href="#cb7-1185" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$name</span></span>
+<span id="cb7-1186"><a href="#cb7-1186" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Top-Of-Atmosphere Shortwave Downward Irradiance&quot;</span></span>
 <span id="cb7-1187"><a href="#cb7-1187" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1188"><a href="#cb7-1188" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $SZA$definition</span></span>
-<span id="cb7-1189"><a href="#cb7-1189" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The angle between the geodetic zenith vector and a vector from the earth point to the sun integrated over the period.&quot;</span></span>
+<span id="cb7-1188"><a href="#cb7-1188" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$definition</span></span>
+<span id="cb7-1189"><a href="#cb7-1189" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The total solar irradiance incident (direct plus diffuse) on a horizontal plane at the top of the atmosphere (extraterrestrial radiation).&quot;</span></span>
 <span id="cb7-1190"><a href="#cb7-1190" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1191"><a href="#cb7-1191" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1192"><a href="#cb7-1192" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN</span></span>
-<span id="cb7-1193"><a href="#cb7-1193" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$type</span></span>
+<span id="cb7-1192"><a href="#cb7-1192" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT</span></span>
+<span id="cb7-1193"><a href="#cb7-1193" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$type</span></span>
 <span id="cb7-1194"><a href="#cb7-1194" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1195"><a href="#cb7-1195" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1196"><a href="#cb7-1196" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$temporal</span></span>
+<span id="cb7-1196"><a href="#cb7-1196" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$temporal</span></span>
 <span id="cb7-1197"><a href="#cb7-1197" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1198"><a href="#cb7-1198" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1199"><a href="#cb7-1199" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$source</span></span>
-<span id="cb7-1200"><a href="#cb7-1200" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;CERES&quot;</span></span>
+<span id="cb7-1199"><a href="#cb7-1199" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$source</span></span>
+<span id="cb7-1200"><a href="#cb7-1200" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POWER&quot;</span></span>
 <span id="cb7-1201"><a href="#cb7-1201" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1202"><a href="#cb7-1202" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$community</span></span>
+<span id="cb7-1202"><a href="#cb7-1202" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$community</span></span>
 <span id="cb7-1203"><a href="#cb7-1203" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1204"><a href="#cb7-1204" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1205"><a href="#cb7-1205" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$calculated</span></span>
+<span id="cb7-1205"><a href="#cb7-1205" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$calculated</span></span>
 <span id="cb7-1206"><a href="#cb7-1206" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1207"><a href="#cb7-1207" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1208"><a href="#cb7-1208" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$inputs</span></span>
+<span id="cb7-1208"><a href="#cb7-1208" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$inputs</span></span>
 <span id="cb7-1209"><a href="#cb7-1209" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1210"><a href="#cb7-1210" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1211"><a href="#cb7-1211" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$units</span></span>
-<span id="cb7-1212"><a href="#cb7-1212" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;MJ/hr&quot;</span></span>
+<span id="cb7-1211"><a href="#cb7-1211" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$units</span></span>
+<span id="cb7-1212"><a href="#cb7-1212" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;dimensionless&quot;</span></span>
 <span id="cb7-1213"><a href="#cb7-1213" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1214"><a href="#cb7-1214" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$name</span></span>
-<span id="cb7-1215"><a href="#cb7-1215" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Top-Of-Atmosphere Shortwave Downward Irradiance&quot;</span></span>
+<span id="cb7-1214"><a href="#cb7-1214" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$name</span></span>
+<span id="cb7-1215"><a href="#cb7-1215" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;All Sky Insolation Clearness Index&quot;</span></span>
 <span id="cb7-1216"><a href="#cb7-1216" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1217"><a href="#cb7-1217" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DWN$definition</span></span>
-<span id="cb7-1218"><a href="#cb7-1218" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The total solar irradiance incident (direct plus diffuse) on a horizontal plane at the top of the atmosphere (extraterrestrial radiation).&quot;</span></span>
+<span id="cb7-1217"><a href="#cb7-1217" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$definition</span></span>
+<span id="cb7-1218"><a href="#cb7-1218" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;A fraction representing clearness of the atmosphere; the all sky insolation that is transmitted through the atmosphere to strike the surface of the earth divided by the average of top of the atmosphere total solar irradiance incident.&quot;</span></span>
 <span id="cb7-1219"><a href="#cb7-1219" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1220"><a href="#cb7-1220" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1221"><a href="#cb7-1221" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT</span></span>
-<span id="cb7-1222"><a href="#cb7-1222" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$type</span></span>
+<span id="cb7-1221"><a href="#cb7-1221" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT</span></span>
+<span id="cb7-1222"><a href="#cb7-1222" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$type</span></span>
 <span id="cb7-1223"><a href="#cb7-1223" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1224"><a href="#cb7-1224" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1225"><a href="#cb7-1225" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$temporal</span></span>
+<span id="cb7-1225"><a href="#cb7-1225" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$temporal</span></span>
 <span id="cb7-1226"><a href="#cb7-1226" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1227"><a href="#cb7-1227" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1228"><a href="#cb7-1228" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$source</span></span>
+<span id="cb7-1228"><a href="#cb7-1228" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$source</span></span>
 <span id="cb7-1229"><a href="#cb7-1229" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POWER&quot;</span></span>
 <span id="cb7-1230"><a href="#cb7-1230" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1231"><a href="#cb7-1231" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$community</span></span>
+<span id="cb7-1231"><a href="#cb7-1231" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$community</span></span>
 <span id="cb7-1232"><a href="#cb7-1232" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1233"><a href="#cb7-1233" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1234"><a href="#cb7-1234" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$calculated</span></span>
+<span id="cb7-1234"><a href="#cb7-1234" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$calculated</span></span>
 <span id="cb7-1235"><a href="#cb7-1235" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1236"><a href="#cb7-1236" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1237"><a href="#cb7-1237" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$inputs</span></span>
+<span id="cb7-1237"><a href="#cb7-1237" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$inputs</span></span>
 <span id="cb7-1238"><a href="#cb7-1238" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1239"><a href="#cb7-1239" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1240"><a href="#cb7-1240" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$units</span></span>
+<span id="cb7-1240"><a href="#cb7-1240" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$units</span></span>
 <span id="cb7-1241"><a href="#cb7-1241" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;dimensionless&quot;</span></span>
 <span id="cb7-1242"><a href="#cb7-1242" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1243"><a href="#cb7-1243" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$name</span></span>
-<span id="cb7-1244"><a href="#cb7-1244" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;All Sky Insolation Clearness Index&quot;</span></span>
+<span id="cb7-1243"><a href="#cb7-1243" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$name</span></span>
+<span id="cb7-1244"><a href="#cb7-1244" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;All Sky Normalized Insolation Clearness Index&quot;</span></span>
 <span id="cb7-1245"><a href="#cb7-1245" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1246"><a href="#cb7-1246" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_KT$definition</span></span>
-<span id="cb7-1247"><a href="#cb7-1247" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;A fraction representing clearness of the atmosphere; the all sky insolation that is transmitted through the atmosphere to strike the surface of the earth divided by the average of top of the atmosphere total solar irradiance incident.&quot;</span></span>
+<span id="cb7-1246"><a href="#cb7-1246" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$definition</span></span>
+<span id="cb7-1247"><a href="#cb7-1247" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The average zenith angle-independent expression of the all sky insolation clearness index.&quot;</span></span>
 <span id="cb7-1248"><a href="#cb7-1248" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1249"><a href="#cb7-1249" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1250"><a href="#cb7-1250" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT</span></span>
-<span id="cb7-1251"><a href="#cb7-1251" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$type</span></span>
+<span id="cb7-1250"><a href="#cb7-1250" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT</span></span>
+<span id="cb7-1251"><a href="#cb7-1251" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$type</span></span>
 <span id="cb7-1252"><a href="#cb7-1252" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1253"><a href="#cb7-1253" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1254"><a href="#cb7-1254" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$temporal</span></span>
+<span id="cb7-1254"><a href="#cb7-1254" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$temporal</span></span>
 <span id="cb7-1255"><a href="#cb7-1255" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1256"><a href="#cb7-1256" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1257"><a href="#cb7-1257" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$source</span></span>
+<span id="cb7-1257"><a href="#cb7-1257" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$source</span></span>
 <span id="cb7-1258"><a href="#cb7-1258" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POWER&quot;</span></span>
 <span id="cb7-1259"><a href="#cb7-1259" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1260"><a href="#cb7-1260" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$community</span></span>
+<span id="cb7-1260"><a href="#cb7-1260" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$community</span></span>
 <span id="cb7-1261"><a href="#cb7-1261" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1262"><a href="#cb7-1262" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1263"><a href="#cb7-1263" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$calculated</span></span>
+<span id="cb7-1263"><a href="#cb7-1263" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$calculated</span></span>
 <span id="cb7-1264"><a href="#cb7-1264" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1265"><a href="#cb7-1265" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1266"><a href="#cb7-1266" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$inputs</span></span>
+<span id="cb7-1266"><a href="#cb7-1266" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$inputs</span></span>
 <span id="cb7-1267"><a href="#cb7-1267" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1268"><a href="#cb7-1268" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1269"><a href="#cb7-1269" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$units</span></span>
-<span id="cb7-1270"><a href="#cb7-1270" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;dimensionless&quot;</span></span>
+<span id="cb7-1269"><a href="#cb7-1269" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$units</span></span>
+<span id="cb7-1270"><a href="#cb7-1270" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;W/m^2&quot;</span></span>
 <span id="cb7-1271"><a href="#cb7-1271" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1272"><a href="#cb7-1272" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$name</span></span>
-<span id="cb7-1273"><a href="#cb7-1273" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;All Sky Normalized Insolation Clearness Index&quot;</span></span>
+<span id="cb7-1272"><a href="#cb7-1272" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$name</span></span>
+<span id="cb7-1273"><a href="#cb7-1273" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;All Sky Surface PAR Total&quot;</span></span>
 <span id="cb7-1274"><a href="#cb7-1274" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1275"><a href="#cb7-1275" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_NKT$definition</span></span>
-<span id="cb7-1276"><a href="#cb7-1276" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The average zenith angle-independent expression of the all sky insolation clearness index.&quot;</span></span>
+<span id="cb7-1275"><a href="#cb7-1275" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$definition</span></span>
+<span id="cb7-1276"><a href="#cb7-1276" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The total Photosynthetically Active Radiation (PAR) incident on a horizontal plane at the surface of the earth under all sky conditions.&quot;</span></span>
 <span id="cb7-1277"><a href="#cb7-1277" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1278"><a href="#cb7-1278" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1279"><a href="#cb7-1279" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT</span></span>
-<span id="cb7-1280"><a href="#cb7-1280" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$type</span></span>
+<span id="cb7-1279"><a href="#cb7-1279" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI</span></span>
+<span id="cb7-1280"><a href="#cb7-1280" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$type</span></span>
 <span id="cb7-1281"><a href="#cb7-1281" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1282"><a href="#cb7-1282" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1283"><a href="#cb7-1283" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$temporal</span></span>
+<span id="cb7-1283"><a href="#cb7-1283" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$temporal</span></span>
 <span id="cb7-1284"><a href="#cb7-1284" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1285"><a href="#cb7-1285" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1286"><a href="#cb7-1286" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$source</span></span>
+<span id="cb7-1286"><a href="#cb7-1286" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$source</span></span>
 <span id="cb7-1287"><a href="#cb7-1287" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POWER&quot;</span></span>
 <span id="cb7-1288"><a href="#cb7-1288" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1289"><a href="#cb7-1289" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$community</span></span>
+<span id="cb7-1289"><a href="#cb7-1289" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$community</span></span>
 <span id="cb7-1290"><a href="#cb7-1290" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1291"><a href="#cb7-1291" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1292"><a href="#cb7-1292" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$calculated</span></span>
+<span id="cb7-1292"><a href="#cb7-1292" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$calculated</span></span>
 <span id="cb7-1293"><a href="#cb7-1293" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1294"><a href="#cb7-1294" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1295"><a href="#cb7-1295" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$inputs</span></span>
+<span id="cb7-1295"><a href="#cb7-1295" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$inputs</span></span>
 <span id="cb7-1296"><a href="#cb7-1296" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1297"><a href="#cb7-1297" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1298"><a href="#cb7-1298" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$units</span></span>
-<span id="cb7-1299"><a href="#cb7-1299" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;W/m^2&quot;</span></span>
+<span id="cb7-1298"><a href="#cb7-1298" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$units</span></span>
+<span id="cb7-1299"><a href="#cb7-1299" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;MJ/hr&quot;</span></span>
 <span id="cb7-1300"><a href="#cb7-1300" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1301"><a href="#cb7-1301" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$name</span></span>
-<span id="cb7-1302"><a href="#cb7-1302" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;All Sky Surface PAR Total&quot;</span></span>
+<span id="cb7-1301"><a href="#cb7-1301" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$name</span></span>
+<span id="cb7-1302"><a href="#cb7-1302" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;All Sky Surface Shortwave Downward Direct Normal Irradiance&quot;</span></span>
 <span id="cb7-1303"><a href="#cb7-1303" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1304"><a href="#cb7-1304" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_PAR_TOT$definition</span></span>
-<span id="cb7-1305"><a href="#cb7-1305" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The total Photosynthetically Active Radiation (PAR) incident on a horizontal plane at the surface of the earth under all sky conditions.&quot;</span></span>
+<span id="cb7-1304"><a href="#cb7-1304" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$definition</span></span>
+<span id="cb7-1305"><a href="#cb7-1305" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The direct solar irradiance incident to a horizontal plane normal (perpendicular) to the direction of the sun&#39;s position under all sky conditions.&quot;</span></span>
 <span id="cb7-1306"><a href="#cb7-1306" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1307"><a href="#cb7-1307" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1308"><a href="#cb7-1308" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI</span></span>
-<span id="cb7-1309"><a href="#cb7-1309" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$type</span></span>
+<span id="cb7-1308"><a href="#cb7-1308" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB</span></span>
+<span id="cb7-1309"><a href="#cb7-1309" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$type</span></span>
 <span id="cb7-1310"><a href="#cb7-1310" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1311"><a href="#cb7-1311" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1312"><a href="#cb7-1312" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$temporal</span></span>
+<span id="cb7-1312"><a href="#cb7-1312" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$temporal</span></span>
 <span id="cb7-1313"><a href="#cb7-1313" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1314"><a href="#cb7-1314" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1315"><a href="#cb7-1315" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$source</span></span>
+<span id="cb7-1315"><a href="#cb7-1315" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$source</span></span>
 <span id="cb7-1316"><a href="#cb7-1316" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POWER&quot;</span></span>
 <span id="cb7-1317"><a href="#cb7-1317" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1318"><a href="#cb7-1318" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$community</span></span>
+<span id="cb7-1318"><a href="#cb7-1318" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$community</span></span>
 <span id="cb7-1319"><a href="#cb7-1319" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1320"><a href="#cb7-1320" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1321"><a href="#cb7-1321" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$calculated</span></span>
+<span id="cb7-1321"><a href="#cb7-1321" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$calculated</span></span>
 <span id="cb7-1322"><a href="#cb7-1322" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1323"><a href="#cb7-1323" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1324"><a href="#cb7-1324" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$inputs</span></span>
+<span id="cb7-1324"><a href="#cb7-1324" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$inputs</span></span>
 <span id="cb7-1325"><a href="#cb7-1325" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1326"><a href="#cb7-1326" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1327"><a href="#cb7-1327" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$units</span></span>
-<span id="cb7-1328"><a href="#cb7-1328" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;MJ/hr&quot;</span></span>
+<span id="cb7-1327"><a href="#cb7-1327" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$units</span></span>
+<span id="cb7-1328"><a href="#cb7-1328" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;dimensionless&quot;</span></span>
 <span id="cb7-1329"><a href="#cb7-1329" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1330"><a href="#cb7-1330" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$name</span></span>
-<span id="cb7-1331"><a href="#cb7-1331" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;All Sky Surface Shortwave Downward Direct Normal Irradiance&quot;</span></span>
+<span id="cb7-1330"><a href="#cb7-1330" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$name</span></span>
+<span id="cb7-1331"><a href="#cb7-1331" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;All Sky Surface Albedo&quot;</span></span>
 <span id="cb7-1332"><a href="#cb7-1332" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1333"><a href="#cb7-1333" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SFC_SW_DNI$definition</span></span>
-<span id="cb7-1334"><a href="#cb7-1334" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The direct solar irradiance incident to a horizontal plane normal (perpendicular) to the direction of the sun&#39;s position under all sky conditions.&quot;</span></span>
+<span id="cb7-1333"><a href="#cb7-1333" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$definition</span></span>
+<span id="cb7-1334"><a href="#cb7-1334" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The all sky rate of reflectivity of the earth&#39;s surface; the ratio of the solar energy reflected by the surface of the earth compared to the total solar energy incident reaching the surface of the earth.&quot;</span></span>
 <span id="cb7-1335"><a href="#cb7-1335" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1336"><a href="#cb7-1336" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1337"><a href="#cb7-1337" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB</span></span>
-<span id="cb7-1338"><a href="#cb7-1338" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$type</span></span>
+<span id="cb7-1337"><a href="#cb7-1337" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT</span></span>
+<span id="cb7-1338"><a href="#cb7-1338" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$type</span></span>
 <span id="cb7-1339"><a href="#cb7-1339" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1340"><a href="#cb7-1340" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1341"><a href="#cb7-1341" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$temporal</span></span>
+<span id="cb7-1341"><a href="#cb7-1341" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$temporal</span></span>
 <span id="cb7-1342"><a href="#cb7-1342" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1343"><a href="#cb7-1343" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1344"><a href="#cb7-1344" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$source</span></span>
+<span id="cb7-1344"><a href="#cb7-1344" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$source</span></span>
 <span id="cb7-1345"><a href="#cb7-1345" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POWER&quot;</span></span>
 <span id="cb7-1346"><a href="#cb7-1346" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1347"><a href="#cb7-1347" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$community</span></span>
+<span id="cb7-1347"><a href="#cb7-1347" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$community</span></span>
 <span id="cb7-1348"><a href="#cb7-1348" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1349"><a href="#cb7-1349" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1350"><a href="#cb7-1350" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$calculated</span></span>
+<span id="cb7-1350"><a href="#cb7-1350" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$calculated</span></span>
 <span id="cb7-1351"><a href="#cb7-1351" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1352"><a href="#cb7-1352" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1353"><a href="#cb7-1353" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$inputs</span></span>
+<span id="cb7-1353"><a href="#cb7-1353" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$inputs</span></span>
 <span id="cb7-1354"><a href="#cb7-1354" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1355"><a href="#cb7-1355" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1356"><a href="#cb7-1356" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$units</span></span>
+<span id="cb7-1356"><a href="#cb7-1356" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$units</span></span>
 <span id="cb7-1357"><a href="#cb7-1357" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;dimensionless&quot;</span></span>
 <span id="cb7-1358"><a href="#cb7-1358" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1359"><a href="#cb7-1359" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$name</span></span>
-<span id="cb7-1360"><a href="#cb7-1360" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;All Sky Surface Albedo&quot;</span></span>
+<span id="cb7-1359"><a href="#cb7-1359" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$name</span></span>
+<span id="cb7-1360"><a href="#cb7-1360" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Clear Sky Insolation Clearness Index&quot;</span></span>
 <span id="cb7-1361"><a href="#cb7-1361" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1362"><a href="#cb7-1362" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ALLSKY_SRF_ALB$definition</span></span>
-<span id="cb7-1363"><a href="#cb7-1363" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The all sky rate of reflectivity of the earth&#39;s surface; the ratio of the solar energy reflected by the surface of the earth compared to the total solar energy incident reaching the surface of the earth.&quot;</span></span>
+<span id="cb7-1362"><a href="#cb7-1362" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$definition</span></span>
+<span id="cb7-1363"><a href="#cb7-1363" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;A fraction representing clearness of the atmosphere; the clear sky insolation that is transmitted through the atmosphere to strike the surface of the earth divided by the average of top of the atmosphere total solar irradiance incident.&quot;</span></span>
 <span id="cb7-1364"><a href="#cb7-1364" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1365"><a href="#cb7-1365" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1366"><a href="#cb7-1366" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT</span></span>
-<span id="cb7-1367"><a href="#cb7-1367" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$type</span></span>
+<span id="cb7-1366"><a href="#cb7-1366" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT</span></span>
+<span id="cb7-1367"><a href="#cb7-1367" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$type</span></span>
 <span id="cb7-1368"><a href="#cb7-1368" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1369"><a href="#cb7-1369" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1370"><a href="#cb7-1370" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$temporal</span></span>
+<span id="cb7-1370"><a href="#cb7-1370" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$temporal</span></span>
 <span id="cb7-1371"><a href="#cb7-1371" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1372"><a href="#cb7-1372" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1373"><a href="#cb7-1373" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$source</span></span>
+<span id="cb7-1373"><a href="#cb7-1373" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$source</span></span>
 <span id="cb7-1374"><a href="#cb7-1374" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POWER&quot;</span></span>
 <span id="cb7-1375"><a href="#cb7-1375" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1376"><a href="#cb7-1376" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$community</span></span>
+<span id="cb7-1376"><a href="#cb7-1376" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$community</span></span>
 <span id="cb7-1377"><a href="#cb7-1377" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1378"><a href="#cb7-1378" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1379"><a href="#cb7-1379" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$calculated</span></span>
+<span id="cb7-1379"><a href="#cb7-1379" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$calculated</span></span>
 <span id="cb7-1380"><a href="#cb7-1380" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1381"><a href="#cb7-1381" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1382"><a href="#cb7-1382" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$inputs</span></span>
+<span id="cb7-1382"><a href="#cb7-1382" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$inputs</span></span>
 <span id="cb7-1383"><a href="#cb7-1383" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1384"><a href="#cb7-1384" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1385"><a href="#cb7-1385" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$units</span></span>
+<span id="cb7-1385"><a href="#cb7-1385" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$units</span></span>
 <span id="cb7-1386"><a href="#cb7-1386" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;dimensionless&quot;</span></span>
 <span id="cb7-1387"><a href="#cb7-1387" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1388"><a href="#cb7-1388" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$name</span></span>
-<span id="cb7-1389"><a href="#cb7-1389" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Clear Sky Insolation Clearness Index&quot;</span></span>
+<span id="cb7-1388"><a href="#cb7-1388" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$name</span></span>
+<span id="cb7-1389"><a href="#cb7-1389" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Clear Sky Normalized Insolation Clearness Index&quot;</span></span>
 <span id="cb7-1390"><a href="#cb7-1390" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1391"><a href="#cb7-1391" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_KT$definition</span></span>
-<span id="cb7-1392"><a href="#cb7-1392" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;A fraction representing clearness of the atmosphere; the clear sky insolation that is transmitted through the atmosphere to strike the surface of the earth divided by the average of top of the atmosphere total solar irradiance incident.&quot;</span></span>
+<span id="cb7-1391"><a href="#cb7-1391" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$definition</span></span>
+<span id="cb7-1392"><a href="#cb7-1392" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The average zenith angle-independent expression of the clear sky insolation clearness index.&quot;</span></span>
 <span id="cb7-1393"><a href="#cb7-1393" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1394"><a href="#cb7-1394" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1395"><a href="#cb7-1395" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT</span></span>
-<span id="cb7-1396"><a href="#cb7-1396" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$type</span></span>
+<span id="cb7-1395"><a href="#cb7-1395" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT</span></span>
+<span id="cb7-1396"><a href="#cb7-1396" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$type</span></span>
 <span id="cb7-1397"><a href="#cb7-1397" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1398"><a href="#cb7-1398" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1399"><a href="#cb7-1399" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$temporal</span></span>
+<span id="cb7-1399"><a href="#cb7-1399" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$temporal</span></span>
 <span id="cb7-1400"><a href="#cb7-1400" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1401"><a href="#cb7-1401" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1402"><a href="#cb7-1402" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$source</span></span>
+<span id="cb7-1402"><a href="#cb7-1402" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$source</span></span>
 <span id="cb7-1403"><a href="#cb7-1403" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POWER&quot;</span></span>
 <span id="cb7-1404"><a href="#cb7-1404" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1405"><a href="#cb7-1405" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$community</span></span>
+<span id="cb7-1405"><a href="#cb7-1405" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$community</span></span>
 <span id="cb7-1406"><a href="#cb7-1406" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1407"><a href="#cb7-1407" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1408"><a href="#cb7-1408" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$calculated</span></span>
+<span id="cb7-1408"><a href="#cb7-1408" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$calculated</span></span>
 <span id="cb7-1409"><a href="#cb7-1409" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1410"><a href="#cb7-1410" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1411"><a href="#cb7-1411" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$inputs</span></span>
+<span id="cb7-1411"><a href="#cb7-1411" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$inputs</span></span>
 <span id="cb7-1412"><a href="#cb7-1412" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1413"><a href="#cb7-1413" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1414"><a href="#cb7-1414" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$units</span></span>
-<span id="cb7-1415"><a href="#cb7-1415" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;dimensionless&quot;</span></span>
+<span id="cb7-1414"><a href="#cb7-1414" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$units</span></span>
+<span id="cb7-1415"><a href="#cb7-1415" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;W/m^2&quot;</span></span>
 <span id="cb7-1416"><a href="#cb7-1416" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1417"><a href="#cb7-1417" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$name</span></span>
-<span id="cb7-1418"><a href="#cb7-1418" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Clear Sky Normalized Insolation Clearness Index&quot;</span></span>
+<span id="cb7-1417"><a href="#cb7-1417" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$name</span></span>
+<span id="cb7-1418"><a href="#cb7-1418" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Clear Sky Surface PAR Total&quot;</span></span>
 <span id="cb7-1419"><a href="#cb7-1419" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1420"><a href="#cb7-1420" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_NKT$definition</span></span>
-<span id="cb7-1421"><a href="#cb7-1421" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The average zenith angle-independent expression of the clear sky insolation clearness index.&quot;</span></span>
+<span id="cb7-1420"><a href="#cb7-1420" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$definition</span></span>
+<span id="cb7-1421"><a href="#cb7-1421" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The total Photosynthetically Active Radiation (PAR) incident on a horizontal plane at the surface of the earth under clear sky conditions.&quot;</span></span>
 <span id="cb7-1422"><a href="#cb7-1422" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1423"><a href="#cb7-1423" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1424"><a href="#cb7-1424" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT</span></span>
-<span id="cb7-1425"><a href="#cb7-1425" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$type</span></span>
+<span id="cb7-1424"><a href="#cb7-1424" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI</span></span>
+<span id="cb7-1425"><a href="#cb7-1425" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$type</span></span>
 <span id="cb7-1426"><a href="#cb7-1426" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1427"><a href="#cb7-1427" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1428"><a href="#cb7-1428" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$temporal</span></span>
+<span id="cb7-1428"><a href="#cb7-1428" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$temporal</span></span>
 <span id="cb7-1429"><a href="#cb7-1429" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1430"><a href="#cb7-1430" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1431"><a href="#cb7-1431" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$source</span></span>
+<span id="cb7-1431"><a href="#cb7-1431" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$source</span></span>
 <span id="cb7-1432"><a href="#cb7-1432" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POWER&quot;</span></span>
 <span id="cb7-1433"><a href="#cb7-1433" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1434"><a href="#cb7-1434" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$community</span></span>
+<span id="cb7-1434"><a href="#cb7-1434" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$community</span></span>
 <span id="cb7-1435"><a href="#cb7-1435" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1436"><a href="#cb7-1436" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1437"><a href="#cb7-1437" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$calculated</span></span>
+<span id="cb7-1437"><a href="#cb7-1437" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$calculated</span></span>
 <span id="cb7-1438"><a href="#cb7-1438" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1439"><a href="#cb7-1439" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1440"><a href="#cb7-1440" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$inputs</span></span>
+<span id="cb7-1440"><a href="#cb7-1440" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$inputs</span></span>
 <span id="cb7-1441"><a href="#cb7-1441" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1442"><a href="#cb7-1442" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1443"><a href="#cb7-1443" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$units</span></span>
-<span id="cb7-1444"><a href="#cb7-1444" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;W/m^2&quot;</span></span>
+<span id="cb7-1443"><a href="#cb7-1443" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$units</span></span>
+<span id="cb7-1444"><a href="#cb7-1444" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;MJ/hr&quot;</span></span>
 <span id="cb7-1445"><a href="#cb7-1445" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1446"><a href="#cb7-1446" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$name</span></span>
-<span id="cb7-1447"><a href="#cb7-1447" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Clear Sky Surface PAR Total&quot;</span></span>
+<span id="cb7-1446"><a href="#cb7-1446" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$name</span></span>
+<span id="cb7-1447"><a href="#cb7-1447" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Clear Sky Surface Shortwave Downward Direct Normal Irradiance&quot;</span></span>
 <span id="cb7-1448"><a href="#cb7-1448" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1449"><a href="#cb7-1449" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_PAR_TOT$definition</span></span>
-<span id="cb7-1450"><a href="#cb7-1450" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The total Photosynthetically Active Radiation (PAR) incident on a horizontal plane at the surface of the earth under clear sky conditions.&quot;</span></span>
+<span id="cb7-1449"><a href="#cb7-1449" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$definition</span></span>
+<span id="cb7-1450"><a href="#cb7-1450" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The direct solar irradiance incident to a horizontal plane normal (perpendicular) to the direction of the sun&#39;s position under clear sky conditions.&quot;</span></span>
 <span id="cb7-1451"><a href="#cb7-1451" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1452"><a href="#cb7-1452" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1453"><a href="#cb7-1453" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI</span></span>
-<span id="cb7-1454"><a href="#cb7-1454" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$type</span></span>
+<span id="cb7-1453"><a href="#cb7-1453" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB</span></span>
+<span id="cb7-1454"><a href="#cb7-1454" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$type</span></span>
 <span id="cb7-1455"><a href="#cb7-1455" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1456"><a href="#cb7-1456" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1457"><a href="#cb7-1457" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$temporal</span></span>
+<span id="cb7-1457"><a href="#cb7-1457" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$temporal</span></span>
 <span id="cb7-1458"><a href="#cb7-1458" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1459"><a href="#cb7-1459" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1460"><a href="#cb7-1460" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$source</span></span>
+<span id="cb7-1460"><a href="#cb7-1460" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$source</span></span>
 <span id="cb7-1461"><a href="#cb7-1461" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POWER&quot;</span></span>
 <span id="cb7-1462"><a href="#cb7-1462" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1463"><a href="#cb7-1463" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$community</span></span>
+<span id="cb7-1463"><a href="#cb7-1463" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$community</span></span>
 <span id="cb7-1464"><a href="#cb7-1464" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1465"><a href="#cb7-1465" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1466"><a href="#cb7-1466" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$calculated</span></span>
+<span id="cb7-1466"><a href="#cb7-1466" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$calculated</span></span>
 <span id="cb7-1467"><a href="#cb7-1467" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1468"><a href="#cb7-1468" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1469"><a href="#cb7-1469" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$inputs</span></span>
+<span id="cb7-1469"><a href="#cb7-1469" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$inputs</span></span>
 <span id="cb7-1470"><a href="#cb7-1470" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1471"><a href="#cb7-1471" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1472"><a href="#cb7-1472" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$units</span></span>
-<span id="cb7-1473"><a href="#cb7-1473" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;MJ/hr&quot;</span></span>
+<span id="cb7-1472"><a href="#cb7-1472" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$units</span></span>
+<span id="cb7-1473"><a href="#cb7-1473" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;dimensionless&quot;</span></span>
 <span id="cb7-1474"><a href="#cb7-1474" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1475"><a href="#cb7-1475" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$name</span></span>
-<span id="cb7-1476"><a href="#cb7-1476" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Clear Sky Surface Shortwave Downward Direct Normal Irradiance&quot;</span></span>
+<span id="cb7-1475"><a href="#cb7-1475" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$name</span></span>
+<span id="cb7-1476"><a href="#cb7-1476" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Clear Sky Surface Albedo&quot;</span></span>
 <span id="cb7-1477"><a href="#cb7-1477" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1478"><a href="#cb7-1478" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SFC_SW_DNI$definition</span></span>
-<span id="cb7-1479"><a href="#cb7-1479" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The direct solar irradiance incident to a horizontal plane normal (perpendicular) to the direction of the sun&#39;s position under clear sky conditions.&quot;</span></span>
+<span id="cb7-1478"><a href="#cb7-1478" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$definition</span></span>
+<span id="cb7-1479"><a href="#cb7-1479" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The clear sky rate of reflectivity of the earth&#39;s surface; the ratio of the solar energy reflected by the surface of the earth compared to the total solar energy incident reaching the surface of the earth.&quot;</span></span>
 <span id="cb7-1480"><a href="#cb7-1480" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1481"><a href="#cb7-1481" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1482"><a href="#cb7-1482" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB</span></span>
-<span id="cb7-1483"><a href="#cb7-1483" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$type</span></span>
+<span id="cb7-1482"><a href="#cb7-1482" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE</span></span>
+<span id="cb7-1483"><a href="#cb7-1483" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$type</span></span>
 <span id="cb7-1484"><a href="#cb7-1484" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1485"><a href="#cb7-1485" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1486"><a href="#cb7-1486" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$temporal</span></span>
+<span id="cb7-1486"><a href="#cb7-1486" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$temporal</span></span>
 <span id="cb7-1487"><a href="#cb7-1487" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1488"><a href="#cb7-1488" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1489"><a href="#cb7-1489" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$source</span></span>
+<span id="cb7-1489"><a href="#cb7-1489" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$source</span></span>
 <span id="cb7-1490"><a href="#cb7-1490" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POWER&quot;</span></span>
 <span id="cb7-1491"><a href="#cb7-1491" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1492"><a href="#cb7-1492" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$community</span></span>
+<span id="cb7-1492"><a href="#cb7-1492" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$community</span></span>
 <span id="cb7-1493"><a href="#cb7-1493" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1494"><a href="#cb7-1494" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1495"><a href="#cb7-1495" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$calculated</span></span>
+<span id="cb7-1495"><a href="#cb7-1495" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$calculated</span></span>
 <span id="cb7-1496"><a href="#cb7-1496" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1497"><a href="#cb7-1497" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1498"><a href="#cb7-1498" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$inputs</span></span>
+<span id="cb7-1498"><a href="#cb7-1498" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$inputs</span></span>
 <span id="cb7-1499"><a href="#cb7-1499" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1500"><a href="#cb7-1500" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1501"><a href="#cb7-1501" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$units</span></span>
-<span id="cb7-1502"><a href="#cb7-1502" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;dimensionless&quot;</span></span>
+<span id="cb7-1501"><a href="#cb7-1501" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$units</span></span>
+<span id="cb7-1502"><a href="#cb7-1502" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;lux&quot;</span></span>
 <span id="cb7-1503"><a href="#cb7-1503" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1504"><a href="#cb7-1504" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$name</span></span>
-<span id="cb7-1505"><a href="#cb7-1505" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Clear Sky Surface Albedo&quot;</span></span>
+<span id="cb7-1504"><a href="#cb7-1504" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$name</span></span>
+<span id="cb7-1505"><a href="#cb7-1505" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Diffuse Illuminance&quot;</span></span>
 <span id="cb7-1506"><a href="#cb7-1506" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1507"><a href="#cb7-1507" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $CLRSKY_SRF_ALB$definition</span></span>
-<span id="cb7-1508"><a href="#cb7-1508" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The clear sky rate of reflectivity of the earth&#39;s surface; the ratio of the solar energy reflected by the surface of the earth compared to the total solar energy incident reaching the surface of the earth.&quot;</span></span>
+<span id="cb7-1507"><a href="#cb7-1507" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$definition</span></span>
+<span id="cb7-1508"><a href="#cb7-1508" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The average amount of illuminance received directly from the solar disk on a surface perpendicular to the suns rays.&quot;</span></span>
 <span id="cb7-1509"><a href="#cb7-1509" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1510"><a href="#cb7-1510" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1511"><a href="#cb7-1511" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE</span></span>
-<span id="cb7-1512"><a href="#cb7-1512" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$type</span></span>
+<span id="cb7-1511"><a href="#cb7-1511" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE</span></span>
+<span id="cb7-1512"><a href="#cb7-1512" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$type</span></span>
 <span id="cb7-1513"><a href="#cb7-1513" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1514"><a href="#cb7-1514" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1515"><a href="#cb7-1515" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$temporal</span></span>
+<span id="cb7-1515"><a href="#cb7-1515" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$temporal</span></span>
 <span id="cb7-1516"><a href="#cb7-1516" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1517"><a href="#cb7-1517" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1518"><a href="#cb7-1518" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$source</span></span>
+<span id="cb7-1518"><a href="#cb7-1518" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$source</span></span>
 <span id="cb7-1519"><a href="#cb7-1519" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POWER&quot;</span></span>
 <span id="cb7-1520"><a href="#cb7-1520" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1521"><a href="#cb7-1521" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$community</span></span>
+<span id="cb7-1521"><a href="#cb7-1521" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$community</span></span>
 <span id="cb7-1522"><a href="#cb7-1522" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1523"><a href="#cb7-1523" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1524"><a href="#cb7-1524" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$calculated</span></span>
+<span id="cb7-1524"><a href="#cb7-1524" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$calculated</span></span>
 <span id="cb7-1525"><a href="#cb7-1525" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1526"><a href="#cb7-1526" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1527"><a href="#cb7-1527" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$inputs</span></span>
+<span id="cb7-1527"><a href="#cb7-1527" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$inputs</span></span>
 <span id="cb7-1528"><a href="#cb7-1528" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1529"><a href="#cb7-1529" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1530"><a href="#cb7-1530" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$units</span></span>
+<span id="cb7-1530"><a href="#cb7-1530" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$units</span></span>
 <span id="cb7-1531"><a href="#cb7-1531" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;lux&quot;</span></span>
 <span id="cb7-1532"><a href="#cb7-1532" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1533"><a href="#cb7-1533" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$name</span></span>
-<span id="cb7-1534"><a href="#cb7-1534" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Diffuse Illuminance&quot;</span></span>
+<span id="cb7-1533"><a href="#cb7-1533" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$name</span></span>
+<span id="cb7-1534"><a href="#cb7-1534" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Direct Illuminance&quot;</span></span>
 <span id="cb7-1535"><a href="#cb7-1535" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1536"><a href="#cb7-1536" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIFFUSE_ILLUMINANCE$definition</span></span>
-<span id="cb7-1537"><a href="#cb7-1537" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The average amount of illuminance received directly from the solar disk on a surface perpendicular to the suns rays.&quot;</span></span>
+<span id="cb7-1536"><a href="#cb7-1536" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$definition</span></span>
+<span id="cb7-1537"><a href="#cb7-1537" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The average amount of illuminance received from the sky (excluding the solar disk) on a horizontal plane.&quot;</span></span>
 <span id="cb7-1538"><a href="#cb7-1538" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1539"><a href="#cb7-1539" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1540"><a href="#cb7-1540" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE</span></span>
-<span id="cb7-1541"><a href="#cb7-1541" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$type</span></span>
+<span id="cb7-1540"><a href="#cb7-1540" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE</span></span>
+<span id="cb7-1541"><a href="#cb7-1541" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$type</span></span>
 <span id="cb7-1542"><a href="#cb7-1542" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1543"><a href="#cb7-1543" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1544"><a href="#cb7-1544" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$temporal</span></span>
+<span id="cb7-1544"><a href="#cb7-1544" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$temporal</span></span>
 <span id="cb7-1545"><a href="#cb7-1545" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1546"><a href="#cb7-1546" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1547"><a href="#cb7-1547" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$source</span></span>
+<span id="cb7-1547"><a href="#cb7-1547" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$source</span></span>
 <span id="cb7-1548"><a href="#cb7-1548" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POWER&quot;</span></span>
 <span id="cb7-1549"><a href="#cb7-1549" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1550"><a href="#cb7-1550" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$community</span></span>
+<span id="cb7-1550"><a href="#cb7-1550" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$community</span></span>
 <span id="cb7-1551"><a href="#cb7-1551" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1552"><a href="#cb7-1552" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1553"><a href="#cb7-1553" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$calculated</span></span>
+<span id="cb7-1553"><a href="#cb7-1553" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$calculated</span></span>
 <span id="cb7-1554"><a href="#cb7-1554" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1555"><a href="#cb7-1555" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1556"><a href="#cb7-1556" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$inputs</span></span>
+<span id="cb7-1556"><a href="#cb7-1556" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$inputs</span></span>
 <span id="cb7-1557"><a href="#cb7-1557" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1558"><a href="#cb7-1558" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1559"><a href="#cb7-1559" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$units</span></span>
+<span id="cb7-1559"><a href="#cb7-1559" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$units</span></span>
 <span id="cb7-1560"><a href="#cb7-1560" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;lux&quot;</span></span>
 <span id="cb7-1561"><a href="#cb7-1561" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1562"><a href="#cb7-1562" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$name</span></span>
-<span id="cb7-1563"><a href="#cb7-1563" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Direct Illuminance&quot;</span></span>
+<span id="cb7-1562"><a href="#cb7-1562" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$name</span></span>
+<span id="cb7-1563"><a href="#cb7-1563" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Global Illuminance&quot;</span></span>
 <span id="cb7-1564"><a href="#cb7-1564" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1565"><a href="#cb7-1565" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $DIRECT_ILLUMINANCE$definition</span></span>
-<span id="cb7-1566"><a href="#cb7-1566" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The average amount of illuminance received from the sky (excluding the solar disk) on a horizontal plane.&quot;</span></span>
+<span id="cb7-1565"><a href="#cb7-1565" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$definition</span></span>
+<span id="cb7-1566"><a href="#cb7-1566" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The average total amount of direct and diffuse illuminance on a horizontal plane.&quot;</span></span>
 <span id="cb7-1567"><a href="#cb7-1567" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1568"><a href="#cb7-1568" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1569"><a href="#cb7-1569" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE</span></span>
-<span id="cb7-1570"><a href="#cb7-1570" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$type</span></span>
+<span id="cb7-1569"><a href="#cb7-1569" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI</span></span>
+<span id="cb7-1570"><a href="#cb7-1570" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$type</span></span>
 <span id="cb7-1571"><a href="#cb7-1571" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1572"><a href="#cb7-1572" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1573"><a href="#cb7-1573" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$temporal</span></span>
+<span id="cb7-1573"><a href="#cb7-1573" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$temporal</span></span>
 <span id="cb7-1574"><a href="#cb7-1574" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1575"><a href="#cb7-1575" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1576"><a href="#cb7-1576" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$source</span></span>
+<span id="cb7-1576"><a href="#cb7-1576" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$source</span></span>
 <span id="cb7-1577"><a href="#cb7-1577" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POWER&quot;</span></span>
 <span id="cb7-1578"><a href="#cb7-1578" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1579"><a href="#cb7-1579" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$community</span></span>
+<span id="cb7-1579"><a href="#cb7-1579" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$community</span></span>
 <span id="cb7-1580"><a href="#cb7-1580" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1581"><a href="#cb7-1581" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1582"><a href="#cb7-1582" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$calculated</span></span>
+<span id="cb7-1582"><a href="#cb7-1582" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$calculated</span></span>
 <span id="cb7-1583"><a href="#cb7-1583" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1584"><a href="#cb7-1584" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1585"><a href="#cb7-1585" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$inputs</span></span>
+<span id="cb7-1585"><a href="#cb7-1585" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$inputs</span></span>
 <span id="cb7-1586"><a href="#cb7-1586" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1587"><a href="#cb7-1587" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1588"><a href="#cb7-1588" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$units</span></span>
-<span id="cb7-1589"><a href="#cb7-1589" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;lux&quot;</span></span>
+<span id="cb7-1588"><a href="#cb7-1588" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$units</span></span>
+<span id="cb7-1589"><a href="#cb7-1589" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;MJ/hr&quot;</span></span>
 <span id="cb7-1590"><a href="#cb7-1590" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1591"><a href="#cb7-1591" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$name</span></span>
-<span id="cb7-1592"><a href="#cb7-1592" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Global Illuminance&quot;</span></span>
+<span id="cb7-1591"><a href="#cb7-1591" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$name</span></span>
+<span id="cb7-1592"><a href="#cb7-1592" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Top-Of-Atmosphere Shortwave Direct Normal Radiation&quot;</span></span>
 <span id="cb7-1593"><a href="#cb7-1593" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1594"><a href="#cb7-1594" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $GLOBAL_ILLUMINANCE$definition</span></span>
-<span id="cb7-1595"><a href="#cb7-1595" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The average total amount of direct and diffuse illuminance on a horizontal plane.&quot;</span></span>
+<span id="cb7-1594"><a href="#cb7-1594" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$definition</span></span>
+<span id="cb7-1595"><a href="#cb7-1595" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The total solar irradiance incident (direct plus diffuse) on a horizontal plane where oriented to the sun&#39;s position at the top of the atmosphere (extraterrestrial radiation).&quot;</span></span>
 <span id="cb7-1596"><a href="#cb7-1596" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-1597"><a href="#cb7-1597" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1598"><a href="#cb7-1598" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI</span></span>
-<span id="cb7-1599"><a href="#cb7-1599" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$type</span></span>
+<span id="cb7-1598"><a href="#cb7-1598" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE</span></span>
+<span id="cb7-1599"><a href="#cb7-1599" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$type</span></span>
 <span id="cb7-1600"><a href="#cb7-1600" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
 <span id="cb7-1601"><a href="#cb7-1601" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1602"><a href="#cb7-1602" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$temporal</span></span>
+<span id="cb7-1602"><a href="#cb7-1602" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$temporal</span></span>
 <span id="cb7-1603"><a href="#cb7-1603" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
 <span id="cb7-1604"><a href="#cb7-1604" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1605"><a href="#cb7-1605" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$source</span></span>
+<span id="cb7-1605"><a href="#cb7-1605" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$source</span></span>
 <span id="cb7-1606"><a href="#cb7-1606" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POWER&quot;</span></span>
 <span id="cb7-1607"><a href="#cb7-1607" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1608"><a href="#cb7-1608" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$community</span></span>
+<span id="cb7-1608"><a href="#cb7-1608" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$community</span></span>
 <span id="cb7-1609"><a href="#cb7-1609" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
 <span id="cb7-1610"><a href="#cb7-1610" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1611"><a href="#cb7-1611" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$calculated</span></span>
+<span id="cb7-1611"><a href="#cb7-1611" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$calculated</span></span>
 <span id="cb7-1612"><a href="#cb7-1612" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
 <span id="cb7-1613"><a href="#cb7-1613" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1614"><a href="#cb7-1614" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$inputs</span></span>
+<span id="cb7-1614"><a href="#cb7-1614" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$inputs</span></span>
 <span id="cb7-1615"><a href="#cb7-1615" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb7-1616"><a href="#cb7-1616" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1617"><a href="#cb7-1617" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$units</span></span>
-<span id="cb7-1618"><a href="#cb7-1618" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;MJ/hr&quot;</span></span>
+<span id="cb7-1617"><a href="#cb7-1617" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$units</span></span>
+<span id="cb7-1618"><a href="#cb7-1618" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;cd/m^2&quot;</span></span>
 <span id="cb7-1619"><a href="#cb7-1619" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1620"><a href="#cb7-1620" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$name</span></span>
-<span id="cb7-1621"><a href="#cb7-1621" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Top-Of-Atmosphere Shortwave Direct Normal Radiation&quot;</span></span>
+<span id="cb7-1620"><a href="#cb7-1620" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$name</span></span>
+<span id="cb7-1621"><a href="#cb7-1621" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Zenith luminance&quot;</span></span>
 <span id="cb7-1622"><a href="#cb7-1622" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1623"><a href="#cb7-1623" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $TOA_SW_DNI$definition</span></span>
-<span id="cb7-1624"><a href="#cb7-1624" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The total solar irradiance incident (direct plus diffuse) on a horizontal plane where oriented to the sun&#39;s position at the top of the atmosphere (extraterrestrial radiation).&quot;</span></span>
-<span id="cb7-1625"><a href="#cb7-1625" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1626"><a href="#cb7-1626" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1627"><a href="#cb7-1627" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE</span></span>
-<span id="cb7-1628"><a href="#cb7-1628" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$type</span></span>
-<span id="cb7-1629"><a href="#cb7-1629" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RADIATION&quot;</span></span>
-<span id="cb7-1630"><a href="#cb7-1630" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1631"><a href="#cb7-1631" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$temporal</span></span>
-<span id="cb7-1632"><a href="#cb7-1632" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HOURLY&quot;</span></span>
-<span id="cb7-1633"><a href="#cb7-1633" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1634"><a href="#cb7-1634" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$source</span></span>
-<span id="cb7-1635"><a href="#cb7-1635" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POWER&quot;</span></span>
-<span id="cb7-1636"><a href="#cb7-1636" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1637"><a href="#cb7-1637" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$community</span></span>
-<span id="cb7-1638"><a href="#cb7-1638" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AG&quot;</span></span>
-<span id="cb7-1639"><a href="#cb7-1639" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1640"><a href="#cb7-1640" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$calculated</span></span>
-<span id="cb7-1641"><a href="#cb7-1641" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] FALSE</span></span>
-<span id="cb7-1642"><a href="#cb7-1642" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1643"><a href="#cb7-1643" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$inputs</span></span>
-<span id="cb7-1644"><a href="#cb7-1644" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
-<span id="cb7-1645"><a href="#cb7-1645" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1646"><a href="#cb7-1646" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$units</span></span>
-<span id="cb7-1647"><a href="#cb7-1647" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;cd/m^2&quot;</span></span>
-<span id="cb7-1648"><a href="#cb7-1648" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1649"><a href="#cb7-1649" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$name</span></span>
-<span id="cb7-1650"><a href="#cb7-1650" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Zenith luminance&quot;</span></span>
-<span id="cb7-1651"><a href="#cb7-1651" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-1652"><a href="#cb7-1652" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$definition</span></span>
-<span id="cb7-1653"><a href="#cb7-1653" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The average amount of luminance at the skys zenith.&quot;</span></span></code></pre></div>
+<span id="cb7-1623"><a href="#cb7-1623" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ZENITH_LUMINANCE$definition</span></span>
+<span id="cb7-1624"><a href="#cb7-1624" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The average amount of luminance at the skys zenith.&quot;</span></span></code></pre></div>
 </div>
 <div id="a-note-on-api-throttling" class="section level2">
 <h2>A Note on API Throttling</h2>

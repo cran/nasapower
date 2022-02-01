@@ -1,3 +1,19 @@
+# nasapower 4.0.4
+
+## Bug fixes
+
+* Fixes message when importing data using _vroom_ >= 1.5.0, `The `file` argument of `vroom()` must use `I()` for literal data as of vroom 1.5.0.`. Thanks to @palderman for the fix in [Pull Request 67](https://github.com/ropensci/nasapower/pull/67).
+
+## Minor changes
+
+* Sets minimum version of _tibble_ necessary for use with _nasapower_.
+
+# nasapower 4.0.3
+
+## Minor changes
+
+* Fixes tests that should use _vcr_ or be skipped on CRAN.
+
 # nasapower 4.0.2
 
 ## Minor changes
