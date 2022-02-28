@@ -100,7 +100,7 @@
 #'   _e.g._ `dates = c(1983, 2010)`.  This argument should not be used when
 #'   `temporal_api` is set to \dQuote{climatology} and will be ignored if set.
 #'
-#' @section wind-surface: There are 17 surfaces that may be used for corrected
+#' @section `wind_surface`: There are 17 surfaces that may be used for corrected
 #'   wind-speed values using the following equation:
 #'   \deqn{WSC_hgt = WS_10m\times(\frac{hgt}{WS_50m})^\alpha}{WSC_hgt = WS_10m*(hgt/WS_50m)^\alpha}
 #'   Valid surface types are described here.
@@ -247,12 +247,13 @@ get_power <- function(community,
     )
     site_elevation <- NULL
   }
-  if (length(lonlat != 2) & !is.null(wind_elevation)) {
+
+  if (length(lonlat) > 2 && !is.null(wind_elevation)) {
     message(
       "You have provided `wind_elevation` for a region request.\n",
       "The `wind_elevation` value will be ignored.\n"
     )
-    site_elevation <- NULL
+    wind_elevation <- NULL
   }
   if (is.character(wind_surface) & is.null(wind_elevation)) {
     stop(
@@ -272,13 +273,7 @@ get_power <- function(community,
   }
   if (is.character(lonlat)) {
     lonlat <- tolower(lonlat)
-    if (lonlat == "global" & temporal_api != "climatology") {
-      stop(
-        call. = FALSE,
-        "You have asked for 'global' data. However, this is only available ",
-        "for 'climatology'.\n"
-      )
-    } else if (lonlat != "global") {
+    if (lonlat != "global") {
       stop(
         call. = FALSE,
         "You have entered an invalid value for `lonlat`. Valid values are ",
@@ -626,7 +621,9 @@ get_power <- function(community,
       community = community,
       start = dates[[1]],
       end = dates[[2]],
-      siteElev = site_elevation,
+      `site-elevation` = site_elevation,
+      `wind-elevation` = wind_elevation,
+      `wind-surface` = wind_surface,
       longitude = lonlat_identifier$longitude,
       latitude = lonlat_identifier$latitude,
       format = "csv",
