@@ -1,4 +1,12 @@
-# nasapower 4.0.5
+# nasapower 4.0.7
+
+## Minor changes
+
+* Adds new `time_standard` parameter to `get_power()` as requested in [#70](https://github.com/ropensci/nasapower/issues/70).
+
+* Updates internal list of accepted POWER parameters.
+
+# nasapower 4.0.6
 
 ## Bug fixes
 
