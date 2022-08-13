@@ -1,8 +1,14 @@
+# nasapower 4.0.8
+
+* Redoc package to align with CRAN policies on well-formed HTML.
+
+* Update list of allowed parameters for querying the API, ([18e4495e0ca2e9f14006260c019ac878a3023843](https://github.com/ropensci/nasapower/commit/9ed90e0708a32650992795b818e1681e7150a0d9)).
+
+* Updated test infrastructure
+
 # nasapower 4.0.7
 
-## Minor changes
-
-* Adds new `time_standard` parameter to `get_power()` as requested in [#70](https://github.com/ropensci/nasapower/issues/70).
+* Adds new `time_standard` parameter to `get_power()` as requested in [##70](https://github.com/ropensci/nasapower/issues/70).
 
 * Updates internal list of accepted POWER parameters.
 
@@ -15,14 +21,11 @@ Thanks to @daniel_althoff for reporting this bug [Issue 69](https://github.com/r
 
 * Fixes bug where `wind_elevation` and `wind_surface` were not properly passed along to the API.
 
-
 ## Minor changes
 
 * Fixes redundant and broken tests by removing or updating new tests.
 
 # nasapower 4.0.5
-
-## Bug fixes
 
 * Fixes bug when requesting `site_elevation` corrected data.
 Thanks to @daniel_althoff for reporting this bug [Issue 69](https://github.com/ropensci/nasapower/issues/69).
@@ -39,13 +42,9 @@ Thanks to @daniel_althoff for reporting this bug [Issue 69](https://github.com/r
 
 # nasapower 4.0.3
 
-## Minor changes
-
 * Fixes tests that should use _vcr_ or be skipped on CRAN.
 
 # nasapower 4.0.2
-
-## Minor changes
 
 * Update checks for number of parameters requested by user, maximum of 15 for hourly and 20 for all other temporal APIs.
 
@@ -167,7 +166,7 @@ When this is used it will return a corrected atmospheric pressure value adjusted
 
 # nasapower 1.1.2
 
-# Minor changes
+## Minor changes
 
 - Correct URL in BibTeX version of citation
 
@@ -310,7 +309,7 @@ These tests should be skipped on CRAN but were not.
 
 - Internally, replaces _httr_ package with _crul_
 
-### Deprecated functions
+## Deprecated functions
 
 - The `get_cell` and `get_region` functions are deprecated in favour of `get_power()`.
 The new POWER interface allows for the specification of single points or regional areas.
@@ -319,13 +318,13 @@ See the help for `?get_power()` for more details.
 
 # nasapower 0.1.4
 
-### Bug Fixes
+## Bug Fixes
 
 - Fixes bug related to date columns where `MONTH`, `DAY` and `YYYY-MM-DD` were incorrectly reported in final data frame. This did not affect the weather data, `YEAR` or `DOY` columns.
 
 # nasapower 0.1.3
 
-### Bug fixes
+## Bug fixes
 
 - Fix bug where lon/lat values were improperly assigned internally due to row names not being ordered correctly in `get_region()`
 
@@ -357,7 +356,7 @@ _raster_ to create a `raster::brick()`
 
 # nasapower 0.1.2
 
-### Bug fixes
+## Bug fixes
 
 - Fixes bug where only first date is reported when using `get_region()` with multiple dates. https://github.com/ropensci/nasapower/issues/1
 
@@ -383,7 +382,7 @@ _raster_ to create a `raster::brick()`
 
 # nasapower 0.1.0
 
-### New features
+## New features
 
 * Add new functionality to download regions in addition to single cells
 
@@ -397,7 +396,7 @@ _raster_ to create a `raster::brick()`
 
 # nasapower 0.0.2
 
-### New features
+## New features
 
 * Added citation file
 
