@@ -1,7 +1,7 @@
 Package: nasapower
 Type: Package
 Title: NASA POWER API Client
-Version: 4.0.9
+Version: 4.0.10
 Authors@R: 
     c(person(given = "Adam H.",
             family = "Sparks",
@@ -50,7 +50,7 @@ Authors@R:
                          "Phillip Alderman contributed a patch to fix an issue
                          with, 'The `file` argument of `vroom()` must use `I()`
                          for literal data as of vroom 1.5.0.', see
-                         https://github.com/ropensci/nasapower/pull/67.")),
+                         <https://github.com/ropensci/nasapower/pull/67>.")),
       person(given = "Western Australia Agriculture Authority (WAAA)",
              role = "cph",
              comment = c("Supported the development of nasapower through Adam H.
@@ -73,14 +73,14 @@ Encoding: UTF-8
 Language: en-US
 NeedsCompilation: no
 Repository: CRAN
-Suggests: knitr, purrr, ratelimitr, rmarkdown, spelling, testthat, vcr
+Suggests: knitr, purrr, rmarkdown, spelling, testthat, vcr
 VignetteBuilder: knitr
 X-schema.org-applicationCategory: Tools
 X-schema.org-keywords: NASA, meteorological-data, weather, global,
         weather, weather-data, meteorology, NASA-POWER,
         agroclimatology, earth-science, data-access, climate-data
 X-schema.org-isPartOf: https://ropensci.org
-Packaged: 2023-01-04 07:57:57 UTC; adamsparks
+Packaged: 2023-02-25 08:24:56 UTC; adamsparks
 Author: Adam H. Sparks [aut, cre] (<https://orcid.org/0000-0002-0061-8359>),
   Scott Chamberlain [rev] (<https://orcid.org/0000-0003-1444-9135>, Scott
     Chamberlain reviewed nasapower for rOpenSci, see
@@ -100,8 +100,9 @@ Author: Adam H. Sparks [aut, cre] (<https://orcid.org/0000-0002-0061-8359>),
   Phillip D. Alderman [ctb] (<https://orcid.org/0000-0003-1467-2337>,
     Phillip Alderman contributed a patch to fix an issue with, 'The
     `file` argument of `vroom()` must use `I()` for literal data as of
-    vroom 1.5.0.', see https://github.com/ropensci/nasapower/pull/67.),
+    vroom 1.5.0.', see
+    <https://github.com/ropensci/nasapower/pull/67>.),
   Western Australia Agriculture Authority (WAAA) [cph] (Supported the
     development of nasapower through Adam H.  Sparks' time.)
 Maintainer: Adam H. Sparks <adamhsparks@gmail.com>
-Date/Publication: 2023-01-05 21:00:02 UTC
+Date/Publication: 2023-02-25 08:50:02 UTC

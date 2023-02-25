@@ -1,5 +1,5 @@
 
-# *nasapower*: NASA POWER API Client <img src="man/figures/logo.png" style="float:right;" alt="logo" width="120" />
+# {nasapower}: NASA POWER API Client <img src="man/figures/logo.png" style="float:right;" alt="logo" width="120" />
 
 <!-- badges: start -->
 
@@ -15,14 +15,14 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 <!-- badges: end -->
 
-*nasapower* aims to make it quick and easy to automate downloading
-[NASA-POWER](https://power.larc.nasa.gov) global meteorology, surface
-solar energy and climatology data in your R session as a tidy data frame
-`tibble` object for analysis and use in modelling or other purposes.
-POWER (Prediction Of Worldwide Energy Resource) data are freely
-available for download with varying spatial resolutions dependent on the
-original data and with several temporal resolutions depending on the
-POWER parameter and community.
+{nasapower} aims to make it quick and easy to automate *downloading* of
+the [NASA-POWER](https://power.larc.nasa.gov) global meteorology,
+surface solar energy and climatology data in your R session as a tidy
+data frame `tibble` object for analysis and use in modelling or other
+purposes. POWER (Prediction Of Worldwide Energy Resource) data are
+freely available for download with varying spatial resolutions dependent
+on the original data and with several temporal resolutions depending on
+the POWER parameter and community.
 
 **Note that the data are not static and may be replaced with improved
 data.** Please see <https://power.larc.nasa.gov/docs/services/> for
@@ -30,7 +30,7 @@ detailed information in this regard.
 
 ### Quick start
 
-*nasapower* can easily be installed using the following code.
+{nasapower} can easily be installed using the following code.
 
 #### From CRAN
 
@@ -90,39 +90,35 @@ daily_ag
 
 More documentation is available in the vignette in your R session,
 `vignette("nasapower")` or available online,
-<https://docs.ropensci.org/nasapower/>.
-
-## Use of POWER Data
-
-While *nasapower* does not redistribute the data or provide it in any
-way, we encourage users to follow the requests of the POWER Project
-Team.
-
-> When POWER data products are used in a publication, we request the
-> following acknowledgement be included: “These data were obtained from
-> the NASA Langley Research Center POWER Project funded through the NASA
-> Earth Science Directorate Applied Science Program.”
+<https://docs.ropensci.org/nasapower/articles/nasapower.html>.
 
 ## Meta
 
 - Please [report any issues or
-  bugs](https://github.com/ropensci/nasapower/issues).
+  bugs](https://github.com/ropensci/nasapower/issues). Please note that
+  the {nasapower} project is released with a [Contributor Code of
+  Conduct](https://github.com/ropensci/nasapower/blob/main/CODE_OF_CONDUCT.md).
+  By participating in the {nasapower} project you agree to abide by its
+  terms.
 
 - License: MIT
 
-- To cite *nasapower*, please use the output from
-  `citation(package = "nasapower")`.
+- To cite this R package, {nasapower}, please use the output from
+  `citation(package = "nasapower")` and cite both the package manual,
+  which includes the version you used and the paper which refers to the
+  peer-review of the software package.
 
-- Please note that the *nasapower* project is released with a
-  [Contributor Code of
-  Conduct](https://github.com/ropensci/nasapower/blob/main/CODE_OF_CONDUCT.md).
-  By participating in the *nasapower* project you agree to abide by its
-  terms.
+- Please note that {nasapower} is **NOT** the source of NASA POWER data.
+  It is only an API client that allows easy access to the data.
+  {nasapower} does not redistribute the data or provide it in any way,
+  we encourage users to follow the requests of the POWER Project Team
+  and properly acknowledge them for the data rather than citing this
+  package (unless you have actually used it in your work).
 
-- The U.S. Earth System Research Laboratory, Physical Science Division
-  of the National Atmospheric & Oceanic Administration (NOAA) maintains
-  a list of gridded climate data sets that provide different data and
-  different resolutions <https://psl.noaa.gov/data/gridded/>.
+  > *When POWER data products are used in a publication, we request the
+  > following acknowledgement be included: “These data were obtained
+  > from the NASA Langley Research Center POWER Project funded through
+  > the NASA Earth Science Directorate Applied Science Program.”*
 
 ## References
 

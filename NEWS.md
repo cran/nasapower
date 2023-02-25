@@ -1,8 +1,16 @@
+# nasapower 4.0.10
+
+* Update CITATION file to follow CRAN's ~ever-changing whims~ guidelines.
+
 # nasapower 4.0.9
 
-* Ensure tests are skipped on CRAN, thanks @maelle!
+* Remove an example that no longer works with the API.
 
-* Fix .covrignore file so that the `print()` is ignored in test coverage.
+* Remove incorrect documentation about rate limiting and include details on how to use rate limiting.
+
+* Ensure tests are skipped on CRAN, thanks Maëlle!
+
+* Use `skip_if_offline()` rather than `skip_on_cran()` for tests.
 
 # nasapower 4.0.8
 
