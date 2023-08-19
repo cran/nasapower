@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_power.R
 \name{get_power}
 \alias{get_power}
-\title{Get NASA POWER data from the POWER web API}
+\title{Get NASA POWER Data From the POWER API}
 \usage{
 get_power(
   community,
@@ -62,11 +62,11 @@ wind-speed is to be supplied.  See \code{wind-surface} section for more detail.}
 \code{temporal_api} to align with the new \acronym{POWER} \acronym{API}
 terminology.}
 
-\item{time_standard}{POWER provides two different time standards:
+\item{time_standard}{\acronym{POWER} provides two different time standards:
 \itemize{
 \item Universal Time Coordinated (\acronym{UTC}): is the standard time measure
 that used by the world.
-\item Local Solar Time (\acronym{LST}): A 15 Degrees swath that represents
+\item Local Solar Time (\acronym{LST}): A 15 degree swath that represents
 solar noon at the middle longitude of the swath.
 Defaults to \code{LST}.
 }}
@@ -81,25 +81,18 @@ header of metadata is included in this object.
 Get \acronym{POWER} global meteorology and surface solar energy
 climatology data and return a tidy data frame \code{\link[tibble:tibble]{tibble::tibble()}}
 object.  All options offered by the official \acronym{POWER} \acronym{API}
-are supported.  Requests are formed to submit one request per point.  There
-is no need to make synchronous requests for multiple parameters for a
-single point or regional request.  The POWER API endpoints limit queries to
-prevent overloads due to repetitive and rapid requests.  If you find that
-the API is throttling your queries, I suggest that you investigate the use
-of \code{limit_rate()} from \CRANpkg{ratelimitr} to create self-limiting
-functions that will respect the rate limits that the API has in place. It
-considered best practice to check the
-\href{https://power.larc.nasa.gov/docs/services/api/#rate-limiting}{POWER website}
-for the latest rate limits as they differ between temporal \acronym{API}s
-and may change over time as the project matures.
+are supported.  Requests are formed to submit one request per point.
+There is no need to make synchronous requests for multiple parameters for
+a single point or regional request.  See section on \dQuote{Rate Limiting}
+for more.
 }
 \note{
-The associated metadata shown in the decorative header are not saved if
-the data are exported to a file format other than a native \R data format,
-\emph{e.g.}, .Rdata, .rda or .rds.
+The associated metadata shown in the decorative header are not saved
+if the data are exported to a file format other than a native \R data
+format, \emph{e.g.}, .Rdata, .rda or .rds.
 }
 \section{Argument details for \dQuote{community}}{
- there are three valid
+ There are three valid
 values, one must be supplied. This  will affect the units of the parameter
 and the temporal display of time series data.
 
@@ -187,11 +180,23 @@ Valid surface types are described here.
 }
 }
 
+\section{Rate limiting}{
+ The POWER API endpoints limit queries to prevent
+server overloads due to repetitive and rapid requests.  If you find that
+the \acronym{API} is throttling your queries, I suggest that you
+investigate the use of \code{limit_rate()} from \CRANpkg{ratelimitr} to create
+self-limiting functions that will respect the rate limits that the
+\acronym{API} has in place.  It is considered best practice to check the
+POWER website](https://power.larc.nasa.gov/docs/services/api/#rate-limiting)
+for the latest rate limits as they differ between temporal \acronym{API}s
+and may change over time as the project matures.
+}
+
 \examples{
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
-# Fetch daily "ag" community temperature, relative humidity and precipitation
-# for January 1 1985 at Kingsthorpe, Queensland, Australia
+# Fetch daily "ag" community temperature, relative humidity and
+# precipitation for January 1 1985 at Kingsthorpe, Queensland, Australia
 ag_d <- get_power(
   community = "ag",
   lonlat = c(151.81, -27.48),

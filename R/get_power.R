@@ -1,20 +1,13 @@
 
-#' Get NASA POWER data from the POWER web API
+#' Get NASA POWER Data From the POWER API
 #'
 #' @description Get \acronym{POWER} global meteorology and surface solar energy
 #'   climatology data and return a tidy data frame [tibble::tibble()]
 #'   object.  All options offered by the official \acronym{POWER} \acronym{API}
-#'   are supported.  Requests are formed to submit one request per point.  There
-#'   is no need to make synchronous requests for multiple parameters for a
-#'   single point or regional request.  The POWER API endpoints limit queries to
-#'   prevent overloads due to repetitive and rapid requests.  If you find that
-#'   the API is throttling your queries, I suggest that you investigate the use
-#'   of `limit_rate()` from \CRANpkg{ratelimitr} to create self-limiting
-#'   functions that will respect the rate limits that the API has in place. It
-#'   considered best practice to check the
-#'   [POWER website](https://power.larc.nasa.gov/docs/services/api/#rate-limiting)
-#'   for the latest rate limits as they differ between temporal \acronym{API}s
-#'   and may change over time as the project matures.
+#'   are supported.  Requests are formed to submit one request per point.
+#'   There is no need to make synchronous requests for multiple parameters for
+#'   a single point or regional request.  See section on \dQuote{Rate Limiting}
+#'   for more.
 #'
 #' @param community A character vector providing community name: \dQuote{ag},
 #'   \dQuote{re} or \dQuote{sb}.  See argument details for more.
@@ -45,20 +38,20 @@
 #'   not for use with \dQuote{global} or with a regional request.  If this
 #'   parameter is provided, the `wind-surface` parameter is required with the
 #'   request, see
-#'    \url{https://power.larc.nasa.gov/docs/methodology/meteorology/wind/}.
+#'    <https://power.larc.nasa.gov/docs/methodology/meteorology/wind/>.
 #' @param wind_surface A user-supplied wind surface for which the corrected
 #'   wind-speed is to be supplied.  See `wind-surface` section for more detail.
 #' @param temporal_average Deprecated. This argument has been superseded by
 #'   `temporal_api` to align with the new \acronym{POWER} \acronym{API}
 #'   terminology.
-#' @param time_standard POWER provides two different time standards:
+#' @param time_standard \acronym{POWER} provides two different time standards:
 #'    * Universal Time Coordinated (\acronym{UTC}): is the standard time measure
 #'     that used by the world.
-#'    * Local Solar Time (\acronym{LST}): A 15 Degrees swath that represents
+#'    * Local Solar Time (\acronym{LST}): A 15 degree swath that represents
 #'     solar noon at the middle longitude of the swath.
 #'    Defaults to `LST`.
 #'
-#' @section Argument details for \dQuote{community}: there are three valid
+#' @section Argument details for \dQuote{community}: There are three valid
 #'   values, one must be supplied. This  will affect the units of the parameter
 #'   and the temporal display of time series data.
 #'
@@ -137,9 +130,19 @@
 #'   \item{airportgrass}{Airport: flat rough grass}
 #' }
 #'
-#' @note The associated metadata shown in the decorative header are not saved if
-#'   the data are exported to a file format other than a native \R data format,
-#'   _e.g._, .Rdata, .rda or .rds.
+#' @section Rate limiting: The POWER API endpoints limit queries to prevent
+#'  server overloads due to repetitive and rapid requests.  If you find that
+#'  the \acronym{API} is throttling your queries, I suggest that you
+#'  investigate the use of `limit_rate()` from \CRANpkg{ratelimitr} to create
+#'  self-limiting functions that will respect the rate limits that the
+#' \acronym{API} has in place.  It is considered best practice to check the
+#'  POWER website](https://power.larc.nasa.gov/docs/services/api/#rate-limiting)
+#'  for the latest rate limits as they differ between temporal \acronym{API}s
+#'  and may change over time as the project matures.
+#'
+#' @note The associated metadata shown in the decorative header are not saved
+#'   if the data are exported to a file format other than a native \R data
+#'   format, *e.g.*, .Rdata, .rda or .rds.
 #'
 #' @return A data frame as a `POWER.Info` class, an extension of the
 #' [tibble::tibble], object of \acronym{POWER} data including location, dates
@@ -152,8 +155,8 @@
 #'
 #' @examplesIf interactive()
 #'
-#' # Fetch daily "ag" community temperature, relative humidity and precipitation
-#' # for January 1 1985 at Kingsthorpe, Queensland, Australia
+#' # Fetch daily "ag" community temperature, relative humidity and
+#' # precipitation for January 1 1985 at Kingsthorpe, Queensland, Australia
 #' ag_d <- get_power(
 #'   community = "ag",
 #'   lonlat = c(151.81, -27.48),
@@ -258,7 +261,7 @@ get_power <- function(community,
     )
     wind_elevation <- NULL
   }
-  if (is.character(wind_surface) & is.null(wind_elevation)) {
+  if (is.character(wind_surface) && is.null(wind_elevation)) {
     stop(
       call. = FALSE,
       "If you provide a correct wind surface alias, `wind_surface`, please ",
@@ -266,7 +269,7 @@ get_power <- function(community,
     )
   }
   if (!is.null(wind_elevation)) {
-    if (wind_elevation < 10 | wind_elevation > 300) {
+    if (wind_elevation < 10 || wind_elevation > 300) {
       stop(
         call. = FALSE,
         "`wind_elevation` values in metres are required to be between",
@@ -290,7 +293,7 @@ get_power <- function(community,
                       community,
                       temporal_api)
   lonlat_identifier <- .check_lonlat(lonlat,
-                                     pars)
+                                    pars)
   dates <- .check_dates(dates,
                         lonlat,
                         temporal_api)
@@ -326,15 +329,15 @@ get_power <- function(community,
 
   meta <- power_data[c(grep("-BEGIN HEADER-",
                             power_data):grep("-END HEADER-",
-                                             power_data))]
+                                            power_data))]
   # strip BEGIN/END HEADER lines
   meta <- meta[-c(1, max(length(meta)))]
 
   # replace missing values with NA in metadata header
   for (i in c("-999", "-99", "-99.00")) {
     meta <- gsub(pattern = i,
-                 replacement = "NA",
-                 x = meta)
+                replacement = "NA",
+                x = meta)
   }
 
   # create tibble object
@@ -354,20 +357,20 @@ get_power <- function(community,
   )
 
   # if the temporal average is anything but climatology, add date fields
-  if (temporal_api == "daily" &
-      query_list$community == "re" |
+  if (temporal_api == "daily" &&
+      query_list$community == "re" ||
       query_list$community == "sb") {
     power_data <- .format_dates_re_sb(power_data)
   }
-  if (temporal_api == "daily" &
+  if (temporal_api == "daily" &&
       query_list$community == "ag") {
     power_data <- .format_dates_ag(power_data)
   }
 
   # add new class
   power_data <- tibble::new_tibble(power_data,
-                                   class = "POWER.Info",
-                                   nrow = nrow(power_data))
+                                  class = "POWER.Info",
+                                  nrow = nrow(power_data))
 
   # add attributes for printing df
   attr(power_data, "POWER.Info") <- meta[1]
@@ -384,9 +387,9 @@ get_power <- function(community,
 
 # functions internal to get_power() -----
 
-#' Check dates for validity when querying API
+#' Check Dates for Validity When Querying API
 #'
-#' Validates user entered date values against `lonlat` and `temporal_api` values
+#' Validates user entered dates against `lonlat` and `temporal_api` values
 #'
 #' @param dates User entered `dates` value.
 #' @param lonlat User entered `lonlat` value.
