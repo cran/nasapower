@@ -1,7 +1,7 @@
 Package: nasapower
 Type: Package
 Title: NASA POWER API Client
-Version: 4.0.11
+Version: 4.1.0
 Authors@R: 
     c(person(given = "Adam H.",
             family = "Sparks",
@@ -62,7 +62,7 @@ URL: https://docs.ropensci.org/nasapower/
 BugReports: https://github.com/ropensci/nasapower/issues
 Description: An API client for NASA POWER global meteorology, surface solar
     energy and climatology data API.  POWER (Prediction Of Worldwide Energy
-    Resource) data are freely available for download with varying spatial 
+    Resources) data are freely available for download with varying spatial 
     resolutions dependent on the original data and with several temporal
     resolutions depending on the POWER parameter and community.  This work is
     funded through the NASA Earth Science Directorate Applied Science Program.
@@ -70,20 +70,24 @@ Description: An API client for NASA POWER global meteorology, surface solar
     based data viewer and web access, please see <https://power.larc.nasa.gov/>.
 Depends: R (>= 3.5.0)
 License: MIT + file LICENSE
-Imports: crul, lubridate, jsonlite, readr, tibble (>= 3.0.2)
+Imports: cli, crul, lubridate, jsonlite, readr, rlang, tibble (>=
+        3.0.2)
 RoxygenNote: 7.2.3
 Encoding: UTF-8
 Language: en-US
 NeedsCompilation: no
 Repository: CRAN
-Suggests: knitr, purrr, rmarkdown, spelling, testthat, vcr (>= 0.6.0)
+Suggests: knitr, purrr, rmarkdown, spelling, testthat (>= 3.0.0), vcr
+        (>= 0.6.0)
 VignetteBuilder: knitr
 X-schema.org-applicationCategory: Tools
 X-schema.org-keywords: NASA, meteorological-data, weather, global,
         weather, weather-data, meteorology, NASA-POWER,
         agroclimatology, earth-science, data-access, climate-data
 X-schema.org-isPartOf: https://ropensci.org
-Packaged: 2023-08-19 12:09:42 UTC; adamsparks
+Config/testthat/edition: 3
+Config/testthat/parallel: true
+Packaged: 2023-12-05 12:03:50 UTC; adamsparks
 Author: Adam H. Sparks [aut, cre] (<https://orcid.org/0000-0002-0061-8359>),
   Scott Chamberlain [rev] (<https://orcid.org/0000-0003-1444-9135>, Scott
     Chamberlain reviewed nasapower for rOpenSci, see
@@ -108,4 +112,4 @@ Author: Adam H. Sparks [aut, cre] (<https://orcid.org/0000-0002-0061-8359>),
   Western Australia Agriculture Authority (WAAA) [cph] (Supported the
     development of 'nasapower' through Adam H.  Sparks' time.)
 Maintainer: Adam H. Sparks <adamhsparks@gmail.com>
-Date/Publication: 2023-08-19 12:42:32 UTC
+Date/Publication: 2023-12-05 12:40:02 UTC
