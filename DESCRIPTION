@@ -1,7 +1,7 @@
 Package: nasapower
 Type: Package
 Title: NASA POWER API Client
-Version: 4.1.0
+Version: 4.2.0
 Authors@R: 
     c(person(given = "Adam H.",
             family = "Sparks",
@@ -53,7 +53,19 @@ Authors@R:
                `file` argument of `vroom()` must use `I()` for literal data as
                of vroom 1.5.0.', see
                <https://github.com/ropensci/nasapower/pull/67>.")),
-      person(given = "Western Australia Agriculture Authority (WAAA)",
+      person(given = "Aleksandar",
+             family = "Blagotić",
+             role = "ctb",
+             email = "alex@rapporter.net",
+             comment = c("Author of the CRAN package 'rapportools', from which
+             the '.is_boolean()' was taken.")),
+      person(given = "Gergely",
+             family = "Daróczi",
+             role = "ctb",
+             email = "daroczig@rapporter.net",
+             comment = c("Author of the CRAN package 'rapportools', from which
+             the '.is_boolean()' was taken.")),
+      person(given = "Curtin University",
              role = "cph",
              comment =
                 c("Supported the development of 'nasapower' through Adam H.
@@ -72,13 +84,13 @@ Depends: R (>= 3.5.0)
 License: MIT + file LICENSE
 Imports: cli, crul, lubridate, jsonlite, readr, rlang, tibble (>=
         3.0.2)
-RoxygenNote: 7.2.3
+Suggests: knitr, purrr, rmarkdown, spelling, testthat (>= 3.0.0), vcr
+        (>= 0.6.0)
+RoxygenNote: 7.3.1
 Encoding: UTF-8
 Language: en-US
 NeedsCompilation: no
 Repository: CRAN
-Suggests: knitr, purrr, rmarkdown, spelling, testthat (>= 3.0.0), vcr
-        (>= 0.6.0)
 VignetteBuilder: knitr
 X-schema.org-applicationCategory: Tools
 X-schema.org-keywords: NASA, meteorological-data, weather, global,
@@ -87,7 +99,7 @@ X-schema.org-keywords: NASA, meteorological-data, weather, global,
 X-schema.org-isPartOf: https://ropensci.org
 Config/testthat/edition: 3
 Config/testthat/parallel: true
-Packaged: 2023-12-05 12:03:50 UTC; adamsparks
+Packaged: 2024-02-02 02:55:17 UTC; 283204f
 Author: Adam H. Sparks [aut, cre] (<https://orcid.org/0000-0002-0061-8359>),
   Scott Chamberlain [rev] (<https://orcid.org/0000-0003-1444-9135>, Scott
     Chamberlain reviewed nasapower for rOpenSci, see
@@ -109,7 +121,11 @@ Author: Adam H. Sparks [aut, cre] (<https://orcid.org/0000-0002-0061-8359>),
     `file` argument of `vroom()` must use `I()` for literal data as of
     vroom 1.5.0.', see
     <https://github.com/ropensci/nasapower/pull/67>.),
-  Western Australia Agriculture Authority (WAAA) [cph] (Supported the
-    development of 'nasapower' through Adam H.  Sparks' time.)
+  Aleksandar Blagotić [ctb] (Author of the CRAN package 'rapportools',
+    from which the '.is_boolean()' was taken.),
+  Gergely Daróczi [ctb] (Author of the CRAN package 'rapportools', from
+    which the '.is_boolean()' was taken.),
+  Curtin University [cph] (Supported the development of 'nasapower'
+    through Adam H.  Sparks' time.)
 Maintainer: Adam H. Sparks <adamhsparks@gmail.com>
-Date/Publication: 2023-12-05 12:40:02 UTC
+Date/Publication: 2024-02-02 05:20:02 UTC
