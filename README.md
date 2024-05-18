@@ -3,14 +3,14 @@
 
 <!-- badges: start -->
 
-[![tic](https://github.com/ropensci/nasapower/workflows/tic/badge.svg?branch=main)](https://github.com/ropensci/nasapower/actions)
+[![R-CMD-check](https://github.com/ropensci/nasapower/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/nasapower/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/ropensci/nasapower/branch/main/graph/badge.svg?token=Kq9aea0TQN)](https://app.codecov.io/gh/ropensci/nasapower)
 [![DOI](https://zenodo.org/badge/109224461.svg)](https://zenodo.org/badge/latestdoi/109224461)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![peer-review](https://badges.ropensci.org/155_status.svg)](https://github.com/ropensci/software-review/issues/155)
-[![DOI](http://joss.theoj.org/papers/10.21105/joss.01035/status.svg)](https://doi.org/10.21105/joss.01035)
+[![JOSS](https://joss.theoj.org/papers/10.21105/joss.01035/status.svg)](https://doi.org/10.21105/joss.01035)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/nasapower)](https://CRAN.R-project.org/package=nasapower)
 <!-- badges: end -->
@@ -25,9 +25,10 @@ properly acknowledge them for the data rather than citing this package*
 (unless you have actually used it in your work).
 
 > *When POWER data products are used in a publication, we request the
-> following acknowledgement be included: “These data were obtained from
-> the NASA Langley Research Center POWER Project funded through the NASA
-> Earth Science Directorate Applied Science Program.”*
+> following acknowledgement be included: “The data was obtained from the
+> National Aeronautics and Space Administration (NASA) Langley Research
+> Center (LaRC) Prediction of Worldwide Energy Resource (POWER) Project
+> funded through the NASA Earth Science/Applied Science Program.”*
 
 The previous statement that properly cites the POWER data is different
 than the citation for {nasapower}. To cite this R package, {nasapower},
@@ -80,12 +81,13 @@ Australia.
 
 ``` r
 library("nasapower")
-daily_ag <- get_power(community = "ag",
-                      lonlat = c(151.81, -27.48),
-                      pars = c("RH2M", "T2M", "PRECTOTCORR"),
-                      dates = "1985-01-01",
-                      temporal_api = "daily"
-                      )
+daily_ag <- get_power(
+  community = "ag",
+  lonlat = c(151.81, -27.48),
+  pars = c("RH2M", "T2M", "PRECTOTCORR"),
+  dates = "1985-01-01",
+  temporal_api = "daily"
+)
 daily_ag
 ```
 
@@ -114,12 +116,12 @@ More documentation is available in the vignette in your R session,
 
 ## Meta
 
+- Please note that this package is released with a [Contributor Code of
+  Conduct](https://ropensci.org/code-of-conduct/). By contributing to
+  this project, you agree to abide by its terms.
+
 - Please [report any issues or
-  bugs](https://github.com/ropensci/nasapower/issues). Please note that
-  the {nasapower} project is released with a [Contributor Code of
-  Conduct](https://github.com/ropensci/nasapower/blob/main/CODE_OF_CONDUCT.md).
-  By participating in the {nasapower} project you agree to abide by its
-  terms.
+  bugs](https://github.com/ropensci/nasapower/issues).
 
 - License: MIT
 

@@ -61,7 +61,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -488,19 +488,20 @@ region.</p>
 <span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="co">#&gt;  CLRSKY_SFC_SW_DWN     CERES SYN1deg Clear Sky Surface Shortwave Downward Irradiance (kW-hr/m^2/day)  </span></span>
 <span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="co">#&gt;  </span></span>
 <span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a><span class="co">#&gt; # A tibble: 144 × 17</span></span>
-<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a><span class="co">#&gt;    PARAMETER          YEAR   LAT   LON   JAN   FEB   MAR   APR   MAY   JUN   JUL   AUG   SEP   OCT   NOV   DEC   ANN</span></span>
-<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a><span class="co">#&gt;  1 ALLSKY_SFC_SW_DWN  1984 -25.8  151.  6.01  6.49  5.79  4.67  4.12  3.77  2.46  4.87  6.11  5.5   7.97  7.03  5.39</span></span>
-<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a><span class="co">#&gt;  2 ALLSKY_SFC_SW_DWN  1984 -25.8  151.  5.92  5.97  5.64  4.37  4.01  3.61  2.6   4.8   5.84  5.24  7.6   6.76  5.19</span></span>
-<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a><span class="co">#&gt;  3 ALLSKY_SFC_SW_DWN  1984 -25.8  152.  5.92  5.97  5.64  4.37  4.01  3.61  2.6   4.8   5.84  5.24  7.6   6.76  5.19</span></span>
-<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a><span class="co">#&gt;  4 ALLSKY_SFC_SW_DWN  1984 -25.8  152.  5.96  5.85  5.56  4.26  3.92  3.52  2.66  4.59  5.58  4.94  7.23  6.68  5.06</span></span>
-<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a><span class="co">#&gt;  5 ALLSKY_SFC_SW_DWN  1984 -25.8  153.  5.96  5.85  5.56  4.26  3.92  3.52  2.66  4.59  5.58  4.94  7.23  6.68  5.06</span></span>
-<span id="cb3-30"><a href="#cb3-30" tabindex="-1"></a><span class="co">#&gt;  6 ALLSKY_SFC_SW_DWN  1984 -25.8  153.  6.23  6.05  5.88  4.26  3.81  3.3   2.96  4.73  5.66  5.25  7.6   7.06  5.23</span></span>
-<span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a><span class="co">#&gt;  7 ALLSKY_SFC_SW_DWN  1984 -26.2  151.  5.97  6.65  6     4.66  4.02  3.72  2.28  4.86  6.08  5.74  7.74  6.97  5.38</span></span>
-<span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a><span class="co">#&gt;  8 ALLSKY_SFC_SW_DWN  1984 -26.2  151.  6     6.38  5.71  4.38  4.01  3.66  2.17  4.88  6.01  5.43  7.46  6.89  5.24</span></span>
-<span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a><span class="co">#&gt;  9 ALLSKY_SFC_SW_DWN  1984 -26.2  152.  6     6.38  5.71  4.38  4.01  3.66  2.17  4.88  6.01  5.43  7.46  6.89  5.24</span></span>
-<span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a><span class="co">#&gt; 10 ALLSKY_SFC_SW_DWN  1984 -26.2  152.  5.75  5.96  5.37  4.13  3.8   3.44  2.38  4.81  5.75  4.99  6.94  6.56  4.98</span></span>
-<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a><span class="co">#&gt; # ℹ 134 more rows</span></span></code></pre></div>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a><span class="co">#&gt;    PARAMETER       YEAR   LAT   LON   JAN   FEB   MAR   APR   MAY   JUN   JUL   AUG   SEP   OCT   NOV</span></span>
+<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a><span class="co">#&gt;  1 ALLSKY_SFC_SW…  1984 -25.8  151.  6.01  6.49  5.79  4.67  4.12  3.77  2.46  4.87  6.11  5.5   7.97</span></span>
+<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a><span class="co">#&gt;  2 ALLSKY_SFC_SW…  1984 -25.8  151.  5.92  5.97  5.64  4.37  4.01  3.61  2.6   4.8   5.84  5.24  7.6 </span></span>
+<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a><span class="co">#&gt;  3 ALLSKY_SFC_SW…  1984 -25.8  152.  5.92  5.97  5.64  4.37  4.01  3.61  2.6   4.8   5.84  5.24  7.6 </span></span>
+<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a><span class="co">#&gt;  4 ALLSKY_SFC_SW…  1984 -25.8  152.  5.96  5.85  5.56  4.26  3.92  3.52  2.66  4.59  5.58  4.94  7.23</span></span>
+<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a><span class="co">#&gt;  5 ALLSKY_SFC_SW…  1984 -25.8  153.  5.96  5.85  5.56  4.26  3.92  3.52  2.66  4.59  5.58  4.94  7.23</span></span>
+<span id="cb3-30"><a href="#cb3-30" tabindex="-1"></a><span class="co">#&gt;  6 ALLSKY_SFC_SW…  1984 -25.8  153.  6.23  6.05  5.88  4.26  3.81  3.3   2.96  4.73  5.66  5.25  7.6 </span></span>
+<span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a><span class="co">#&gt;  7 ALLSKY_SFC_SW…  1984 -26.2  151.  5.97  6.65  6     4.66  4.02  3.72  2.28  4.86  6.08  5.74  7.74</span></span>
+<span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a><span class="co">#&gt;  8 ALLSKY_SFC_SW…  1984 -26.2  151.  6     6.38  5.71  4.38  4.01  3.66  2.17  4.88  6.01  5.43  7.46</span></span>
+<span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a><span class="co">#&gt;  9 ALLSKY_SFC_SW…  1984 -26.2  152.  6     6.38  5.71  4.38  4.01  3.66  2.17  4.88  6.01  5.43  7.46</span></span>
+<span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a><span class="co">#&gt; 10 ALLSKY_SFC_SW…  1984 -26.2  152.  5.75  5.96  5.37  4.13  3.8   3.44  2.38  4.81  5.75  4.99  6.94</span></span>
+<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a><span class="co">#&gt; # ℹ 134 more rows</span></span>
+<span id="cb3-36"><a href="#cb3-36" tabindex="-1"></a><span class="co">#&gt; # ℹ 2 more variables: DEC &lt;dbl&gt;, ANN &lt;dbl&gt;</span></span></code></pre></div>
 </div>
 <div id="example-fetching-climatology-data" class="section level3">
 <h3>Example fetching climatology data</h3>

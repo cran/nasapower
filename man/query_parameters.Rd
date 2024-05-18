@@ -4,14 +4,19 @@
 \alias{query_parameters}
 \title{Query the POWER API for Detailed Information on Available Parameters}
 \usage{
-query_parameters(community = NULL, pars, temporal_api = NULL, metadata = FALSE)
+query_parameters(
+  community = NULL,
+  pars = NULL,
+  temporal_api = NULL,
+  metadata = FALSE
+)
 }
 \arguments{
 \item{community}{An optional character vector providing community name:
 \dQuote{ag}, \dQuote{sb} or \dQuote{re}.}
 
-\item{pars}{A required character string of a single solar, meteorological or
-climatology parameter to query.}
+\item{pars}{An optional character string of a single solar, meteorological or
+climatology parameter to query.  If none is provided, all are returned.}
 
 \item{temporal_api}{An optional character vector indicating the temporal
 \acronym{API} end-point for data being queried, supported values are
