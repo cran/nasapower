@@ -2,7 +2,7 @@
 % Please edit documentation in R/query_parameters.R
 \name{query_parameters}
 \alias{query_parameters}
-\title{Query the POWER API for Detailed Information on Available Parameters}
+\title{Query the POWER API for detailed information on available parameters}
 \usage{
 query_parameters(
   community = NULL,
@@ -56,14 +56,18 @@ query_parameters(pars = "T2M")
 
 # fetch complete temporal and community specific attribute information
 # for "T2M" in the "ag" community for the "hourly" temporal API.
-query_parameters(pars = "T2M",
-                 community = "ag",
-                 temporal_api = "hourly")
+query_parameters(
+  pars = "T2M",
+  community = "ag",
+  temporal_api = "hourly"
+)
 
 # fetch complete temporal and community specific attribute information
 # for all parameters in the "ag" community for the "hourly" temporal API.
-query_parameters(community = "ag",
-                 temporal_api = "hourly")
+query_parameters(
+  community = "ag",
+  temporal_api = "hourly"
+)
 \dontshow{\}) # examplesIf}
 }
 \author{

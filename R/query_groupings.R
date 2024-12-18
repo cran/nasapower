@@ -1,5 +1,4 @@
-
-#' Query the POWER API for Detailed Information on Available Parameter Groupings
+#' Query the POWER API for detailed information on available parameter groupings
 #'
 #' Queries the \acronym{POWER} \acronym{API} returning detailed information on
 #'  available parameter groupings grouped by community followed by temporal
@@ -28,8 +27,10 @@
 query_groupings <- function(global = FALSE) {
   if (!.is_boolean(global)) {
     cli::cli_abort(
-      c(x = "{.arg global} should be a Boolean value.",
-        i = "{Please provide either {.var TRUE} or {.var FALSE}.")
+      c(
+        x = "{.arg global} should be a Boolean value.",
+        i = "{Please provide either {.var TRUE} or {.var FALSE}."
+      )
     )
   }
 
@@ -42,7 +43,6 @@ query_groupings <- function(global = FALSE) {
 
     response$raise_for_status()
     return(jsonlite::fromJSON(response$parse("UTF8")))
-
   } else {
     power_url <- sprintf("%s/global", power_url)
     response <-

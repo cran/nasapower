@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_power.R
 \name{get_power}
 \alias{get_power}
-\title{Get NASA POWER Data From the POWER API}
+\title{Get NASA POWER data from the POWER API}
 \usage{
 get_power(
   community = c("ag", "re", "sb"),
@@ -17,22 +17,22 @@ get_power(
 )
 }
 \arguments{
-\item{community}{A case-intensive character vector providing community name:
+\item{community}{A case-insensitive character vector providing community name:
 \dQuote{AG}, \dQuote{RE} or \dQuote{SB}.  See argument details for more.}
 
-\item{pars}{case-intensive character vector of solar, meteorological or
+\item{pars}{case-insensitive character vector of solar, meteorological or
 climatology parameters to download.  When requesting a single point of x, y
 coordinates, a maximum of twenty (20) \code{pars} can be specified at one time,
-for \dQuote{DAILY}, \dQuote{MONTHLY} and \dQuote{climatology}
+for \dQuote{daily}, \dQuote{monthly} and \dQuote{climatology}
 \code{temporal_api}s.  If the \code{temporal_api} is specified as \dQuote{hourly}
 only 15 \code{pars} can be specified in a single query.  See \code{temporal_api} for
 more.  These values are checked internally for validity before sending the
 query to the \acronym{POWER} \acronym{API}.}
 
-\item{temporal_api}{A case-intensive character vector providing the temporal
+\item{temporal_api}{A case-insensitive character vector providing the temporal
 \acronym{API} end-point for data being queried, supported values are
-\dQuote{hourly}, \dQuote{DAILY}, \dQuote{MONTHLY} or \dQuote{climatology}.
-Defaults to \dQuote{DAILY}.  See argument details for more.}
+\dQuote{hourly}, \dQuote{daily}, \dQuote{monthly} or \dQuote{climatology}.
+Defaults to \dQuote{daily}.  See argument details for more.}
 
 \item{lonlat}{A numeric vector of geographic coordinates for a cell or region
 entered as x, y (longitude, latitude) coordinates.  See argument details
@@ -50,17 +50,16 @@ single point of x, y coordinates, not for use with \dQuote{global} or with
 a regional request.}
 
 \item{wind_elevation}{A user-supplied value for elevation at a single point
-in metres.  Wind Elevation values in Meters are required to be between 10m
-and 300m.  Only used with \code{lonlat} as a single point of x, y coordinates,
-not for use with \dQuote{global} or with a regional request.  If this
-parameter is provided, the \code{wind-surface} parameter is required with the
-request, see
+in metres.  Wind Elevation values are required to be between 10 and 300
+metres.  Only used with \code{lonlat} as a single point of x, y coordinates, not
+for use with \dQuote{global} or with a regional request.  If this parameter
+is provided, the \code{wind_surface} parameter is required with the request, see
 \url{https://power.larc.nasa.gov/docs/methodology/meteorology/wind/}.}
 
 \item{wind_surface}{A user-supplied wind surface for which the corrected
 wind-speed is to be supplied.  See \code{wind-surface} section for more detail.}
 
-\item{time_standard}{\acronym{POWER} provides two different time standards:
+\item{time_standard}{\acronym{POWER} provides two different time standards.
 \itemize{
 \item Universal Time Coordinated (\acronym{UTC}): is the standard time measure
 that used by the world.
@@ -72,7 +71,7 @@ Defaults to \code{LST}.
 \value{
 A data frame as a \code{POWER.Info} class, an extension of the
 \link[tibble:tibble]{tibble::tibble}, object of \acronym{POWER} data including location, dates
-(not including \dQuote{climatology}) and requested parameters.  A decorative
+(not including \dQuote{climatology}) and requested parameters; a decorative
 header of metadata is included in this object.
 }
 \description{
@@ -154,7 +153,7 @@ day's values will be returned, \emph{e.g.}, \code{dates = "1983-01-01"}.  When
 \section{\code{wind_surface}}{
  There are 17 surfaces that may be used for corrected
 wind-speed values using the following equation:
-\deqn{ WSC_hgt = WS_10m\times(\frac{hgt}{WS_50m})^\alpha}{WSC_hgt = WS_10m*(hgt/WS_50m)^\alpha }
+\deqn{ WSC_hgt = WS_10 m\times(\frac{hgt}{WS_50m})^\alpha}{WSC_hgt = WS_10 m*(hgt/WS_50m)^\alpha }
 Valid surface types are described here.
 
 \describe{
@@ -200,7 +199,7 @@ ag_d <- get_power(
   lonlat = c(151.81, -27.48),
   pars = c("RH2M", "T2M", "PRECTOTCORR"),
   dates = "1985-01-01",
-  temporal_api = "DAILY"
+  temporal_api = "daily"
 )
 
 ag_d
@@ -220,7 +219,7 @@ sse_i <- get_power(
   community = "RE",
   lonlat = c(112.5, -55.5, 115.5, -50.5),
   dates = c("1984", "1985"),
-  temporal_api = "MOHTHLY",
+  temporal_api = "monthly",
   pars = c("CLRSKY_SFC_SW_DWN", "ALLSKY_SFC_SW_DWN")
 )
 

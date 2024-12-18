@@ -1,4 +1,3 @@
-
 #' Adds a %notin% Function
 #'
 #' Negates `%in%` for easier (mis)matching.
@@ -7,7 +6,7 @@
 #' @param table A table containing values to match `x` against.
 #'
 #' @return A logical vector, indicating if a mismatch was located for any
-#'  element of x: thus the values are TRUE or FALSE and never NA.
+#'  element of x: thus the values are `TRUE` or `FALSE` and never `NA`.
 #' @keywords internal
 #' @noRd
 `%notin%` <- function(x, table) {
@@ -22,7 +21,7 @@
 #' @param community User entered `community` value.
 #' @param temporal_api User entered `temporal_api` value.
 #'
-#' @return Validated a collapsed string of  `pars` for use in [.build_query()]
+#' @return Validated a collapsed string of  `pars` for use in [.build_query].
 #' @keywords internal
 #' @noRd
 .check_pars <-
@@ -47,40 +46,42 @@
     community_temporal_api <-
       paste(
         rep(temporal_api, each = length(temporal_api)),
-            community, sep = "_")
+        community,
+        sep = "_"
+      )
 
-      p <- unlist(parameters[community_temporal_api])
+    p <- unlist(parameters[community_temporal_api])
 
-      # check pars to make sure that they are valid for both the par and
-      # temporal_api
-      if (any(pars %notin% p)) {
-        nopar <- pars[which(pars %notin% p)]
+    # check pars to make sure that they are valid for both the par and
+    # temporal_api
+    if (any(pars %notin% p)) {
+      nopar <- pars[which(pars %notin% p)]
 
-        cli::cli_abort(
-          call = rlang::caller_env(),
-          c(
-            i = "{.arg nopar} {?is/are} not valid in {.var pars}.",
-            x = "Check that the {.arg pars}, {.arg community} and
+      cli::cli_abort(
+        call = rlang::caller_env(),
+        c(
+          i = "{.arg nopar} {?is/are} not valid in {.var pars}.",
+          x = "Check that the {.arg pars}, {.arg community} and
             {.arg temporal_api} all align."
-          )
         )
-      }
+      )
+    }
 
     # all good? great. now we format it for the API
-    pars <- paste0(pars, collapse = ",")
+    pars <- paste(pars, collapse = ",")
     return(pars)
   }
 
 #' Boolean
 #'
 #' Checks if provided object is a Boolean i.e. a length-one logical vector.
-#' @param x an object to check
-#' @return a logical value indicating whether provided object is a Boolean
+#' @param x an object to check.
+#' @return a logical value indicating whether provided object is a `Boolean`.
 #' @examples
-#'     is_boolean(TRUE)                # [1] TRUE
-#'     # the following will work on most systems, unless you have tweaked global Rprofile
-#'     is_boolean(T)                   # [1] TRUE
-#'     is_boolean(1)                   # [1] FALSE
+#' is_boolean(TRUE) # [1] TRUE
+#' # the following will work on most systems, unless you have tweaked global Rprofile
+#' is_boolean(T) # [1] TRUE
+#' is_boolean(1) # [1] FALSE
 #' @note Taken from
 #'  <https://github.com/Rapporter/rapportools/blob/master/R/utils.R>
 #'
@@ -122,13 +123,13 @@
   }
 }
 
-#' Sends the Query to the POWER Data API to Retrieve Data
+#' Sends the query to the POWER data API to retrieve data
 #'
 #' @param .query_list A query list created by [.build_query()]
 #' @param .url A character string of the URL to be used for the \acronym{API}
 #'  query
 #' @keywords internal
-#' @return A response from the POWER server containing either an error message
+#' @return A response from the POWER server containing either an error message.
 #'   or the data requested.
 #' @noRd
 #'
@@ -137,9 +138,11 @@
   client <- crul::HttpClient$new(url = .url)
 
   # nocov begin
-  response <- client$get(query = .query_list,
-                        retry = 6L,
-                        timeout = 30L)
+  response <- client$get(
+    query = .query_list,
+    retry = 6L,
+    timeout = 30L
+  )
 
   # check to see if request failed or succeeded
   # - a custom approach this time combining status code,
@@ -148,19 +151,20 @@
     mssg <- jsonlite::fromJSON(response$parse("UTF-8"))$message
     x <- response$status_http()
     cli::cli_abort(
-      sprintf("HTTP (%s) - %s\n  %s", x$status_code, x$explanation, mssg))
+      sprintf("HTTP (%s) - %s\n  %s", x$status_code, x$explanation, mssg)
+    )
   }
   # parse response
   return(response)
 }
 
 
-#' Sends the Query to the POWER Management API
+#' Sends the query to the POWER management API
 #'
 #' There are no parameters that these API end points accept.
 #'
 #' @param .url A character string of the URL to be used for the \acronym{API}
-#'  query
+#'  query.
 #' @keywords internal
 #' @return A response from the POWER server containing either an error message
 #'   or the data requested.
@@ -170,8 +174,10 @@
   client <- crul::HttpClient$new(url = .url)
 
   # nocov begin
-  response <- client$get(retry = 6L,
-                         timeout = 30L)
+  response <- client$get(
+    retry = 6L,
+    timeout = 30L
+  )
 
   # check to see if request failed or succeeded
   # - a custom approach this time combining status code,
@@ -180,7 +186,8 @@
     mssg <- jsonlite::fromJSON(response$parse("UTF-8"))$message
     x <- response$status_http()
     cli::cli_abort(
-      sprintf("HTTP (%s) - %s\n  %s", x$status_code, x$explanation, mssg))
+      sprintf("HTTP (%s) - %s\n  %s", x$status_code, x$explanation, mssg)
+    )
   }
   # parse response
   return(response)

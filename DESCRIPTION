@@ -1,7 +1,7 @@
 Type: Package
 Package: nasapower
 Title: NASA POWER API Client
-Version: 4.2.1
+Version: 4.2.2
 Authors@R: c(
     person("Adam H.", "Sparks", , "adamhsparks@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-0061-8359")),
@@ -42,19 +42,21 @@ Imports: cli, crul, jsonlite, lubridate, readr, rlang, tibble (>=
 Suggests: knitr, purrr, rmarkdown, spelling, testthat (>= 3.0.0), vcr
         (>= 0.6.0)
 VignetteBuilder: knitr
+Config/Needs/documentation: roxylint
+Config/roxylint: list(linters = roxylint::tidy)
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Encoding: UTF-8
 Language: en-US
 NeedsCompilation: no
 Repository: CRAN
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 X-schema.org-applicationCategory: Tools
 X-schema.org-isPartOf: https://ropensci.org
 X-schema.org-keywords: NASA, meteorological-data, weather, global,
         weather, weather-data, meteorology, NASA-POWER,
         agroclimatology, earth-science, data-access, climate-data
-Packaged: 2024-05-18 03:23:41 UTC; adamsparks
+Packaged: 2024-12-18 11:03:21 UTC; adamsparks
 Author: Adam H. Sparks [aut, cre] (<https://orcid.org/0000-0002-0061-8359>),
   Scott Chamberlain [rev] (<https://orcid.org/0000-0003-1444-9135>, Scott
     Chamberlain reviewed nasapower for rOpenSci, see
@@ -83,4 +85,4 @@ Author: Adam H. Sparks [aut, cre] (<https://orcid.org/0000-0002-0061-8359>),
   Curtin University [cph] (Supported the development of 'nasapower'
     through Adam H.  Sparks' time.)
 Maintainer: Adam H. Sparks <adamhsparks@gmail.com>
-Date/Publication: 2024-05-18 03:50:03 UTC
+Date/Publication: 2024-12-18 14:40:02 UTC
