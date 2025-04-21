@@ -1,14 +1,13 @@
 #' Adds a %notin% Function
 #'
-#' Negates `%in%` for easier (mis)matching.
+#' Negates `%in%` for easier (miss)matching.
 #'
 #' @param x A character string to match.
 #' @param table A table containing values to match `x` against.
 #'
-#' @return A logical vector, indicating if a mismatch was located for any
+#' @returns A logical vector, indicating if a mismatch was located for any
 #'  element of x: thus the values are `TRUE` or `FALSE` and never `NA`.
-#' @keywords internal
-#' @noRd
+#' @dev
 `%notin%` <- function(x, table) {
   match(x, table, nomatch = 0L) == 0L
 }
@@ -21,9 +20,8 @@
 #' @param community User entered `community` value.
 #' @param temporal_api User entered `temporal_api` value.
 #'
-#' @return Validated a collapsed string of  `pars` for use in [.build_query].
-#' @keywords internal
-#' @noRd
+#' @returns Validated a collapsed string of  `pars` for use in [.build_query].
+#' @dev
 .check_pars <-
   function(pars, community, temporal_api) {
     # make sure that there are no duplicates in the query
@@ -60,9 +58,9 @@
       cli::cli_abort(
         call = rlang::caller_env(),
         c(
-          i = "{.arg nopar} {?is/are} not valid in {.var pars}.",
-          x = "Check that the {.arg pars}, {.arg community} and
-            {.arg temporal_api} all align."
+          i = "{nopar} {?is/are} not valid in {.var pars}.",
+          x = "Check that the {.arg pars}, {.arg {community}} and
+            {.arg {temporal_api}} all align."
         )
       )
     }
@@ -76,25 +74,23 @@
 #'
 #' Checks if provided object is a Boolean i.e. a length-one logical vector.
 #' @param x an object to check.
-#' @return a logical value indicating whether provided object is a `Boolean`.
+#' @returns a logical value indicating whether provided object is a `Boolean`.
 #' @examples
 #' is_boolean(TRUE) # [1] TRUE
 #' # the following will work on most systems, unless you have tweaked global Rprofile
-#' is_boolean(T) # [1] TRUE
-#' is_boolean(1) # [1] FALSE
+#' .is_boolean(T) # [1] TRUE
+#' .is_boolean(1) # [1] FALSE
 #' @note Taken from
 #'  <https://github.com/Rapporter/rapportools/blob/master/R/utils.R>
 #'
-#' @noRd
-#' @keywords Internal
+#' @dev
 .is_boolean <- function(x) {
   is.logical(x) && length(x) == 1
 }
 
 #' Match Wind Surface Aliases for Validity
 #'
-#' @noRd
-#' @keywords Internal
+#' @dev
 .match_surface_alias <- function(x) {
   if (!is.null(x)) {
     wind_surface <- tolower(x)
@@ -128,13 +124,10 @@
 #' @param .query_list A query list created by [.build_query()]
 #' @param .url A character string of the URL to be used for the \acronym{API}
 #'  query
-#' @keywords internal
-#' @return A response from the POWER server containing either an error message.
+#' @returns A response from the POWER server containing either an error message.
 #'   or the data requested.
-#' @noRd
-#'
-.send_query <- function(.query_list,
-                        .url) {
+#' @dev
+.send_query <- function(.query_list, .url) {
   client <- crul::HttpClient$new(url = .url)
 
   # nocov begin
@@ -148,7 +141,7 @@
   # - a custom approach this time combining status code,
   #   explanation of the code, and message from the server
   if (response$status_code > 201) {
-    mssg <- jsonlite::fromJSON(response$parse("UTF-8"))$message
+    mssg <- yyjsonr::read_json_raw(response$content)$message
     x <- response$status_http()
     cli::cli_abort(
       sprintf("HTTP (%s) - %s\n  %s", x$status_code, x$explanation, mssg)
@@ -165,10 +158,9 @@
 #'
 #' @param .url A character string of the URL to be used for the \acronym{API}
 #'  query.
-#' @keywords internal
-#' @return A response from the POWER server containing either an error message
+#' @returns A response from the POWER server containing either an error message
 #'   or the data requested.
-#' @noRd
+#' @dev
 #'
 .send_mgmt_query <- function(.url) {
   client <- crul::HttpClient$new(url = .url)
@@ -183,7 +175,7 @@
   # - a custom approach this time combining status code,
   #   explanation of the code, and message from the server
   if (response$status_code > 201) {
-    mssg <- jsonlite::fromJSON(response$parse("UTF-8"))$message
+    mssg <- yyjsonr::read_json_raw(response$content)$message
     x <- response$status_http()
     cli::cli_abort(
       sprintf("HTTP (%s) - %s\n  %s", x$status_code, x$explanation, mssg)

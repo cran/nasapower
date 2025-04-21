@@ -249,32 +249,27 @@ test_that("get_power() returns daily regional ag data", {
     temporal_api = "Daily"
   )
 
-  expect_identical(nrow(power_query), 60L)
+  expect_identical(nrow(power_query), 55L)
   expect_equal(
     unique(power_query$LAT),
     c(
-      -55.25,
-      -54.75,
-      -54.25,
-      -53.75,
-      -53.25,
-      -52.75,
-      -52.25,
-      -51.75,
-      -51.25,
-      -50.75
+      -55.5,
+      -55,
+      -54.5,
+      -54,
+      -53.5,
+      -53,
+      -52.5,
+      -52,
+      -51.5,
+      -51,
+      -50.5
     ),
     tolerance = 0.1
   )
-  expect_equal(unique(power_query$LON),
-    c(
-      112.8,
-      113.2,
-      113.8,
-      114.2,
-      114.8,
-      115.2
-    ),
+  expect_equal(
+    unique(power_query$LON),
+    c(112.5, 113.125, 113.75, 114.375, 115),
     tolerance = 0.1
   )
   expect_identical(power_query$YEAR[1], 1983)
@@ -283,7 +278,7 @@ test_that("get_power() returns daily regional ag data", {
   expect_identical(power_query$DOY[1], 1L)
   expect_identical(power_query$YYYYMMDD[1], as.Date("1983-01-01"))
   expect_identical(power_query$DOY[1], 1L)
-  expect_identical(power_query$T2M[1], 3.28)
+  expect_identical(power_query$T2M[1], 3.18)
 })
 
 test_that("get_power() returns point ag data for climatology", {
@@ -557,6 +552,19 @@ test_that("get_power() stops if lonlat = regional for hourly", {
       pars = "T2M",
       dates = c("1983-01-01"),
       temporal_api = "hourly"
+    )
+  )
+})
+
+test_that("get_power() stops if regional request and pars > 1", {
+  skip_if_offline()
+  expect_error(
+    get_power(
+      community = "ag",
+      lonlat = c(112.5, -55.5, 115.5, -50.5),
+      pars = c("T2M", "RH2M"),
+      dates = "1983-01-01",
+      temporal_api = "daily"
     )
   )
 })

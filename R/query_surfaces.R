@@ -17,10 +17,9 @@
 #'
 #' @author Adam H. Sparks, \email{adamhsparks@@gmail.com}
 #'
-#' @return A [list] object of information for the requested wind surface(s).
+#' @returns A [list] object of information for the requested wind surface(s).
 #'
 #' @export
-
 
 query_surfaces <- function(surface_alias = NULL) {
   power_url <-
@@ -31,7 +30,7 @@ query_surfaces <- function(surface_alias = NULL) {
       .send_mgmt_query(.url = power_url)
 
     response$raise_for_status()
-    return(jsonlite::fromJSON(response$parse("UTF8")))
+    return(yyjsonr::read_json_raw(response$content))
   } else {
     wind_surface <- .match_surface_alias(surface_alias)
     power_url <- sprintf("%s/%s", power_url, wind_surface)
@@ -39,6 +38,6 @@ query_surfaces <- function(surface_alias = NULL) {
       .send_mgmt_query(.url = power_url)
 
     response$raise_for_status()
-    return(jsonlite::fromJSON(response$parse("UTF8")))
+    return(yyjsonr::read_json_raw(response$content))
   }
 }

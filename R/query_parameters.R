@@ -12,9 +12,8 @@
 #'   \acronym{API} end-point for data being queried, supported values are
 #'   \dQuote{hourly}, \dQuote{daily}, \dQuote{monthly} or \dQuote{climatology}.
 #' @param metadata `Boolean`; retrieve extra parameter metadata?  This is only
-#'  applicable if you supply the `community` and `temporal_api`, if these values
-#'  are not provided it will be ignored.  Defaults to
-#'   `FALSE`.
+#'  applicable if you supply the `community` and `temporal_api`, if these
+#'  values are not provided it will be ignored.  Defaults to `FALSE`.
 #'
 #' @section Argument details for `temporal_api`: There are four valid values.
 #'  \describe{
@@ -48,15 +47,17 @@
 #'
 #' @author Adam H. Sparks, \email{adamhsparks@@gmail.com}
 #'
-#' @return A [list] object of information for the requested parameter(s) (if
+#' @returns A [list] object of information for the requested parameter(s) (if
 #'  requested), community(ies) and temporal \acronym{API}(s).
 #'
 #' @export
 
-query_parameters <- function(community = NULL,
-                             pars = NULL,
-                             temporal_api = NULL,
-                             metadata = FALSE) {
+query_parameters <- function(
+  community = NULL,
+  pars = NULL,
+  temporal_api = NULL,
+  metadata = FALSE
+) {
   community_vals <- c("AG", "RE", "SB")
   temporal_api_vals <- c("DAILY", "MONTHLY", "HOURLY", "CLIMATOLOGY")
 
@@ -67,7 +68,9 @@ query_parameters <- function(community = NULL,
     community <- toupper(community)
 
     if (community %notin% community_vals) {
-      cli::cli_abort(c(x = "{.arg community} does not match any valid values for {.var community}."))
+      cli::cli_abort(c(
+        x = "{.arg community} does not match any valid values for {.var community}."
+      ))
     }
     community_vals <- community
   }
@@ -76,7 +79,9 @@ query_parameters <- function(community = NULL,
     temporal_api <- toupper(temporal_api)
     if (temporal_api %notin% temporal_api_vals) {
       cli::cli_abort(
-        c(x = "{.arg temporal_api} does not match any valid values for {.var temporal_api}.")
+        c(
+          x = "{.arg temporal_api} does not match any valid values for {.var temporal_api}."
+        )
       )
     }
     temporal_api_vals <- temporal_api
@@ -91,17 +96,21 @@ query_parameters <- function(community = NULL,
         temporal_api = temporal_api_vals
       )
   }
+
   power_url <-
     "https://power.larc.nasa.gov/api/system/manager/parameters"
 
   if (is.null(community) && is.null(temporal_api)) {
-    return(jsonlite::fromJSON(sprintf(
-      "%s/%s?user=nasapower4r", power_url, pars
-    )))
+    query_url <- sprintf("%s/%s?user=nasapower4r", power_url, pars)
+    response <- .send_mgmt_query(.url = query_url)
+    return(yyjsonr::read_json_raw(response$content))
   } else {
     if (!.is_boolean(metadata)) {
       cli::cli_abort(
-        c(x = "{.arg metadata} should be a Boolean value.", i = "{Please provide either {.var TRUE} or {.var FALSE}.")
+        c(
+          x = "{.arg metadata} should be a Boolean value.",
+          i = "{Please provide either {.var TRUE} or {.var FALSE}."
+        )
       )
     }
 
@@ -117,6 +126,6 @@ query_parameters <- function(community = NULL,
     query_list <- query_list[lengths(query_list) != 0]
     response <- .send_query(.query_list = query_list, .url = power_url)
 
-    return(jsonlite::fromJSON(response$parse(encoding = "UTF8")))
+    return(yyjsonr::read_json_raw(response$content))
   }
 }
