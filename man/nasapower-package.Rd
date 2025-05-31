@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-An API client for NASA POWER global meteorology, surface solar energy and climatology data API. POWER (Prediction Of Worldwide Energy Resources) data are freely available for download with varying spatial resolutions dependent on the original data and with several temporal resolutions depending on the POWER parameter and community. This work is funded through the NASA Earth Science Directorate Applied Science Program. For more on the data themselves, the methodologies used in creating, a web- based data viewer and web access, please see \url{https://power.larc.nasa.gov/}.
+An API client for NASA POWER global meteorology, surface solar energy and climatology data API. POWER (Prediction Of Worldwide Energy Resources) data are freely available for download with varying spatial resolutions dependent on the original data and with several temporal resolutions depending on the POWER parameter and community. This work is funded through the NASA Earth Science Directorate Applied Science Program. For more on the data themselves, the methodologies used in creating, a web-based data viewer and web access, please see \url{https://power.larc.nasa.gov/}.
 }
 \seealso{
 Useful links:
@@ -40,11 +40,12 @@ Other contributors:
  of vroom 1.5.0.', see
  <https://github.com/ropensci/nasapower/pull/67>.) [contributor]
   \item Aleksandar Blagotić \email{alex@rapporter.net} (Author of the CRAN package 'rapportools', from which
- the '.is_boolean()' was taken.) [contributor]
+ the '.is_boolean()' was taken.) [contributor, copyright holder]
   \item Gergely Daróczi \email{daroczig@rapporter.net} (Author of the CRAN package 'rapportools', from which
- the '.is_boolean()' was taken.) [contributor]
+ the '.is_boolean()' was taken.) [contributor, copyright holder]
   \item Curtin University (Supported the development of 'nasapower' through Adam H.
  Sparks' time.) [copyright holder]
+  \item James J. Balamuta (Author of the GitHub package 'rops', from which the '%notin%' function was taken.) [contributor, copyright holder]
 }
 
 }
